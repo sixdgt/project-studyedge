@@ -2,25 +2,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Django Tailwind</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>StudyEdge</title>
     {% tailwind_css %}
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+<body class="bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-500">
 
-<body class="bg-gray-50 text-black font-serif leading-normal tracking-normal">
+<!-- Header -->
+<header class="sticky top-0 z-50 transition-colors duration-500">
 
-    <div class="toast toast-top toast-end">
-        <div class="alert alert-info">
-            <span>Hello from daisyUi 👋</span>
+    <!-- Top Info Bar (Desktop Only) -->
+    <div class="hidden md:flex justify-between items-center bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 px-4 sm:px-6 lg:px-8 h-10 transition-colors duration-300">
+        <div class="flex items-center space-x-4">
+            <span class="hover:text-white cursor-pointer"><i class="fa-solid fa-handshake-angle"></i> Free Consultation</span>
+            <span class="hover:text-white cursor-pointer"><i class="fa-solid fa-envelope"></i> studyedge@example.com</span>
+        </div>
+        <div class="flex items-center space-x-4">
+            <span>Follow Us:
+                <a href="#" class="ml-2 text-blue-400 hover:text-white"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="ml-2 text-blue-600 hover:text-white"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="ml-2 text-pink-400 hover:text-white"><i class="fa-brands fa-instagram"></i></a>
+            </span>
+            <span>Contact Us:
+                <a href="#" class="ml-2 text-green-400 hover:text-white"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" class="ml-2 text-blue-400 hover:text-white"><i class="fa-solid fa-phone"></i> 98734541</a>
+            </span>
         </div>
     </div>
 
-<div class="container mx-auto">
-    <section class="flex items-center justify-center h-screen">
-        <h1 class="text-5xl">Django + Tailwind = ❤️</h1>
-    </section>
-</div>
+    <!-- Main Nav -->
+    <div class="bg-white dark:bg-gray-800 shadow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-bold text-gray-800 dark:text-white">StudyEdge</a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex space-x-6 items-center">
+                <a href="#features" class="hover:text-blue-500 dark:hover:text-blue-400">Study Abroad Paths</a>
+                <a href="#cta" class="hover:text-blue-500 dark:hover:text-blue-400">Get Started</a>
+                <a href="#about" class="hover:text-blue-500 dark:hover:text-blue-400">About Us</a>
+                <a href="#contact" class="hover:text-blue-500 dark:hover:text-blue-400">Contact</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center space-x-2">
+                <!-- Dark/Light Toggle -->
+                <button id="theme-toggle" class="p-2 rounded bg-gray-200 dark:bg-gray-700 text-black dark:text-white">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-toggle" class="md:hidden p-2 rounded bg-gray-200 dark:bg-gray-700 text-black dark:text-white">
+                    <i class="fa-solid fa-bars fa-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <nav id="mobile-menu" class="md:hidden overflow-hidden max-h-0 bg-white dark:bg-gray-800 transition-all duration-500 px-4 py-0 space-y-2">
+            <!-- Top info (mobile) -->
+            <div class="flex flex-col space-y-2 py-2 border-b border-gray-200 dark:border-gray-700">
+                <span class="hover:text-blue-500 dark:hover:text-blue-400"><i class="fa-solid fa-handshake-angle"></i> Free Consultation</span>
+                <span class="hover:text-blue-500 dark:hover:text-blue-400"><i class="fa-solid fa-envelope"></i> studyedge@example.com</span>
+                <span>Follow Us:
+                    <a href="#" class="ml-2 text-blue-400 hover:text-white"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="ml-2 text-blue-600 hover:text-white"><i class="fa-brands fa-facebook"></i></a>
+                </span>
+                <span>Contact Us:
+                    <a href="#" class="ml-2 text-green-400 hover:text-white"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="ml-2 text-blue-400 hover:text-white"><i class="fa-solid fa-phone"></i> 98734541</a>
+                </span>
+            </div>
+
+            <!-- Main nav links -->
+            <a href="#features" class="block py-2 hover:text-blue-500 dark:hover:text-blue-400">Study Abroad Paths</a>
+            <a href="#cta" class="block py-2 hover:text-blue-500 dark:hover:text-blue-400">Get Started</a>
+            <a href="#about" class="block py-2 hover:text-blue-500 dark:hover:text-blue-400">About Us</a>
+            <a href="#contact" class="block py-2 hover:text-blue-500 dark:hover:text-blue-400">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<!-- Main Content -->
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+<!-- Footer -->
+<footer class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">About StudyEdge</h3>
+                <p class="text-gray-700 dark:text-gray-300">
+                    StudyEdge helps students achieve their dreams of studying abroad with expert guidance, transparent pricing, and global opportunities.
+                </p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="#features" class="hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Study Abroad Paths</a></li>
+                    <li><a href="#cta" class="hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Get Started</a></li>
+                    <li><a href="#about" class="hover:text-blue-500 dark:hover:text-blue-400 transition-colors">About Us</a></li>
+                    <li><a href="#contact" class="hover:text-blue-500 dark:hover:text-blue-400 transition-colors">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Contact</h3>
+                <ul class="space-y-2">
+                    <li><i class="fa-solid fa-envelope mr-2"></i> studyedge@example.com</li>
+                    <li><i class="fa-solid fa-phone mr-2"></i> +977 98734541</li>
+                    <li><i class="fa-brands fa-whatsapp mr-2"></i> WhatsApp Chat</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">Follow Us</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-blue-400 hover:text-white transition-colors"><i class="fa-brands fa-twitter fa-lg"></i></a>
+                    <a href="#" class="text-blue-600 hover:text-white transition-colors"><i class="fa-brands fa-facebook fa-lg"></i></a>
+                    <a href="#" class="text-pink-400 hover:text-white transition-colors"><i class="fa-brands fa-instagram fa-lg"></i></a>
+                    <a href="#" class="text-red-400 hover:text-white transition-colors"><i class="fa-brands fa-youtube fa-lg"></i></a>
+                    <a href="#" class="text-blue-500 hover:text-white transition-colors"><i class="fa-brands fa-linkedin-in fa-lg"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 border-t border-gray-300 dark:border-gray-700 pt-6 text-center text-gray-600 dark:text-gray-400">
+            &copy; 2024 StudyEdge. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800, // Animation duration
+    once: true,   // Whether animation should happen only once - while scrolling down
+  });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const html = document.documentElement;
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // Function to apply theme
+    function setTheme(isDark) {
+        if (isDark) {
+            html.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        } else {
+            html.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
+        }
+    }
+
+    // Initialize theme
+    if (localStorage.getItem('theme') === 'dark') {
+        setTheme(true);
+    } else if (localStorage.getItem('theme') === 'light') {
+        setTheme(false);
+    } else {
+        // System preference fallback
+        setTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+
+    // Toggle theme on button click
+    themeToggle.addEventListener('click', () => {
+        setTheme(!html.classList.contains('dark'));
+    });
+
+    // Mobile Menu Toggle
+    mobileMenuToggle.addEventListener('click', () => {
+        if (mobileMenu.style.maxHeight && mobileMenu.style.maxHeight !== "0px") {
+            mobileMenu.style.maxHeight = "0px";
+            mobileMenu.style.paddingTop = "0";
+            mobileMenu.style.paddingBottom = "0";
+        } else {
+            mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
+            mobileMenu.style.paddingTop = "1rem";
+            mobileMenu.style.paddingBottom = "1rem";
+        }
+    });
+});
+</script>
 </body>
 </html>

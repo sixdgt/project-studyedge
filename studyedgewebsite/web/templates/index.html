@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="bg-gray-50 dark:bg-gray-900 transition-colors duration-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+        <h1 data-aos="fade-down" class="text-5xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
+            Welcome to StudyEdge
+        </h1>
+        <p data-aos="fade-up" class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8">
+            Seamless Light & Dark Mode with Tailwind CSS for your study abroad journey.
+        </p>
+        <a data-aos="zoom-in" href="#features" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors duration-300">
+            Get Started
+        </a>
+    </div>
+</section>
+
+<!-- Callback Form -->
+<section class="bg-gray-100 dark:bg-gray-900 py-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <form class="flex flex-col md:flex-row items-center gap-4 bg-white dark:bg-gray-800 p-4 rounded shadow-md">
+      
+      <!-- Full Name -->
+      <div class="flex-1">
+        <label class="sr-only" for="fullname">Full Name</label>
+        <input type="text" id="fullname" placeholder="Enter your fullname"
+               class="w-full border border-gray-300 dark:border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white" />
+      </div>
+
+      <!-- Interested Country -->
+      <div class="flex-1">
+        <label class="sr-only" for="country">Interested Country</label>
+        <input type="text" id="country" placeholder="Australia"
+               class="w-full border border-gray-300 dark:border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white" />
+      </div>
+
+      <!-- Phone Number -->
+      <div class="flex-1">
+        <label class="sr-only" for="phone">Phone Number</label>
+        <input type="tel" id="phone" placeholder="+977 Phone number"
+               class="w-full border border-gray-300 dark:border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white" />
+      </div>
+
+      <!-- Submit Button -->
+      <div>
+        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded transition-colors duration-300">
+          Request a Callback
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+
+<!-- Features Section -->
+<section id="features" class="bg-white dark:bg-gray-800 transition-colors duration-500 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 data-aos="fade-up" class="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+            Why Choose StudyEdge?
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div data-aos="fade-up" data-aos-delay="100" class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg hover:scale-105 transform transition-all duration-500">
+                <div class="text-blue-500 mb-4 text-3xl"><i class="fa-solid fa-globe"></i></div>
+                <h3 class="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">Global Opportunities</h3>
+                <p class="text-gray-700 dark:text-gray-300">
+                    Explore top destinations worldwide with personalized guidance.
+                </p>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="200" class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg hover:scale-105 transform transition-all duration-500">
+                <div class="text-blue-500 mb-4 text-3xl"><i class="fa-solid fa-graduation-cap"></i></div>
+                <h3 class="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">Expert Guidance</h3>
+                <p class="text-gray-700 dark:text-gray-300">
+                    Receive advice from experienced counselors for study abroad programs.
+                </p>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="300" class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg hover:scale-105 transform transition-all duration-500">
+                <div class="text-blue-500 mb-4 text-3xl"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                <h3 class="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">Affordable Packages</h3>
+                <p class="text-gray-700 dark:text-gray-300">
+                    Transparent pricing and cost-effective solutions for every student.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call-to-Action Section -->
+<section id="cta" data-aos="fade-up" class="bg-gray-50 dark:bg-gray-900 transition-colors duration-500 py-20 text-center">
+    <h2 class="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Ready to start your journey?</h2>
+    <p class="text-lg mb-8 text-gray-700 dark:text-gray-300">Join thousands of students who trust StudyEdge for their abroad education.</p>
+    <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
+        Get Started Today
+    </a>
+</section>
+
+{% endblock %}
