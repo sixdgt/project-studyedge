@@ -4,48 +4,105 @@
 
 {% block content %}
 
-<!-- Hero Section -->
-<section class="bg-gray-50 dark:bg-gray-900 transition-colors duration-500">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-        <h1 data-aos="fade-down" class="text-5xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
+<section class="bg-gray-50 dark:bg-gray-900 transition-colors duration-500 relative overflow-hidden min-h-screen">
+    <div class="h-16"></div> 
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative h-[calc(100vh-4rem)] flex flex-col justify-center items-center text-center">
+
+        <!-- Slides -->
+        <div id="hero-slides" class="relative w-full h-full items-center justify-center">
+        <!-- Slide 1 -->
+        <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-100 flex flex-col justify-center items-center text-center px-4">
+            <h1 data-aos="fade-down" class="text-5xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
             Welcome to StudyEdge
-        </h1>
-        <p data-aos="fade-up" class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8">
+            </h1>
+            <p data-aos="fade-up" class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 max-w-2xl">
             Seamless Light & Dark Mode with Tailwind CSS for your study abroad journey.
-        </p>
-        <a data-aos="zoom-in" href="#features" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors duration-300">
+            </p>
+            <a data-aos="zoom-in" href="#features" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors duration-300">
             Get Started
-        </a>
+            </a>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-0 flex flex-col justify-center items-center text-center px-4">
+            <h1 data-aos="fade-down" class="text-5xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
+            Explore Top Universities Worldwide
+            </h1>
+            <p data-aos="fade-up" class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 max-w-2xl">
+            Discover programs tailored for your career goals.
+            </p>
+            <a data-aos="zoom-in" href="#features" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors duration-300">
+            Learn More
+            </a>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-0 flex flex-col justify-center items-center text-center px-4">
+            <h1 data-aos="fade-down" class="text-5xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
+            Simplify Your Visa Process
+            </h1>
+            <p data-aos="fade-up" class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 max-w-2xl">
+            Guidance and documentation support at every step.
+            </p>
+            <a data-aos="zoom-in" href="#features" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors duration-300">
+            Apply Now
+            </a>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-0 flex flex-col justify-center items-center text-center px-4">
+            <h1 data-aos="fade-down" class="text-5xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
+            Personalized Study Plans
+            </h1>
+            <p data-aos="fade-up" class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 max-w-2xl">
+            Tailored courses and timelines to achieve your goals.
+            </p>
+            <a data-aos="zoom-in" href="#features" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors duration-300">
+            Start Planning
+            </a>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-0 flex flex-col justify-center items-center text-center px-4">
+            <h1 data-aos="fade-down" class="text-5xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
+            Join a Community of Scholars
+            </h1>
+            <p data-aos="fade-up" class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 max-w-2xl">
+            Connect with students across the globe.
+            </p>
+            <a data-aos="zoom-in" href="#features" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors duration-300">
+            Connect Now
+            </a>
+        </div>
+        </div>
+
+        <!-- Dots at the bottom -->
+        <div id="dots" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
+        <button class="dot w-4 h-4 rounded-full bg-gray-400 dark:bg-gray-600"></button>
+        <button class="dot w-4 h-4 rounded-full bg-gray-400 dark:bg-gray-600"></button>
+        <button class="dot w-4 h-4 rounded-full bg-gray-400 dark:bg-gray-600"></button>
+        <button class="dot w-4 h-4 rounded-full bg-gray-400 dark:bg-gray-600"></button>
+        <button class="dot w-4 h-4 rounded-full bg-gray-400 dark:bg-gray-600"></button>
+        </div>
     </div>
 </section>
 
-<!-- Callback Form -->
-<section class="bg-gray-50 dark:bg-gray-900 py-8">
+<!-- Callback Form below -->
+<section class="bg-gray-50 dark:bg-gray-900 py-16">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <form class="flex flex-col md:flex-row items-center gap-4 bg-white dark:bg-gray-800 p-4 rounded shadow-md">
-      
-      <!-- Full Name -->
       <div class="flex-1">
-        <label class="sr-only" for="fullname">Full Name</label>
-        <input type="text" id="fullname" placeholder="Enter your fullname"
+        <input type="text" placeholder="Enter your fullname"
                class="w-full border border-gray-300 dark:border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white" />
       </div>
-
-      <!-- Interested Country -->
       <div class="flex-1">
-        <label class="sr-only" for="country">Interested Country</label>
-        <input type="text" id="country" placeholder="Australia"
+        <input type="text" placeholder="Australia"
                class="w-full border border-gray-300 dark:border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white" />
       </div>
-
-      <!-- Phone Number -->
       <div class="flex-1">
-        <label class="sr-only" for="phone">Phone Number</label>
-        <input type="tel" id="phone" placeholder="+977 Phone number"
+        <input type="tel" placeholder="+977 Phone number"
                class="w-full border border-gray-300 dark:border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white" />
       </div>
-
-      <!-- Submit Button -->
       <div>
         <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded transition-colors duration-300">
           Request a Callback
@@ -54,7 +111,6 @@
     </form>
   </div>
 </section>
-
 
 <!-- Features Section -->
 <section id="features" class="bg-white dark:bg-gray-800 transition-colors duration-500 py-20">
@@ -232,4 +288,35 @@
     </a>
 </section>
 
+
+<script>
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.dot');
+  let current = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.style.opacity = i === index ? '1' : '0';
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('bg-blue-500', i === index);
+      dot.classList.toggle('bg-gray-400', i !== index);
+    });
+    current = index;
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => showSlide(i));
+  });
+
+  setInterval(() => {
+    let next = (current + 1) % slides.length;
+    showSlide(next);
+  }, 5000);
+
+  showSlide(0);
+</script>
+
 {% endblock %}
+
+
