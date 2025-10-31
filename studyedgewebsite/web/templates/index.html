@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
 
 <!-- Hero Section -->
@@ -18,7 +20,7 @@
 </section>
 
 <!-- Callback Form -->
-<section class="bg-gray-100 dark:bg-gray-900 py-8">
+<section class="bg-gray-50 dark:bg-gray-900 py-8">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <form class="flex flex-col md:flex-row items-center gap-4 bg-white dark:bg-gray-800 p-4 rounded shadow-md">
       
@@ -89,8 +91,140 @@
     </div>
 </section>
 
+<section id="destinations" class="bg-gray-50 dark:bg-gray-900 transition-colors duration-500 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 data-aos="fade-up" class="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+            Popular Study Destinations
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div data-aos="fade-up" data-aos-delay="100"
+    class="relative bg-white dark:bg-gray-800 p-6 rounded-lg shadow 
+           transition-all duration-500 ease-out 
+           hover:shadow-2xl hover:-translate-y-1 overflow-hidden group">
+                <!-- Image -->
+                <img src="{% static 'images/destinations/australia.jpg' %}" alt="Australia" class="w-full h-40 object-cover rounded mb-4 transition-all duration-700 ease-in-out group-hover:scale-105 transition-all duration-700 ease-in-out group-hover:scale-105">
+
+                <!-- Overlay with Soft Animation -->
+                <div class="absolute inset-0 flex items-center justify-center 
+                bg-black/40 opacity-0 group-hover:opacity-100 
+                transition-opacity duration-500 ease-out rounded cursor-pointer">
+
+                    <button class="bg-white text-gray-800 px-5 py-2 rounded-full font-semibold 
+                       transform translate-y-6 group-hover:translate-y-0 
+                       transition-all duration-700 ease-in-out hover:bg-gray-200 shadow-md cursor-pointer">
+                        Discover
+                    </button>
+                </div>
+
+                <!-- Text -->
+                <h3 class="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">Australia</h3>
+                <p class="text-gray-700 dark:text-gray-300">
+                    Discover world-class education and vibrant culture in Australia.
+                </p>
+            </div>
+
+           <div data-aos="fade-up" data-aos-delay="100" class="relative bg-white dark:bg-gray-800 p-6 rounded-lg shadow 
+            hover:shadow-lg hover:scale-105 transform transition-all duration-500 overflow-hidden group">
+                <img src="{% static 'images/destinations/canada.jpg' %}" alt="Canada" class="w-full h-40 object-cover rounded mb-4 transition-all duration-700 ease-in-out group-hover:scale-105">
+                <!-- Overlay with Soft Animation -->
+                <div class="absolute inset-0 flex items-center justify-center 
+                bg-black/40 opacity-0 group-hover:opacity-100 
+                transition-opacity duration-500 ease-out rounded cursor-pointer">
+
+                    <button class="bg-white text-gray-800 px-5 py-2 rounded-full font-semibold 
+                                transform translate-y-6 group-hover:translate-y-0 transition-all duration-500 ease-out
+                                hover:bg-gray-200 shadow-md cursor-pointer">
+                        Discover
+                    </button>
+                </div>
+                <h3 class="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">Canada</h3>
+                <p class="text-gray-700 dark:text-gray-300">
+                    Experience quality education and multicultural environment in Canada.
+                </p>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="100" class="relative bg-white dark:bg-gray-800 p-6 rounded-lg shadow 
+            hover:shadow-lg hover:scale-105 transform transition-all duration-500 overflow-hidden group">
+                <img src="{% static 'images/destinations/uk.jpg' %}" alt="United Kingdom" class="w-full h-40 object-cover rounded mb-4 transition-all duration-700 ease-in-out group-hover:scale-105">
+                <div class="absolute inset-0 flex items-center justify-center 
+                bg-black/40 opacity-0 group-hover:opacity-100 
+                transition-opacity duration-500 ease-out rounded cursor-pointer">
+
+                    <button class="bg-white text-gray-800 px-5 py-2 rounded-full font-semibold 
+                                transform translate-y-6 group-hover:translate-y-0 transition-all duration-500 ease-out
+                                hover:bg-gray-200 shadow-md cursor-pointer">
+                        Discover
+                    </button>
+                </div>
+                <h3 class="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">United Kingdom</h3>
+                <p class="text-gray-700 dark:text-gray-300">
+                    Study in prestigious institutions with rich history in the UK.
+                </p>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="100" class="relative bg-white dark:bg-gray-800 p-6 rounded-lg shadow 
+            hover:shadow-lg hover:scale-105 transform transition-all duration-500 overflow-hidden group">
+                <img src="{% static 'images/destinations/newzealand.jpg' %}" alt="New Zealand" class="w-full h-40 object-cover rounded mb-4 transition-all duration-700 ease-in-out group-hover:scale-105">
+                <div class="absolute inset-0 flex items-center justify-center 
+                bg-black/40 opacity-0 group-hover:opacity-100 
+                transition-opacity duration-500 ease-out rounded cursor-pointer">
+
+                    <button class="bg-white text-gray-800 px-5 py-2 rounded-full font-semibold 
+                                transform translate-y-6 group-hover:translate-y-0 transition-all duration-500 ease-out
+                                hover:bg-gray-200 shadow-md cursor-pointer">
+                        Discover
+                    </button>
+                </div>
+                <h3 class="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">New Zealand</h3>
+                <p class="text-gray-700 dark:text-gray-300">
+                    Discover world-class education and vibrant culture in New Zealand.
+                </p>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="300" class="relative bg-white dark:bg-gray-800 p-6 rounded-lg shadow 
+            hover:shadow-lg hover:scale-105 transform transition-all duration-500 overflow-hidden group">
+                <img src="{% static 'images/destinations/denmark.jpg' %}" alt="Denmark" class="w-full h-40 object-cover rounded mb-4 transition-all duration-700 ease-in-out group-hover:scale-105">
+                <div class="absolute inset-0 flex items-center justify-center 
+                bg-black/40 opacity-0 group-hover:opacity-100 
+                transition-opacity duration-500 ease-out rounded cursor-pointer">
+
+                    <button class="bg-white text-gray-800 px-5 py-2 rounded-full font-semibold 
+                                transform translate-y-6 group-hover:translate-y-0 transition-all duration-500 ease-out
+                                hover:bg-gray-200 shadow-md cursor-pointer">
+                        Discover
+                    </button>
+                </div>
+                <h3 class="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">Denmark</h3>
+                <p class="text-gray-700 dark:text-gray-300">
+                    Experience quality education and multicultural environment in Denmark.
+                </p>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="300" class="relative bg-white dark:bg-gray-800 p-6 rounded-lg shadow 
+            hover:shadow-lg hover:scale-105 transform transition-all duration-500 overflow-hidden group">
+                <img src="{% static 'images/destinations/ireland.jpg' %}" alt="Ireland" class="w-full h-40 object-cover rounded mb-4 transition-all duration-700 ease-in-out group-hover:scale-105">
+                <div class="absolute inset-0 flex items-center justify-center 
+                bg-black/40 opacity-0 group-hover:opacity-100 
+                transition-opacity duration-500 ease-out rounded cursor-pointer">
+
+                    <button class="bg-white text-gray-800 px-5 py-2 rounded-full font-semibold 
+                                transform translate-y-6 group-hover:translate-y-0 transition-all duration-500 ease-out
+                                hover:bg-gray-200 shadow-md cursor-pointer">
+                        Discover
+                    </button>
+                </div>
+                <h3 class="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">Ireland</h3>
+                <p class="text-gray-700 dark:text-gray-300">
+                    Study in prestigious institutions with rich history in Ireland.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Call-to-Action Section -->
-<section id="cta" data-aos="fade-up" class="bg-gray-50 dark:bg-gray-900 transition-colors duration-500 py-20 text-center">
+<section id="cta" data-aos="fade-up" class="bg-white dark:bg-gray-900 transition-colors duration-500 py-20 text-center">
     <h2 class="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Ready to start your journey?</h2>
     <p class="text-lg mb-8 text-gray-700 dark:text-gray-300">Join thousands of students who trust StudyEdge for their abroad education.</p>
     <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
