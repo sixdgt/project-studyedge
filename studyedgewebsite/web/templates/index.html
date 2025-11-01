@@ -4,88 +4,105 @@
 
 {% block content %}
 
-<section class="bg-gray-50 dark:bg-gray-900 transition-colors duration-500 relative overflow-hidden min-h-screen">
-    <div class="h-16"></div> 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative h-[calc(100vh-4rem)] flex flex-col justify-center items-center text-center">
+<section class="bg-blue-600 dark:bg-gray-900 transition-colors duration-500 relative overflow-hidden min-h-screen">
+  <div class="h-16"></div>
 
-        <!-- Slides -->
-        <div id="hero-slides" class="relative w-full h-full items-center justify-center">
-        <!-- Slide 1 -->
-        <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-100 flex flex-col justify-center items-center text-center px-4">
-            <h1 data-aos="fade-down" class="text-5xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
-            Welcome to StudyEdge
-            </h1>
-            <p data-aos="fade-up" class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 max-w-2xl">
-            Seamless Light & Dark Mode with Tailwind CSS for your study abroad journey.
-            </p>
-            <a data-aos="zoom-in" href="#features" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors duration-300">
-            Get Started
-            </a>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-0 flex flex-col justify-center items-center text-center px-4">
-            <h1 data-aos="fade-down" class="text-5xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
-            Explore Top Universities Worldwide
-            </h1>
-            <p data-aos="fade-up" class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 max-w-2xl">
-            Discover programs tailored for your career goals.
-            </p>
-            <a data-aos="zoom-in" href="#features" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors duration-300">
-            Learn More
-            </a>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-0 flex flex-col justify-center items-center text-center px-4">
-            <h1 data-aos="fade-down" class="text-5xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
-            Simplify Your Visa Process
-            </h1>
-            <p data-aos="fade-up" class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 max-w-2xl">
-            Guidance and documentation support at every step.
-            </p>
-            <a data-aos="zoom-in" href="#features" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors duration-300">
-            Apply Now
-            </a>
-        </div>
-
-        <!-- Slide 4 -->
-        <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-0 flex flex-col justify-center items-center text-center px-4">
-            <h1 data-aos="fade-down" class="text-5xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
-            Personalized Study Plans
-            </h1>
-            <p data-aos="fade-up" class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 max-w-2xl">
-            Tailored courses and timelines to achieve your goals.
-            </p>
-            <a data-aos="zoom-in" href="#features" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors duration-300">
-            Start Planning
-            </a>
-        </div>
-
-        <!-- Slide 5 -->
-        <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-0 flex flex-col justify-center items-center text-center px-4">
-            <h1 data-aos="fade-down" class="text-5xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
-            Join a Community of Scholars
-            </h1>
-            <p data-aos="fade-up" class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 max-w-2xl">
-            Connect with students across the globe.
-            </p>
-            <a data-aos="zoom-in" href="#features" class="inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors duration-300">
-            Connect Now
-            </a>
-        </div>
-        </div>
-
-        <!-- Dots at the bottom -->
-        <div id="dots" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
-        <button class="dot w-4 h-4 rounded-full bg-gray-400 dark:bg-gray-600"></button>
-        <button class="dot w-4 h-4 rounded-full bg-gray-400 dark:bg-gray-600"></button>
-        <button class="dot w-4 h-4 rounded-full bg-gray-400 dark:bg-gray-600"></button>
-        <button class="dot w-4 h-4 rounded-full bg-gray-400 dark:bg-gray-600"></button>
-        <button class="dot w-4 h-4 rounded-full bg-gray-400 dark:bg-gray-600"></button>
-        </div>
+  <!-- Irregular Random Blue Shapes -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute w-72 h-72 bg-blue-500/20 rounded-[60%_40%_60%_40%/60%_40%_60%_40%] top-10 left-10 blur-3xl animate-pulse"></div>
+      <div class="absolute w-64 h-64 bg-blue-400/25 rounded-[50%_70%_50%_70%/50%_70%_50%_70%] bottom-20 right-16 blur-2xl animate-pulse"></div>
+      <div class="absolute w-48 h-48 bg-blue-300/20 rounded-[40%_60%_40%_60%/40%_60%_40%_60%] top-1/3 right-1/4 blur-2xl animate-[float_6s_infinite_alternate]"></div>
+      <div class="absolute w-40 h-40 bg-blue-600/30 rounded-[60%_40%_60%_40%/60%_40%_60%_40%] bottom-10 left-1/3 blur-3xl animate-[float_7s_infinite_alternate]"></div>
     </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative h-[calc(100vh-4rem)] flex flex-col justify-center items-center text-center">
+
+    <!-- Slides -->
+    <div id="hero-slides" class="relative w-full h-full items-center justify-center">
+      <!-- Slide 1 -->
+      <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-100 flex flex-col justify-center items-center text-center px-4">
+        <h1 data-aos="fade-down" class="text-5xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">
+          Welcome to StudyEdge
+        </h1>
+        <p data-aos="fade-up" class="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl">
+          Seamless Light & Dark Mode with Tailwind CSS for your study abroad journey.
+        </p>
+        <a data-aos="zoom-in" href="#features" class="inline-block bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-colors duration-300">
+          Get Started
+        </a>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-0 flex flex-col justify-center items-center text-center px-4">
+        <h1 data-aos="fade-down" class="text-5xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">
+          Explore Top Universities Worldwide
+        </h1>
+        <p data-aos="fade-up" class="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl">
+          Discover programs tailored for your career goals.
+        </p>
+        <a data-aos="zoom-in" href="#features" class="inline-block bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-colors duration-300">
+          Learn More
+        </a>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-0 flex flex-col justify-center items-center text-center px-4">
+        <h1 data-aos="fade-down" class="text-5xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">
+          Simplify Your Visa Process
+        </h1>
+        <p data-aos="fade-up" class="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl">
+          Guidance and documentation support at every step.
+        </p>
+        <a data-aos="zoom-in" href="#features" class="inline-block bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-colors duration-300">
+          Apply Now
+        </a>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-0 flex flex-col justify-center items-center text-center px-4">
+        <h1 data-aos="fade-down" class="text-5xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">
+          Personalized Study Plans
+        </h1>
+        <p data-aos="fade-up" class="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl">
+          Tailored courses and timelines to achieve your goals.
+        </p>
+        <a data-aos="zoom-in" href="#features" class="inline-block bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-colors duration-300">
+          Start Planning
+        </a>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-0 flex flex-col justify-center items-center text-center px-4">
+        <h1 data-aos="fade-down" class="text-5xl md:text-6xl font-bold mb-4 text-white drop-shadow-lg">
+          Join a Community of Scholars
+        </h1>
+        <p data-aos="fade-up" class="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl">
+          Connect with students across the globe.
+        </p>
+        <a data-aos="zoom-in" href="#features" class="inline-block bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-colors duration-300">
+          Connect Now
+        </a>
+      </div>
+    </div>
+
+    <!-- Dots at the bottom -->
+    <div id="dots" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
+      <button class="dot w-4 h-4 rounded-full bg-white/50 hover:bg-white transition"></button>
+      <button class="dot w-4 h-4 rounded-full bg-white/50 hover:bg-white transition"></button>
+      <button class="dot w-4 h-4 rounded-full bg-white/50 hover:bg-white transition"></button>
+      <button class="dot w-4 h-4 rounded-full bg-white/50 hover:bg-white transition"></button>
+      <button class="dot w-4 h-4 rounded-full bg-white/50 hover:bg-white transition"></button>
+    </div>
+  </div>
 </section>
+
+<!-- Keyframes for Floating Shapes -->
+<style>
+@keyframes float {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-30px) translateX(20px); }
+}
+</style>
+
 
 <!-- Callback Form below -->
 <section class="bg-gray-50 dark:bg-gray-900 py-16">
@@ -278,6 +295,384 @@
         </div>
     </div>
 </section>
+
+<section id="testimonials" class="bg-white dark:bg-gray-900 py-20 transition-colors duration-500">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 data-aos="fade-up" class="text-4xl font-bold text-gray-900 dark:text-white mb-12">
+      Successful Stories
+    </h2>
+
+    <!-- Slider Wrapper -->
+    <div class="overflow-hidden relative">
+      <div class="flex space-x-6 animate-scroll">
+        
+        <!-- Testimonial Card 1 -->
+        <div class="min-w-[300px] md:min-w-[350px] bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center justify-center">
+          <img src="{% static 'images/students/student-one.jpg' %}" alt="Student 1" class="w-20 h-20 rounded-full object-cover mb-4">
+          <p class="text-gray-700 dark:text-gray-300 italic mb-3">
+            “I got my visa approved for Australia thanks to the consultancy’s support!”
+          </p>
+          <h3 class="font-semibold text-gray-900 dark:text-white">– Aashish Sharma</h3>
+          <span class="text-sm text-gray-500 dark:text-gray-400">Master’s in IT, Australia</span>
+        </div>
+
+        <!-- Testimonial Card 2 -->
+        <div class="min-w-[300px] md:min-w-[350px] bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center justify-center">
+          <img src="{% static 'images/students/student-two.jpg' %}" alt="Student 2" class="w-20 h-20 rounded-full object-cover mb-4">
+          <p class="text-gray-700 dark:text-gray-300 italic mb-3">
+            “My dream of studying in Canada came true — very professional guidance!”
+          </p>
+          <h3 class="font-semibold text-gray-900 dark:text-white">– Kritika Rai</h3>
+          <span class="text-sm text-gray-500 dark:text-gray-400">MBA, Canada</span>
+        </div>
+
+        <!-- Testimonial Card 3 -->
+        <div class="min-w-[300px] md:min-w-[350px] bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center justify-center">
+          <img src="{% static 'images/students/student-one.jpg' %}" alt="Student 3" class="w-20 h-20 rounded-full object-cover mb-4">
+          <p class="text-gray-700 dark:text-gray-300 italic mb-3">
+            “The IELTS classes and document help made my UK process so smooth.”
+          </p>
+          <h3 class="font-semibold text-gray-900 dark:text-white">– Prabin Gurung</h3>
+          <span class="text-sm text-gray-500 dark:text-gray-400">BSc Computing, UK</span>
+        </div>
+
+        <!-- Testimonial Card 4 -->
+        <div class="min-w-[300px] md:min-w-[350px] bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center justify-center">
+          <img src="{% static 'images/students/student-two.jpg' %}" alt="Student 4" class="w-20 h-20 rounded-full object-cover mb-4">
+          <p class="text-gray-700 dark:text-gray-300 italic mb-3">
+            “I’m now in New Zealand! The visa team guided me at every step.”
+          </p>
+          <h3 class="font-semibold text-gray-900 dark:text-white">– Sita Adhikari</h3>
+          <span class="text-sm text-gray-500 dark:text-gray-400">MSc Data Science, New Zealand</span>
+        </div>
+
+        <!-- Duplicate Cards for Seamless Loop -->
+        <div class="min-w-[300px] md:min-w-[350px] bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center justify-center">
+          <img src="{% static 'images/students/student-one.jpg' %}" alt="Student 1" class="w-20 h-20 rounded-full object-cover mb-4">
+          <p class="text-gray-700 dark:text-gray-300 italic mb-3">
+            “I got my visa approved for Australia thanks to the consultancy’s support!”
+          </p>
+          <h3 class="font-semibold text-gray-900 dark:text-white">– Aashish Sharma</h3>
+          <span class="text-sm text-gray-500 dark:text-gray-400">Master’s in IT, Australia</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Add this in your <style> or Tailwind @layer -->
+<style>
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-scroll {
+  display: flex;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+}
+</style>
+
+<section id="services" class="bg-gray-50 dark:bg-gray-900 transition-colors duration-500 py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 data-aos="fade-up" class="text-4xl font-bold text-gray-900 dark:text-white mb-12">
+      How StudyEdge Helps You
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Free Consultation -->
+      <div data-aos="fade-up" data-aos-delay="100"
+        class="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-md hover:shadow-xl transform hover:-translate-y-2 
+               transition-all duration-500 ease-out group">
+        <div class="flex items-center justify-center mb-6">
+          <div class="bg-blue-100 dark:bg-blue-900/40 p-4 rounded-full">
+            <i class="fas fa-comments text-blue-600 text-3xl"></i>
+          </div>
+        </div>
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-3">Free Consultation</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          Get personalized counseling and expert advice to choose the right career path and university — at no cost.
+        </p>
+      </div>
+
+      <!-- Documentation Assistance -->
+      <div data-aos="fade-up" data-aos-delay="200"
+        class="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-md hover:shadow-xl transform hover:-translate-y-2 
+               transition-all duration-500 ease-out group">
+        <div class="flex items-center justify-center mb-6">
+          <div class="bg-green-100 dark:bg-green-900/40 p-4 rounded-full">
+            <i class="fas fa-file-alt text-green-600 text-3xl"></i>
+          </div>
+        </div>
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-3">Documentation Support</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          We help you prepare and organize all academic, financial, and visa documents smoothly and accurately.
+        </p>
+      </div>
+
+      <!-- Course & University Guidance -->
+      <div data-aos="fade-up" data-aos-delay="300"
+        class="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-md hover:shadow-xl transform hover:-translate-y-2 
+               transition-all duration-500 ease-out group">
+        <div class="flex items-center justify-center mb-6">
+          <div class="bg-yellow-100 dark:bg-yellow-900/40 p-4 rounded-full">
+            <i class="fas fa-book text-yellow-600 text-3xl"></i>
+          </div>
+        </div>
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-3">Course & University Guidance</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          Get expert help in choosing the right course and university based on your background and career goals.
+        </p>
+      </div>
+
+      <!-- Study Destinations -->
+      <div data-aos="fade-up" data-aos-delay="400"
+        class="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-md hover:shadow-xl transform hover:-translate-y-2 
+               transition-all duration-500 ease-out group">
+        <div class="flex items-center justify-center mb-6">
+          <div class="bg-purple-100 dark:bg-purple-900/40 p-4 rounded-full">
+            <i class="fas fa-globe text-purple-600 text-3xl"></i>
+          </div>
+        </div>
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-3">Study Destinations</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          Explore top destinations like Australia, Canada, the UK, and more — and find where your dreams can grow.
+        </p>
+      </div>
+
+      <!-- Financial & Scholarship Guidance -->
+      <div data-aos="fade-up" data-aos-delay="500"
+        class="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-md hover:shadow-xl transform hover:-translate-y-2 
+               transition-all duration-500 ease-out group">
+        <div class="flex items-center justify-center mb-6">
+          <div class="bg-red-100 dark:bg-red-900/40 p-4 rounded-full">
+            <i class="fas fa-hand-holding-usd text-red-600 text-3xl"></i>
+          </div>
+        </div>
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-3">Financial Guidance</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          Receive assistance in understanding education loans, scholarships, and budgeting for your studies abroad.
+        </p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<section id="ielts-pte-booking" class="bg-white dark:bg-gray-900 py-20 transition-colors duration-500">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- Left: Booking Form -->
+    <div data-aos="fade-right" class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
+      <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center">
+        Book Your IELTS / PTE Test
+      </h2>
+      <p class="text-gray-600 dark:text-gray-300 text-center mb-6">
+        Register for your preferred English test and take the first step toward your global study journey.
+      </p>
+
+      <form action="#" method="POST" class="space-y-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="full-name" class="block text-gray-700 dark:text-gray-300 mb-2">Full Name</label>
+            <input type="text" id="full-name" name="full_name" required
+                   class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <label for="email" class="block text-gray-700 dark:text-gray-300 mb-2">Email</label>
+            <input type="email" id="email" name="email" required
+                   class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="contact" class="block text-gray-700 dark:text-gray-300 mb-2">Contact Number</label>
+            <input type="text" id="contact" name="contact" required
+                   class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <label for="preferred-date" class="block text-gray-700 dark:text-gray-300 mb-2">Preferred Date</label>
+            <input type="date" id="preferred-date" name="preferred_date" required
+                   class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
+          </div>
+        </div>
+
+        <div>
+          <label for="test-type" class="block text-gray-700 dark:text-gray-300 mb-2">Test Type</label>
+          <select id="test-type" name="test_type" required
+                  class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
+            <option value="">Select Test</option>
+            <option>IELTS Academic</option>
+            <option>IELTS General</option>
+            <option>PTE Academic</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="test-mode" class="block text-gray-700 dark:text-gray-300 mb-2">Test Mode</label>
+          <select id="test-mode" name="test_mode"
+                  class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
+            <option value="">Select Mode</option>
+            <option>Online</option>
+            <option>Offline (In-Person)</option>
+          </select>
+        </div>
+
+        <div class="flex items-start space-x-3">
+          <input type="checkbox" id="consent" name="consent" required
+                 class="mt-1 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+          <label for="consent" class="text-gray-700 dark:text-gray-300">
+            I confirm that the provided information is accurate and agree to be contacted by StudyEdge.
+          </label>
+        </div>
+
+        <button type="submit"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg transition-all duration-300 font-semibold shadow-md">
+          Book My Test
+        </button>
+      </form>
+    </div>
+
+    <!-- Right: Importance of IELTS & PTE -->
+    <div data-aos="fade-left" class="text-gray-800 dark:text-gray-100">
+      <div class="flex items-center gap-3 mb-4">
+        <img src="{% static 'images/contents/english.jpg' %}" alt="IELTS Icon" class="w-100 h-80">
+      </div>
+
+      <h2 class="text-3xl font-bold mb-4">Why IELTS & PTE Are Important?</h2>
+      <p class="text-gray-600 dark:text-gray-300 mb-6">
+        IELTS and PTE are globally recognized English proficiency tests required for international education, visa applications, and professional opportunities. A good score ensures your communication skills meet international academic and career standards.
+      </p>
+
+      <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+        <li class="flex items-start">
+          <span class="text-blue-600 font-bold mr-2">✔</span> Accepted by thousands of universities and institutions worldwide.
+        </li>
+        <li class="flex items-start">
+          <span class="text-blue-600 font-bold mr-2">✔</span> Improves your chances of visa approval and scholarship eligibility.
+        </li>
+        <li class="flex items-start">
+          <span class="text-blue-600 font-bold mr-2">✔</span> Demonstrates strong communication and comprehension skills.
+        </li>
+        <li class="flex items-start">
+          <span class="text-blue-600 font-bold mr-2">✔</span> Opens pathways for migration and global employment.
+        </li>
+      </ul>
+
+      <div class="mt-8">
+        <a href="#"
+           class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold shadow-md transition-all duration-300">
+          Learn More About IELTS & PTE
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="student-support" class="bg-gray-50 dark:bg-gray-900 py-20 transition-colors duration-500">
+    <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center">Stydy Edge help you in every step.</h2>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+        <!-- Left Image -->
+        <div data-aos="fade-right" class="flex justify-center">
+            <img src="{% static 'images/contents/student-support.jpg' %}" alt="Student Support" class="rounded-2xl shadow-lg w-full max-w-md object-cover">
+        </div>
+
+        <!-- Right Form -->
+        <div data-aos="fade-left" class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
+            <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center">Enter your details and get a free counselling session with our experts</h2>
+        
+            <form action="#" method="POST" class="space-y-5">
+                <!-- Personal Details -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label for="name" class="block text-gray-700 dark:text-gray-300 mb-2">Full Name</label>
+                    <input type="text" id="name" name="name" required
+                        class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label for="email" class="block text-gray-700 dark:text-gray-300 mb-2">Email</label>
+                    <input type="email" id="email" name="email" required
+                        class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
+                </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label for="contact" class="block text-gray-700 dark:text-gray-300 mb-2">Contact Number</label>
+                    <input type="text" id="contact" name="contact" required
+                        class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label for="address" class="block text-gray-700 dark:text-gray-300 mb-2">Address</label>
+                    <input type="text" id="address" name="address"
+                        class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
+                </div>
+                </div>
+
+                <!-- Course Info -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label for="destination" class="block text-gray-700 dark:text-gray-300 mb-2">Preferred Destination</label>
+                    <select id="destination" name="destination" required
+                            class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
+                    <option value="">Select</option>
+                    <option>Australia</option>
+                    <option>UK</option>
+                    <option>Canada</option>
+                    <option>USA</option>
+                    <option>New Zealand</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="course" class="block text-gray-700 dark:text-gray-300 mb-2">Interested Course</label>
+                    <input type="text" id="course" name="course"
+                        class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
+                </div>
+                </div>
+
+                <div>
+                <label for="academic" class="block text-gray-700 dark:text-gray-300 mb-2">Current Academic Level</label>
+                <select id="academic" name="academic"
+                        class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
+                    <option value="">Select</option>
+                    <option>+2 / A-Levels</option>
+                    <option>Bachelor’s Degree</option>
+                    <option>Master’s Degree</option>
+                    <option>Other</option>
+                </select>
+                </div>
+
+                <div>
+                <label for="appointment" class="block text-gray-700 dark:text-gray-300 mb-2">Appointment Medium</label>
+                <select id="appointment" name="appointment"
+                        class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
+                    <option value="">Select</option>
+                    <option>Online</option>
+                    <option>Offline</option>
+                </select>
+                </div>
+
+                <!-- Terms -->
+                <div class="flex items-start space-x-3">
+                <input type="checkbox" id="terms" name="terms" required
+                        class="mt-1 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                <label for="terms" class="text-gray-700 dark:text-gray-300">
+                    I accept the <a href="#" class="text-blue-600 hover:underline">terms and conditions</a>.
+                </label>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit"
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg transition-all duration-300 font-semibold shadow-md">
+                Submit Details
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
 
 <!-- Call-to-Action Section -->
 <section id="cta" data-aos="fade-up" class="bg-white dark:bg-gray-900 transition-colors duration-500 py-20 text-center">
