@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Header Section -->
+<section class="bg-blue-600 text-white py-20 text-center">
+  <div class="max-w-4xl mx-auto px-6">
+    <h1 class="text-4xl font-bold mb-4">Study in Australia</h1>
+    <p class="text-lg opacity-90">The Ultimate Guide for Nepalese Students Planning to Study in Australia</p>
+  </div>
+</section>
+
+<!-- Content Section -->
+<section class="bg-white dark:bg-gray-900 py-16 transition-colors duration-500">
+  <div class="max-w-6xl mx-auto px-6 lg:px-8 space-y-12 text-gray-700 dark:text-gray-300">
+
+    <!-- Why Australia -->
+    <div data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">1. Why Australia as a Study Destination?</h2>
+      <p>Australia offers globally recognized degrees, world-class universities, and a safe multicultural environment. 
+        Nepalese students are drawn to its post-study work opportunities, high-quality education system, and vibrant student life.</p>
+    </div>
+
+    <!-- Visa Requirements -->
+    <div data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">2. Student Visa Requirements for Nepali Students</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li>Valid passport</li>
+        <li>Offer letter from an Australian institution</li>
+        <li>Proof of sufficient funds</li>
+        <li>Overseas Student Health Cover (OSHC)</li>
+        <li>Genuine Temporary Entrant (GTE) statement</li>
+      </ul>
+    </div>
+
+    <!-- Cost of Studying -->
+    <div data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">3. Cost of Studying in Australia</h2>
+      <p>Average annual tuition fees range from <strong>AUD 20,000 to 45,000</strong> depending on your program and university. 
+        Living costs range around <strong>AUD 21,000 per year</strong>.</p>
+    </div>
+
+    <!-- Scholarships -->
+    <div data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">4. Scholarships for Nepalese Students</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li>Australia Awards Scholarships</li>
+        <li>Destination Australia Scholarship</li>
+        <li>University-specific merit scholarships</li>
+      </ul>
+    </div>
+
+    <!-- Intakes -->
+    <div data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">5. Intakes in Australia</h2>
+      <p>There are mainly two intakes for international students:</p>
+      <ul class="list-disc pl-6 space-y-2">
+        <li><strong>February Intake:</strong> Main intake with most courses available</li>
+        <li><strong>July Intake:</strong> Secondary intake for many programs</li>
+      </ul>
+    </div>
+
+    <!-- English Requirements -->
+    <div data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">6. IELTS/PTE Requirements</h2>
+      <p>Most universities require:</p>
+      <ul class="list-disc pl-6 space-y-2">
+        <li><strong>IELTS:</strong> 6.0–6.5 overall (no band less than 5.5–6.0)</li>
+        <li><strong>PTE:</strong> 50–58 overall</li>
+      </ul>
+    </div>
+
+    <!-- Top Courses -->
+    <div data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">7. Top Courses to Study in Australia</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li>Information Technology and Cybersecurity</li>
+        <li>Business and Accounting</li>
+        <li>Engineering and Construction Management</li>
+        <li>Health Sciences and Nursing</li>
+        <li>Hospitality and Tourism Management</li>
+      </ul>
+    </div>
+
+    <!-- Top Universities -->
+    <div data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">8. Top Universities in Australia</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li>University of Melbourne</li>
+        <li>University of Sydney</li>
+        <li>Monash University</li>
+        <li>University of Queensland</li>
+        <li>University of Adelaide</li>
+      </ul>
+    </div>
+
+    <!-- Job Prospects -->
+    <div data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">9. Job Prospects in Australia</h2>
+      <p>International students can work up to 48 hours per fortnight during semesters. 
+        Post-study work rights allow graduates to stay 2–4 years after completing their degree under the Temporary Graduate Visa (subclass 485).</p>
+    </div>
+
+    <!-- Cost of Living -->
+    <div data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">10. Cost of Living</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li>Accommodation: AUD 500–1500/month</li>
+        <li>Food: AUD 300–600/month</li>
+        <li>Transportation: AUD 150/month</li>
+        <li>Miscellaneous: AUD 100–200/month</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- Student Support Form Section -->
+{% include "components/student_support_form.html" %}
+
+{% endblock %}

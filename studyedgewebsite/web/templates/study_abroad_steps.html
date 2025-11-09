@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Header -->
+<section class="bg-blue-600 text-white py-20 text-center">
+  <div class="max-w-4xl mx-auto px-6">
+    <h1 class="text-4xl font-bold mb-4">Study Abroad Steps</h1>
+    <p class="text-lg opacity-90">Your complete step-by-step guide to studying abroad with StudyEdge</p>
+  </div>
+</section>
+
+<!-- Study Steps Section -->
+<section id="study-steps" class="relative bg-white dark:bg-gray-900 py-20 transition-colors duration-500 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 lg:px-8 relative">
+
+    <!-- Snake Connector SVG (decorative flow line) -->
+    <svg class="absolute left-1/2 top-0 transform -translate-x-1/2 z-0 hidden md:block" width="6" height="100%" viewBox="0 0 6 1000" preserveAspectRatio="none">
+      <path d="M3 0 
+               C 150 150, -150 300, 3 450
+               S 150 750, 3 900 
+               S -150 1050, 3 1200"
+            stroke="#2563eb" stroke-width="4" fill="none" stroke-linecap="round" stroke-dasharray="10 12" />
+    </svg>
+
+    <div class="space-y-32 relative z-10">
+
+      <!-- Step 1 -->
+      <div data-aos="fade-up" class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <img src="{% static 'images/contents/why-study-abroad.jpg' %}" alt="Why Study Abroad"
+               class="rounded-2xl shadow-lg w-full object-cover">
+        </div>
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">1. Why Study Abroad?</h2>
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+            Studying abroad is one of the most rewarding decisions you can make for your future. 
+            It allows you to experience a new culture, gain global exposure, and access internationally 
+            recognized qualifications. For Nepalese students, studying abroad provides access to 
+            modern facilities, innovative teaching methods, and a chance to become globally competitive 
+            in today’s fast-changing job market.
+          </p>
+          <p class="text-gray-700 dark:text-gray-300 mt-4 leading-relaxed">
+            Beyond academics, it helps you grow personally — building independence, adaptability, 
+            and communication skills that employers around the world value highly.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div data-aos="fade-up" class="grid md:grid-cols-2 gap-10 items-center md:flex-row-reverse">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">2. Where and What to Study?</h2>
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+            Choosing the right destination and course is crucial for your success. 
+            Each country offers unique advantages — Australia and Canada are known for post-study work opportunities, 
+            the UK for globally respected degrees, and the USA for research-driven programs.
+          </p>
+          <p class="text-gray-700 dark:text-gray-300 mt-4 leading-relaxed">
+            At <span class="font-semibold text-blue-600 dark:text-blue-400">StudyEdge</span>, we help you identify 
+            your academic strengths, budget, and long-term goals to recommend the best universities and programs 
+            that align with your future career path. We focus on finding the “perfect fit” — not just any university.
+          </p>
+        </div>
+        <div>
+          <img src="{% static 'images/contents/where-to-study.jpg' %}" alt="Where and What to Study"
+               class="rounded-2xl shadow-lg w-full object-cover">
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div data-aos="fade-up" class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <img src="{% static 'images/contents/how-to-apply.jpg' %}" alt="How Do I Apply?"
+               class="rounded-2xl shadow-lg w-full object-cover">
+        </div>
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">3. How Do I Apply?</h2>
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+            Once your destination and course are finalized, the application journey begins. 
+            <span class="font-semibold text-blue-600 dark:text-blue-400">StudyEdge</span> handles the complete process — 
+            from preparing your Statement of Purpose (SOP), recommendation letters, and academic documentation, 
+            to submitting university applications.
+          </p>
+          <p class="text-gray-700 dark:text-gray-300 mt-4 leading-relaxed">
+            Our expert team ensures your profile stands out and meets university criteria. 
+            We also guide you in fulfilling English test requirements (IELTS, PTE, or Duolingo) 
+            and keep you informed at every stage of the application.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div data-aos="fade-up" class="grid md:grid-cols-2 gap-10 items-center md:flex-row-reverse">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">4. After Receiving an Offer</h2>
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+            Congratulations on receiving your offer letter! At this stage, it’s important to 
+            understand your next steps. StudyEdge assists you with offer acceptance, paying 
+            the initial tuition deposit, and obtaining your Confirmation of Enrolment (CoE) or CAS letter.
+          </p>
+          <p class="text-gray-700 dark:text-gray-300 mt-4 leading-relaxed">
+            Our counsellors also help you prepare your financial documents, health insurance (if applicable), 
+            and other formalities to ensure your visa process is smooth and timely.
+          </p>
+        </div>
+        <div>
+          <img src="{% static 'images/contents/after-offer.jpg' %}" alt="After Receiving an Offer"
+               class="rounded-2xl shadow-lg w-full object-cover">
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div data-aos="fade-up" class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <img src="{% static 'images/contents/prepare-to-depart.jpg' %}" alt="Prepare to Depart"
+               class="rounded-2xl shadow-lg w-full object-cover">
+        </div>
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">5. Prepare to Depart</h2>
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+            As your visa gets approved, it’s time to prepare for departure! We guide you through every detail — 
+            flight booking, travel insurance, accommodation arrangements, airport pickup services, 
+            and even what to pack for your new life abroad.
+          </p>
+          <p class="text-gray-700 dark:text-gray-300 mt-4 leading-relaxed">
+            StudyEdge also conducts pre-departure orientation sessions to help you adapt 
+            to the new culture, understand local laws, and manage your finances smartly.
+          </p>
+        </div>
+      </div>
+
+      <!-- Step 6 -->
+      <div data-aos="fade-up" class="grid md:grid-cols-2 gap-10 items-center md:flex-row-reverse">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">6. Arrive and Thrive</h2>
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+            Your journey doesn’t end when you land — it begins! Once you arrive, 
+            our support continues. We help you connect with student communities, 
+            learn about part-time job opportunities, and adjust to your academic environment with confidence.
+          </p>
+          <p class="text-gray-700 dark:text-gray-300 mt-4 leading-relaxed">
+            Whether it’s opening a bank account, managing your schedule, or finding 
+            local contacts, StudyEdge ensures you settle in comfortably and thrive 
+            in your new home away from home.
+          </p>
+        </div>
+        <div>
+          <img src="{% static 'images/contents/arrive-and-thrive.jpg' %}" alt="Arrive and Thrive"
+               class="rounded-2xl shadow-lg w-full object-cover">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Student Support Form -->
+{% include "components/student_support_form.html" %}
+
+{% endblock %}

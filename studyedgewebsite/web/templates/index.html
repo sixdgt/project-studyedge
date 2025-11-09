@@ -4,9 +4,10 @@
 
 {% block content %}
 
-<section class="bg-blue-600 dark:bg-gray-900 transition-colors duration-500 relative overflow-hidden min-h-screen">
+<section class="bg-blue-400 dark:bg-gray-900 transition-colors duration-500 relative overflow-hidden min-h-screen">
   <div class="h-16"></div>
 
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative h-[calc(100vh-4rem)] flex flex-col justify-center items-center text-center">
   <!-- Irregular Random Blue Shapes -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
       <div class="absolute w-72 h-72 bg-blue-500/20 rounded-[60%_40%_60%_40%/60%_40%_60%_40%] top-10 left-10 blur-3xl animate-pulse"></div>
@@ -14,8 +15,6 @@
       <div class="absolute w-48 h-48 bg-blue-300/20 rounded-[40%_60%_40%_60%/40%_60%_40%_60%] top-1/3 right-1/4 blur-2xl animate-[float_6s_infinite_alternate]"></div>
       <div class="absolute w-40 h-40 bg-blue-600/30 rounded-[60%_40%_60%_40%/60%_40%_60%_40%] bottom-10 left-1/3 blur-3xl animate-[float_7s_infinite_alternate]"></div>
     </div>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative h-[calc(100vh-4rem)] flex flex-col justify-center items-center text-center">
-
     <!-- Slides -->
     <div id="hero-slides" class="relative w-full h-full items-center justify-center">
       <!-- Slide 1 -->
@@ -103,9 +102,8 @@
 }
 </style>
 
-
 <!-- Callback Form below -->
-<section class="bg-gray-50 dark:bg-gray-900 py-16">
+<section class="bg-white dark:bg-gray-900 py-16">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <form class="flex flex-col md:flex-row items-center gap-4 bg-white dark:bg-gray-800 p-4 rounded shadow-md">
       <div class="flex-1">
@@ -130,7 +128,7 @@
 </section>
 
 <!-- Features Section -->
-<section id="features" class="bg-white dark:bg-gray-800 transition-colors duration-500 py-20">
+<section id="features" class="bg-gray-50 dark:bg-gray-800 transition-colors duration-500 py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 data-aos="fade-up" class="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
             Why Choose StudyEdge?
@@ -164,7 +162,7 @@
     </div>
 </section>
 
-<section id="destinations" class="bg-gray-50 dark:bg-gray-900 transition-colors duration-500 py-20">
+<section id="destinations" class="bg-white dark:bg-gray-900 transition-colors duration-500 py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 data-aos="fade-up" class="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
             Popular Study Destinations
@@ -183,11 +181,11 @@
                 bg-black/40 opacity-0 group-hover:opacity-100 
                 transition-opacity duration-500 ease-out rounded cursor-pointer">
 
-                    <button class="bg-white text-gray-800 px-5 py-2 rounded-full font-semibold 
+                    <a href="{% url 'australia' %}" class="bg-white text-gray-800 px-5 py-2 rounded-full font-semibold 
                        transform translate-y-6 group-hover:translate-y-0 
                        transition-all duration-700 ease-in-out hover:bg-gray-200 shadow-md cursor-pointer">
                         Discover
-                    </button>
+                    </a>
                 </div>
 
                 <!-- Text -->
@@ -205,11 +203,11 @@
                 bg-black/40 opacity-0 group-hover:opacity-100 
                 transition-opacity duration-500 ease-out rounded cursor-pointer">
 
-                    <button class="bg-white text-gray-800 px-5 py-2 rounded-full font-semibold 
+                    <a href="{% url 'australia' %}" class="bg-white text-gray-800 px-5 py-2 rounded-full font-semibold 
                                 transform translate-y-6 group-hover:translate-y-0 transition-all duration-500 ease-out
                                 hover:bg-gray-200 shadow-md cursor-pointer">
                         Discover
-                    </button>
+                    </a>
                 </div>
                 <h3 class="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">Canada</h3>
                 <p class="text-gray-700 dark:text-gray-300">
@@ -243,11 +241,11 @@
                 bg-black/40 opacity-0 group-hover:opacity-100 
                 transition-opacity duration-500 ease-out rounded cursor-pointer">
 
-                    <button class="bg-white text-gray-800 px-5 py-2 rounded-full font-semibold 
+                    <a href="{% url 'australia' %}" class="bg-white text-gray-800 px-5 py-2 rounded-full font-semibold 
                                 transform translate-y-6 group-hover:translate-y-0 transition-all duration-500 ease-out
                                 hover:bg-gray-200 shadow-md cursor-pointer">
                         Discover
-                    </button>
+                    </a>
                 </div>
                 <h3 class="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">New Zealand</h3>
                 <p class="text-gray-700 dark:text-gray-300">
@@ -262,11 +260,11 @@
                 bg-black/40 opacity-0 group-hover:opacity-100 
                 transition-opacity duration-500 ease-out rounded cursor-pointer">
 
-                    <button class="bg-white text-gray-800 px-5 py-2 rounded-full font-semibold 
+                    <a href="{% url 'australia' %}" class="bg-white text-gray-800 px-5 py-2 rounded-full font-semibold 
                                 transform translate-y-6 group-hover:translate-y-0 transition-all duration-500 ease-out
                                 hover:bg-gray-200 shadow-md cursor-pointer">
                         Discover
-                    </button>
+                    </a>
                 </div>
                 <h3 class="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">Denmark</h3>
                 <p class="text-gray-700 dark:text-gray-300">
@@ -281,22 +279,41 @@
                 bg-black/40 opacity-0 group-hover:opacity-100 
                 transition-opacity duration-500 ease-out rounded cursor-pointer">
 
-                    <button class="bg-white text-gray-800 px-5 py-2 rounded-full font-semibold 
+                    <a href="{% url 'australia' %}" class="bg-white text-gray-800 px-5 py-2 rounded-full font-semibold 
                                 transform translate-y-6 group-hover:translate-y-0 transition-all duration-500 ease-out
                                 hover:bg-gray-200 shadow-md cursor-pointer">
                         Discover
-                    </button>
+                    </a>
                 </div>
                 <h3 class="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">Ireland</h3>
                 <p class="text-gray-700 dark:text-gray-300">
                     Study in prestigious institutions with rich history in Ireland.
                 </p>
             </div>
+
+            <div data-aos="fade-up" data-aos-delay="300" class="relative bg-white dark:bg-gray-800 p-6 rounded-lg shadow 
+            hover:shadow-lg hover:scale-105 transform transition-all duration-500 overflow-hidden group">
+                <img src="{% static 'images/destinations/usa.jpg' %}" alt="USA" class="w-full h-40 object-cover rounded mb-4 transition-all duration-700 ease-in-out group-hover:scale-105">
+                <div class="absolute inset-0 flex items-center justify-center 
+                bg-black/40 opacity-0 group-hover:opacity-100 
+                transition-opacity duration-500 ease-out rounded cursor-pointer">
+
+                    <a href="{% url 'australia' %}" class="bg-white text-gray-800 px-5 py-2 rounded-full font-semibold 
+                                transform translate-y-6 group-hover:translate-y-0 transition-all duration-500 ease-out
+                                hover:bg-gray-200 shadow-md cursor-pointer">
+                        Discover
+                    </a>
+                </div>
+                <h3 class="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">USA</h3>
+                <p class="text-gray-700 dark:text-gray-300">
+                    Study in prestigious institutions with rich history in USA.
+                </p>
+            </div>
         </div>
     </div>
 </section>
 
-<section id="testimonials" class="bg-white dark:bg-gray-900 py-20 transition-colors duration-500">
+<section id="testimonials" class="bg-gray-50 dark:bg-gray-900 py-20 transition-colors duration-500">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <h2 data-aos="fade-up" class="text-4xl font-bold text-gray-900 dark:text-white mb-12">
       Successful Stories
@@ -373,7 +390,7 @@
 }
 </style>
 
-<section id="services" class="bg-gray-50 dark:bg-gray-900 transition-colors duration-500 py-20">
+<section id="services" class="bg-white dark:bg-gray-900 transition-colors duration-500 py-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <h2 data-aos="fade-up" class="text-4xl font-bold text-gray-900 dark:text-white mb-12">
       How StudyEdge Helps You
@@ -452,11 +469,135 @@
         </div>
         <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-3">Financial Guidance</h3>
         <p class="text-gray-700 dark:text-gray-300">
-          Receive assistance in understanding education loans, scholarships, and budgeting for your studies abroad.
+          Receive assistance in understanding education loans, budgeting, and planning for your studies abroad.
+        </p>
+      </div>
+
+      <!-- Scholarship Guidance -->
+      <div data-aos="fade-up" data-aos-delay="600"
+        class="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-md hover:shadow-xl transform hover:-translate-y-2 
+               transition-all duration-500 ease-out group">
+        <div class="flex items-center justify-center mb-6">
+          <div class="bg-indigo-100 dark:bg-indigo-900/40 p-4 rounded-full">
+            <i class="fas fa-graduation-cap text-indigo-600 text-3xl"></i>
+          </div>
+        </div>
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-3">Scholarship Guidance</h3>
+        <p class="text-gray-700 dark:text-gray-300">
+          Get guidance on available scholarships, eligibility criteria, and application processes to maximize your chances of financial aid.
         </p>
       </div>
       
     </div>
+  </div>
+</section>
+
+
+<section id="english-tests" class="bg-gray-50 dark:bg-gray-900 py-20 transition-colors duration-500">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 data-aos="fade-up" class="text-4xl font-bold text-gray-900 dark:text-white mb-12">
+      English Test Preparation
+    </h2>
+
+    <p data-aos="fade-up" data-aos-delay="100" class="max-w-3xl mx-auto text-gray-600 dark:text-gray-300 mb-12">
+      Prepare for your English proficiency tests with <span class="font-semibold text-blue-600 dark:text-blue-400">Study Edge</span> — where expert mentors, practical strategies, and interactive classes help you achieve your dream band score for study abroad success.
+    </p>
+
+    <!-- Card Wrapper -->
+    <div class="flex flex-wrap justify-center gap-8">
+      
+      <!-- IELTS Card -->
+      <div data-aos="fade-up" data-aos-delay="150" class="max-w-sm bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-500 hover:scale-105 flex flex-col justify-between">
+        <div>
+          <img src="{% static 'images/tests/ielts.png' %}" alt="IELTS" class="w-24 h-24 mx-auto mb-6">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">IELTS Preparation</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            IELTS (International English Language Testing System) assesses your English proficiency for education, migration, and work. 
+            Our classes focus on <strong>Listening, Reading, Writing, and Speaking</strong> with real test simulations and feedback.
+          </p>
+          <p class="text-gray-800 dark:text-gray-200 font-semibold mb-2">📘 Fee: NPR 29,000</p>
+          <ul class="text-left text-gray-600 dark:text-gray-300 list-disc list-inside mb-4">
+            <li>Daily practice sessions</li>
+            <li>One-on-one mentorship</li>
+            <li>Mock tests every weekend</li>
+            <li>Personalized band improvement plan</li>
+          </ul>
+        </div>
+        <a href="#ielts-pte-booking" class="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-full transition duration-300">
+          Book Now
+        </a>
+      </div>
+
+      <!-- PTE Card -->
+      <div data-aos="fade-up" data-aos-delay="250" class="max-w-sm bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-500 hover:scale-105 flex flex-col justify-between">
+        <div>
+          <img src="{% static 'images/tests/pte.png' %}" alt="PTE" class="w-24 h-24 mx-auto mb-6">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">PTE Preparation</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            PTE (Pearson Test of English) is a fully computer-based test for study and migration abroad. 
+            Our course offers advanced AI practice tools, speaking templates, and expert strategies for high scores.
+          </p>
+          <p class="text-gray-800 dark:text-gray-200 font-semibold mb-2">📘 Fee: NPR 25,000</p>
+          <ul class="text-left text-gray-600 dark:text-gray-300 list-disc list-inside mb-4">
+            <li>Computer-based test simulations</li>
+            <li>Grammar and pronunciation correction</li>
+            <li>Speaking and writing feedback</li>
+            <li>Flexible timing for working students</li>
+          </ul>
+        </div>
+        <a href="#ielts-pte-booking" class="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-full transition duration-300">
+          Book Now
+        </a>
+      </div>
+
+      <!-- Duolingo Card -->
+      <div data-aos="fade-up" data-aos-delay="350" class="max-w-sm bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 hover:shadow-xl transition-all duration-500 hover:scale-105 flex flex-col justify-between">
+        <div>
+          <img src="{% static 'images/tests/duolingo.png' %}" alt="Duolingo English Test" class="w-24 h-24 mx-auto mb-6">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Duolingo English Test</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Duolingo is a convenient, at-home English proficiency test accepted by 4000+ universities worldwide. 
+            Our training helps you master adaptive questions and timed writing tasks.
+          </p>
+          <p class="text-gray-800 dark:text-gray-200 font-semibold mb-2">📘 Fee: Contact for details</p>
+          <ul class="text-left text-gray-600 dark:text-gray-300 list-disc list-inside mb-4">
+            <li>Adaptive test strategies</li>
+            <li>Live instructor-led classes</li>
+            <li>Instant feedback sessions</li>
+            <li>Free practice mock access</li>
+          </ul>
+        </div>
+        <a href="#ielts-pte-booking" class="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-full transition duration-300">
+          Book Now
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Teaching Approach -->
+    <div data-aos="fade-up" data-aos-delay="400" class="mt-20 max-w-4xl mx-auto">
+      <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Our Teaching Approach</h3>
+      <p class="text-gray-600 dark:text-gray-300 mb-6">
+        At <span class="font-semibold text-blue-600 dark:text-blue-400">Study Edge</span>, we believe in mentorship-driven learning. 
+        Our expert instructors guide you through every step — from understanding test patterns to improving your weak areas. 
+        With small classroom sizes, digital learning materials, and personalized guidance, you can confidently achieve your target band score.
+      </p>
+      <div class="grid md:grid-cols-3 gap-8 text-left">
+        <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-sm">
+          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">🎯 Focused Mentorship</h4>
+          <p class="text-gray-600 dark:text-gray-300 text-sm">Individual attention to improve your speaking and writing sections.</p>
+        </div>
+        <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-sm">
+          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">🏫 Interactive Classrooms</h4>
+          <p class="text-gray-600 dark:text-gray-300 text-sm">Engaging sessions with practical exercises and mock tests every week.</p>
+        </div>
+        <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-sm">
+          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">💡 Result-Oriented Training</h4>
+          <p class="text-gray-600 dark:text-gray-300 text-sm">Proven methods to boost your confidence and test-taking speed.</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -571,108 +712,48 @@
   </div>
 </section>
 
-<section id="student-support" class="bg-gray-50 dark:bg-gray-900 py-20 transition-colors duration-500">
-    <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center">Stydy Edge help you in every step.</h2>
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
-        <!-- Left Image -->
-        <div data-aos="fade-right" class="flex justify-center">
-            <img src="{% static 'images/contents/student-support.jpg' %}" alt="Student Support" class="rounded-2xl shadow-lg w-full max-w-md object-cover">
-        </div>
+{% include "components/student_support_form.html" %}
 
-        <!-- Right Form -->
-        <div data-aos="fade-left" class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
-            <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center">Enter your details and get a free counselling session with our experts</h2>
-        
-            <form action="#" method="POST" class="space-y-5">
-                <!-- Personal Details -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                    <label for="name" class="block text-gray-700 dark:text-gray-300 mb-2">Full Name</label>
-                    <input type="text" id="name" name="name" required
-                        class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
-                </div>
-                <div>
-                    <label for="email" class="block text-gray-700 dark:text-gray-300 mb-2">Email</label>
-                    <input type="email" id="email" name="email" required
-                        class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
-                </div>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                    <label for="contact" class="block text-gray-700 dark:text-gray-300 mb-2">Contact Number</label>
-                    <input type="text" id="contact" name="contact" required
-                        class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
-                </div>
-                <div>
-                    <label for="address" class="block text-gray-700 dark:text-gray-300 mb-2">Address</label>
-                    <input type="text" id="address" name="address"
-                        class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
-                </div>
-                </div>
-
-                <!-- Course Info -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                    <label for="destination" class="block text-gray-700 dark:text-gray-300 mb-2">Preferred Destination</label>
-                    <select id="destination" name="destination" required
-                            class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
-                    <option value="">Select</option>
-                    <option>Australia</option>
-                    <option>UK</option>
-                    <option>Canada</option>
-                    <option>USA</option>
-                    <option>New Zealand</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="course" class="block text-gray-700 dark:text-gray-300 mb-2">Interested Course</label>
-                    <input type="text" id="course" name="course"
-                        class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
-                </div>
-                </div>
-
-                <div>
-                <label for="academic" class="block text-gray-700 dark:text-gray-300 mb-2">Current Academic Level</label>
-                <select id="academic" name="academic"
-                        class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
-                    <option value="">Select</option>
-                    <option>+2 / A-Levels</option>
-                    <option>Bachelor’s Degree</option>
-                    <option>Master’s Degree</option>
-                    <option>Other</option>
-                </select>
-                </div>
-
-                <div>
-                <label for="appointment" class="block text-gray-700 dark:text-gray-300 mb-2">Appointment Medium</label>
-                <select id="appointment" name="appointment"
-                        class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
-                    <option value="">Select</option>
-                    <option>Online</option>
-                    <option>Offline</option>
-                </select>
-                </div>
-
-                <!-- Terms -->
-                <div class="flex items-start space-x-3">
-                <input type="checkbox" id="terms" name="terms" required
-                        class="mt-1 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
-                <label for="terms" class="text-gray-700 dark:text-gray-300">
-                    I accept the <a href="#" class="text-blue-600 hover:underline">terms and conditions</a>.
-                </label>
-                </div>
-
-                <!-- Submit -->
-                <button type="submit"
-                        class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg transition-all duration-300 font-semibold shadow-md">
-                Submit Details
-                </button>
-            </form>
-        </div>
+<section id="md-message" class="bg-white dark:bg-gray-900 py-20 transition-colors duration-500">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
+    
+    <!-- Image -->
+    <div data-aos="fade-right" class="flex-shrink-0 md:w-1/3">
+      <img src="{% static 'images/contents/md.jpg' %}" 
+           alt="Managing Director"
+           class="rounded-2xl shadow-lg object-cover w-full h-[400px] md:h-[450px]">
     </div>
-</section>
 
+    <!-- Text Content -->
+    <div data-aos="fade-left" class="md:w-2/3 text-center md:text-left">
+      <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+        Message from the Managing Director
+      </h2>
+
+      <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+        At <span class="font-semibold text-blue-600 dark:text-blue-400">Study Edge</span>, our mission has always been to empower students 
+        with the knowledge, guidance, and confidence they need to succeed abroad. 
+        We believe that every student’s dream deserves a personalized roadmap — 
+        whether it’s achieving a strong IELTS score or finding the perfect university and course that fits their ambitions.
+      </p>
+
+      <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+        Over the years, we’ve helped countless students secure admissions and visas to top global destinations. 
+        Our dedicated mentors, transparent process, and result-oriented approach make us more than just a consultancy — 
+        we are your partners in achieving academic and personal excellence on an international level.
+      </p>
+
+      <p class="text-gray-700 dark:text-gray-200 italic font-medium">
+        “Your dream deserves the right direction — and we’re here to make it happen.”
+      </p>
+
+      <div class="mt-8">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Miss Mingma Tamang</h3>
+        <span class="text-gray-500 dark:text-gray-400">Managing Director, Study Edge</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Call-to-Action Section -->
 <section id="cta" data-aos="fade-up" class="bg-white dark:bg-gray-900 transition-colors duration-500 py-20 text-center">
@@ -683,6 +764,70 @@
     </a>
 </section>
 
+<!-- Video Messages Section -->
+<section id="video-messages" class="bg-gray-50 dark:bg-gray-900 py-20 transition-colors duration-500">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 data-aos="fade-up" class="text-4xl font-bold text-gray-900 dark:text-white mb-12">
+      Messages from Students & University Representatives
+    </h2>
+
+    <!-- Vertical Card Layout -->
+    <div class="grid gap-10 md:grid-cols-3 sm:grid-cols-2">
+      
+      <!-- Video Card 1 -->
+      <div data-aos="fade-up" class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500">
+        <div class="aspect-[9/16] relative">
+          <video class="w-full h-full object-cover" controls poster="{% static 'images/video-thumbnails/student-video1.jpg' %}">
+            <source src="{% static 'videos/student1.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="p-5 text-left">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-1">Aashish Sharma</h3>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-2">Master’s in IT, Australia</p>
+          <p class="text-gray-700 dark:text-gray-400 text-sm">
+            “Studying in Australia has been a dream come true! Thank you for guiding me from application to arrival.”
+          </p>
+        </div>
+      </div>
+
+      <!-- Video Card 2 -->
+      <div data-aos="fade-up" class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500">
+        <div class="aspect-[9/16] relative">
+          <video class="w-full h-full object-cover" controls poster="{% static 'images/video-thumbnails/university-rep1.jpg' %}">
+            <source src="{% static 'videos/university-rep1.mp4' %}" type="video/mp4">
+          </video>
+        </div>
+        <div class="p-5 text-left">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-1">Dr. Emily Carter</h3>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-2">University of Bolton, UK</p>
+          <p class="text-gray-700 dark:text-gray-400 text-sm">
+            “We’re proud to welcome students from Nepal to our globally recognized computing and business programs.”
+          </p>
+        </div>
+      </div>
+
+      <!-- Video Card 3 -->
+      <div data-aos="fade-up" class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500">
+        <div class="aspect-[9/16] relative">
+          <video class="w-full h-full object-cover" controls poster="{% static 'images/video-thumbnails/student-video2.jpg' %}">
+            <source src="{% static 'videos/student2.mp4' %}" type="video/mp4">
+          </video>
+        </div>
+        <div class="p-5 text-left">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-1">Kritika Rai</h3>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-2">MBA, Canada</p>
+          <p class="text-gray-700 dark:text-gray-400 text-sm">
+            “The support from StudyEdge made my transition to Canada effortless. I’m grateful for the continuous help.”
+          </p>
+        </div>
+      </div>
+
+      <!-- Add More Cards as Needed -->
+      
+    </div>
+  </div>
+</section>
 
 <script>
   const slides = document.querySelectorAll('.hero-slide');
