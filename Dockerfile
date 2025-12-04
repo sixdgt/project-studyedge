@@ -4,6 +4,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONBUFFERED=1
 
 RUN apt update
+RUN apt-get install -y libpq-dev gcc && rm -rf /var/apt/lists/*
 
 # creating user inside docker
 RUN adduser -h /home/studyedge -s /bin/bash -D -u 2000 studyedge
