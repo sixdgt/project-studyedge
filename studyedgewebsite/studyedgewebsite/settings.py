@@ -12,19 +12,21 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+import environ
+
+env = environ.Env()
+environ.Env.read_env(".env")
 
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-&mgq&$1q=d4#v-($ss$2)8^+6=w4rj3foes*^scsd7e-c$wc4%'
-
+SECRET_KEY = env.str("SECRET_KEY", "django-insecure-&mgq&$1q=d4#v-($ss$2)8^+6=w4rj3foes*^scsd7e-c$wc4%")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -80,11 +82,9 @@ WSGI_APPLICATION = 'studyedgewebsite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': env.db()
 }
 
 
