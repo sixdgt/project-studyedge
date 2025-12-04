@@ -14,6 +14,6 @@ COPY . /home/studyedge
 RUN chmod +x /home/studyedge/entrypoint.sh
 
 RUN python -m pip install --upgrade pip
+RUN pip install gunicorn
 RUN pip install pipenv
 RUN pipenv install --deploy --ignore-pipfile --system
-
