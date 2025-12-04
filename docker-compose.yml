@@ -20,6 +20,8 @@ services:
       - ./static/:/home/studyedge/static/
     ports:
       - 8000:8000
+    networks:
+      - web
     entrypoint: ["/bin/sh", "/home/studyedge/entrypoint.sh"]
 volumes:
   postgres_data:
