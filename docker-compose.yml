@@ -15,7 +15,7 @@ services:
     depends_on:
       - db
     build: .
-    command: gunicorn studyedge.wsgi:application --bind 0.0.0.0:8000
+    command: gunicorn studyedgewebsite.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - ./static/:/home/studyedge/staticfiles/
     ports:
