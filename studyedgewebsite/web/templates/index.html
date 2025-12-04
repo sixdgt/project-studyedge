@@ -105,21 +105,20 @@
 <!-- Callback Form below -->
 <section class="bg-white dark:bg-gray-900 py-16">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <form class="flex flex-col md:flex-row items-center gap-4 bg-white dark:bg-gray-800 p-4 rounded shadow-md">
-      <div class="flex-1">
-        <input type="text" placeholder="Enter your fullname"
-               class="w-full border border-gray-300 dark:border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white" />
+    <form method="post" class="flex flex-col md:flex-row items-center gap-4 bg-white dark:bg-gray-800 p-4 rounded shadow-md">
+      {% csrf_token %}
+      <!-- Render fields explicitly so they can be laid out responsively inline -->
+      <div class="w-full md:flex-1">
+        {{ callback_request_form.full_name }}
       </div>
-      <div class="flex-1">
-        <input type="text" placeholder="Australia"
-               class="w-full border border-gray-300 dark:border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white" />
+      <div class="w-full md:flex-1">
+        {{ callback_request_form.country }}
       </div>
-      <div class="flex-1">
-        <input type="tel" placeholder="+977 Phone number"
-               class="w-full border border-gray-300 dark:border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white" />
+      <div class="w-full md:flex-1">
+        {{ callback_request_form.contact_number }}
       </div>
-      <div>
-        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded transition-colors duration-300">
+      <div class="w-full md:w-auto">
+        <button type="submit" class="bg-[#1052a0] hover:bg-[#4178be] text-white px-5 py-2 rounded transition-colors duration-300">
           Request a Callback
         </button>
       </div>
@@ -136,7 +135,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div data-aos="fade-up" data-aos-delay="100" class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg hover:scale-105 transform transition-all duration-500">
-                <div class="text-blue-500 mb-4 text-3xl"><i class="fa-solid fa-globe"></i></div>
+                <div class="text-[#1052a0] mb-4 text-3xl"><i class="fa-solid fa-globe"></i></div>
                 <h3 class="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">Global Opportunities</h3>
                 <p class="text-gray-700 dark:text-gray-300">
                     Explore top destinations worldwide with personalized guidance.
@@ -144,7 +143,7 @@
             </div>
 
             <div data-aos="fade-up" data-aos-delay="200" class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg hover:scale-105 transform transition-all duration-500">
-                <div class="text-blue-500 mb-4 text-3xl"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div class="text-[#1052a0] mb-4 text-3xl"><i class="fa-solid fa-graduation-cap"></i></div>
                 <h3 class="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">Expert Guidance</h3>
                 <p class="text-gray-700 dark:text-gray-300">
                     Receive advice from experienced counselors for study abroad programs.
@@ -152,7 +151,7 @@
             </div>
 
             <div data-aos="fade-up" data-aos-delay="300" class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg hover:scale-105 transform transition-all duration-500">
-                <div class="text-blue-500 mb-4 text-3xl"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                <div class="text-[#1052a0] mb-4 text-3xl"><i class="fa-solid fa-file-invoice-dollar"></i></div>
                 <h3 class="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">Affordable Packages</h3>
                 <p class="text-gray-700 dark:text-gray-300">
                     Transparent pricing and cost-effective solutions for every student.
@@ -523,7 +522,7 @@
             <li>Personalized band improvement plan</li>
           </ul>
         </div>
-        <a href="#ielts-pte-booking" class="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-full transition duration-300">
+        <a href="#ielts-pte-booking" class="mt-6 inline-block bg-[#1052a0] hover:bg-[#4178be] text-white py-2 px-6 rounded-full transition duration-300">
           Book Now
         </a>
       </div>
@@ -545,7 +544,7 @@
             <li>Flexible timing for working students</li>
           </ul>
         </div>
-        <a href="#ielts-pte-booking" class="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-full transition duration-300">
+        <a href="#ielts-pte-booking" class="mt-6 inline-block bg-[#1052a0] hover:bg-[#4178be] text-white py-2 px-6 rounded-full transition duration-300">
           Book Now
         </a>
       </div>
@@ -567,7 +566,7 @@
             <li>Free practice mock access</li>
           </ul>
         </div>
-        <a href="#ielts-pte-booking" class="mt-6 inline-block bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-full transition duration-300">
+        <a href="#ielts-pte-booking" class="mt-6 inline-block bg-[#1052a0] hover:bg-[#4178be] text-white py-2 px-6 rounded-full transition duration-300">
           Book Now
         </a>
       </div>
@@ -614,63 +613,41 @@
       </p>
 
       <form action="#" method="POST" class="space-y-5">
+        {% csrf_token %}
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label for="full-name" class="block text-gray-700 dark:text-gray-300 mb-2">Full Name</label>
-            <input type="text" id="full-name" name="full_name" required
-                   class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
+            {{ book_test_form.full_name }}
           </div>
           <div>
             <label for="email" class="block text-gray-700 dark:text-gray-300 mb-2">Email</label>
-            <input type="email" id="email" name="email" required
-                   class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
+            {{ book_test_form.email }}
           </div>
         </div>
-
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label for="contact" class="block text-gray-700 dark:text-gray-300 mb-2">Contact Number</label>
-            <input type="text" id="contact" name="contact" required
-                   class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
+            <label for="contact-number" class="block text-gray-700 dark:text-gray-300 mb-2">Contact Number</label>
+            {{ book_test_form.contact_number }}
           </div>
           <div>
             <label for="preferred-date" class="block text-gray-700 dark:text-gray-300 mb-2">Preferred Date</label>
-            <input type="date" id="preferred-date" name="preferred_date" required
-                   class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
+            {{ book_test_form.preferred_date }}
           </div>
         </div>
-
         <div>
           <label for="test-type" class="block text-gray-700 dark:text-gray-300 mb-2">Test Type</label>
-          <select id="test-type" name="test_type" required
-                  class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
-            <option value="">Select Test</option>
-            <option>IELTS Academic</option>
-            <option>IELTS General</option>
-            <option>PTE Academic</option>
-          </select>
+          {{ book_test_form.test_type }}
         </div>
-
         <div>
           <label for="test-mode" class="block text-gray-700 dark:text-gray-300 mb-2">Test Mode</label>
-          <select id="test-mode" name="test_mode"
-                  class="w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500">
-            <option value="">Select Mode</option>
-            <option>Online</option>
-            <option>Offline (In-Person)</option>
-          </select>
+          {{ book_test_form.test_mode }}
         </div>
-
         <div class="flex items-start space-x-3">
-          <input type="checkbox" id="consent" name="consent" required
-                 class="mt-1 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
-          <label for="consent" class="text-gray-700 dark:text-gray-300">
-            I confirm that the provided information is accurate and agree to be contacted by StudyEdge.
-          </label>
+          {{ book_test_form.confirmation_status }}
+          <label for="confirmation-status" class="text-gray-700 dark:text-gray-300"></label>{{ book_test_form.confirmation_status.label }}</label>
         </div>
-
         <button type="submit"
-                class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg transition-all duration-300 font-semibold shadow-md">
+                class="w-full bg-[#1052a0] hover:bg-[#4178be] text-white py-3 rounded-lg transition-all duration-300 font-semibold shadow-md">
           Book My Test
         </button>
       </form>
@@ -689,22 +666,22 @@
 
       <ul class="space-y-3 text-gray-700 dark:text-gray-300">
         <li class="flex items-start">
-          <span class="text-blue-600 font-bold mr-2">✔</span> Accepted by thousands of universities and institutions worldwide.
+          <span class="text-[#1052a0] font-bold mr-2">✔</span> Accepted by thousands of universities and institutions worldwide.
         </li>
         <li class="flex items-start">
-          <span class="text-blue-600 font-bold mr-2">✔</span> Improves your chances of visa approval and scholarship eligibility.
+          <span class="text-[#1052a0] font-bold mr-2">✔</span> Improves your chances of visa approval and scholarship eligibility.
         </li>
         <li class="flex items-start">
-          <span class="text-blue-600 font-bold mr-2">✔</span> Demonstrates strong communication and comprehension skills.
+          <span class="text-[#1052a0] font-bold mr-2">✔</span> Demonstrates strong communication and comprehension skills.
         </li>
         <li class="flex items-start">
-          <span class="text-blue-600 font-bold mr-2">✔</span> Opens pathways for migration and global employment.
+          <span class="text-[#1052a0] font-bold mr-2">✔</span> Opens pathways for migration and global employment.
         </li>
       </ul>
 
       <div class="mt-8">
         <a href="#"
-           class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold shadow-md transition-all duration-300">
+           class="inline-block bg-[#1052a0] hover:bg-[#4178be] text-white px-6 py-3 rounded-lg font-semibold shadow-md transition-all duration-300">
           Learn More About IELTS & PTE
         </a>
       </div>
@@ -759,7 +736,7 @@
 <section id="cta" data-aos="fade-up" class="bg-white dark:bg-gray-900 transition-colors duration-500 py-20 text-center">
     <h2 class="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Ready to start your journey?</h2>
     <p class="text-lg mb-8 text-gray-700 dark:text-gray-300">Join thousands of students who trust StudyEdge for their abroad education.</p>
-    <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
+    <a href="#" class="bg-[#1052a0] hover:bg-[#4178be] text-white px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
         Get Started Today
     </a>
 </section>

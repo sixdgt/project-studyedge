@@ -13,15 +13,24 @@ class BookTest(models.Model):
         ('OET', 'OET'),
         ('Duolingo Test', 'Duolingo Test'),
     ]
+    MODE_CHOICES = [
+        ('In-Person', 'In-Person'),
+        ('Online', 'Online'),
+    ]
+    
     full_name = models.CharField(max_length=255)
-    email = models.EmailField(unique=True)
+    email = models.EmailField(unique=True, db_index=True)
     contact_number = models.CharField(max_length=20)
     preferred_date = models.DateField()
     test_type = models.CharField(choices=TEST_CHOICES, max_length=50)
-    test_mode = models.CharField(max_length=50)
+    test_mode = models.CharField(choices=MODE_CHOICES, max_length=50)
     confirmation_status = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name_plural = 'Book Tests'
 
     def __str__(self):
         return f"{self.full_name} - {self.test_type} on {self.preferred_date}"
@@ -30,6 +39,12 @@ class CallbackRequest(models.Model):
     full_name = models.CharField(max_length=255)
     country = models.CharField(max_length=100)
     contact_number = models.CharField(max_length=20)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name_plural = 'Callback Requests'
 
     def __str__(self):
         return f"{self.full_name} - {self.contact_number}"
@@ -63,8 +78,9 @@ class CounsellingAppointment(models.Model):
         ('In-Person', 'In-Person'),
         ('Online', 'Online'),
     ]
+    
     full_name = models.CharField(max_length=255)
-    email = models.EmailField(unique=True)
+    email = models.EmailField(unique=True, db_index=True)
     contact_number = models.CharField(max_length=20)
     address = models.CharField(max_length=255)
     preferred_date = models.DateField()
@@ -76,6 +92,10 @@ class CounsellingAppointment(models.Model):
     accept_terms = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name_plural = 'Counselling Appointments'
 
     def __str__(self):
         return f"{self.full_name} - {self.preferred_date} at {self.preferred_time}"
