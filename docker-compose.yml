@@ -1,0 +1,25 @@
+services:
+  db:
+    image: postgres:18
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - web
+    env_file:
+      - ./.env
+    ports:
+      - 5432:5432
+  web:
+    depends_on:
+      - db
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./static/:/home/studyedge/static/
+    ports:
+      - 8000:8000
+    entrypoint: ["/bin/sh", "/home/studyedge/entrypoint.sh"]
+volumes:
+  postgres_data:
+networks:
+  web:
