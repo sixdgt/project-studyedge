@@ -17,4 +17,7 @@ RUN python -m pip install --upgrade pip
 RUN pip install gunicorn
 RUN pip install pipenv
 RUN pipenv install --deploy --ignore-pipfile --system
+
+RUN which npm
+
 RUN python manage.py tailwind build
