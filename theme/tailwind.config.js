@@ -2,6 +2,7 @@
 module.exports = {
   content: [
     './templates/**/*.html',
+    '../**/templates/**/*.html',
     './static_src/js/**/*.js',
   ],
   darkMode: 'class', // <-- important

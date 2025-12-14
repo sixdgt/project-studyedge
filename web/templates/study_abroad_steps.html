@@ -1,161 +1,480 @@
 {% extends "base.html" %}
-{% load static %}
-
+{% block title %}Study Abroad Steps | StudyEdge{% endblock %}
 {% block content %}
-<!-- Header -->
-<section class="bg-blue-400 text-white py-20 text-center">
-  <div class="max-w-4xl mx-auto px-6">
-    <h1 class="text-4xl font-bold mb-4">Study Abroad Steps</h1>
-    <p class="text-lg opacity-90">Your complete step-by-step guide to studying abroad with StudyEdge</p>
-  </div>
-</section>
+<style>
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .animate-fade-in-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-400 { animation-delay: 0.4s; }
+    
+    .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                    transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .animate-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .timeline-step {
+        position: relative;
+    }
+    
+    @media (min-width: 1024px) {
+        .timeline-step:not(:last-child)::before {
+            content: "";
+            position: absolute;
+            top: 80px;
+            bottom: -80px;
+            left: 50%;
+            width: 3px;
+            background: linear-gradient(to bottom, #cbd5e1 0%, #cbd5e1 100%);
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+    }
+    
+    .gradient-text {
+        background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .floating-blob {
+        animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(5deg); }
+    }
+</style>
 
-<!-- Study Steps Section -->
-<section id="study-steps" class="relative bg-white dark:bg-gray-900 py-20 transition-colors duration-500 overflow-hidden">
-  <div class="max-w-6xl mx-auto px-6 lg:px-8 relative">
-
-    <!-- Snake Connector SVG (decorative flow line) -->
-    <svg class="absolute left-1/2 top-0 transform -translate-x-1/2 z-0 hidden md:block" width="6" height="100%" viewBox="0 0 6 1000" preserveAspectRatio="none">
-      <path d="M3 0 
-               C 150 150, -150 300, 3 450
-               S 150 750, 3 900 
-               S -150 1050, 3 1200"
-            stroke="#2563eb" stroke-width="4" fill="none" stroke-linecap="round" stroke-dasharray="10 12" />
-    </svg>
-
-    <div class="space-y-32 relative z-10">
-
-      <!-- Step 1 -->
-      <div data-aos="fade-up" class="grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <img src="{% static 'images/contents/why-study-abroad.jpg' %}" alt="Why Study Abroad"
-               class="rounded-2xl shadow-lg w-full object-cover">
-        </div>
-        <div>
-          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">1. Why Study Abroad?</h2>
-          <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-            Studying abroad is one of the most rewarding decisions you can make for your future. 
-            It allows you to experience a new culture, gain global exposure, and access internationally 
-            recognized qualifications. For Nepalese students, studying abroad provides access to 
-            modern facilities, innovative teaching methods, and a chance to become globally competitive 
-            in today’s fast-changing job market.
-          </p>
-          <p class="text-gray-700 dark:text-gray-300 mt-4 leading-relaxed">
-            Beyond academics, it helps you grow personally — building independence, adaptability, 
-            and communication skills that employers around the world value highly.
-          </p>
-        </div>
-      </div>
-
-      <!-- Step 2 -->
-      <div data-aos="fade-up" class="grid md:grid-cols-2 gap-10 items-center md:flex-row-reverse">
-        <div>
-          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">2. Where and What to Study?</h2>
-          <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-            Choosing the right destination and course is crucial for your success. 
-            Each country offers unique advantages — Australia and Canada are known for post-study work opportunities, 
-            the UK for globally respected degrees, and the USA for research-driven programs.
-          </p>
-          <p class="text-gray-700 dark:text-gray-300 mt-4 leading-relaxed">
-            At <span class="font-semibold text-blue-600 dark:text-blue-400">StudyEdge</span>, we help you identify 
-            your academic strengths, budget, and long-term goals to recommend the best universities and programs 
-            that align with your future career path. We focus on finding the “perfect fit” — not just any university.
-          </p>
-        </div>
-        <div>
-          <img src="{% static 'images/contents/where-to-study.jpg' %}" alt="Where and What to Study"
-               class="rounded-2xl shadow-lg w-full object-cover">
-        </div>
-      </div>
-
-      <!-- Step 3 -->
-      <div data-aos="fade-up" class="grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <img src="{% static 'images/contents/how-to-apply.jpg' %}" alt="How Do I Apply?"
-               class="rounded-2xl shadow-lg w-full object-cover">
-        </div>
-        <div>
-          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">3. How Do I Apply?</h2>
-          <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-            Once your destination and course are finalized, the application journey begins. 
-            <span class="font-semibold text-blue-600 dark:text-blue-400">StudyEdge</span> handles the complete process — 
-            from preparing your Statement of Purpose (SOP), recommendation letters, and academic documentation, 
-            to submitting university applications.
-          </p>
-          <p class="text-gray-700 dark:text-gray-300 mt-4 leading-relaxed">
-            Our expert team ensures your profile stands out and meets university criteria. 
-            We also guide you in fulfilling English test requirements (IELTS, PTE, or Duolingo) 
-            and keep you informed at every stage of the application.
-          </p>
-        </div>
-      </div>
-
-      <!-- Step 4 -->
-      <div data-aos="fade-up" class="grid md:grid-cols-2 gap-10 items-center md:flex-row-reverse">
-        <div>
-          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">4. After Receiving an Offer</h2>
-          <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-            Congratulations on receiving your offer letter! At this stage, it’s important to 
-            understand your next steps. StudyEdge assists you with offer acceptance, paying 
-            the initial tuition deposit, and obtaining your Confirmation of Enrolment (CoE) or CAS letter.
-          </p>
-          <p class="text-gray-700 dark:text-gray-300 mt-4 leading-relaxed">
-            Our counsellors also help you prepare your financial documents, health insurance (if applicable), 
-            and other formalities to ensure your visa process is smooth and timely.
-          </p>
-        </div>
-        <div>
-          <img src="{% static 'images/contents/after-offer.jpg' %}" alt="After Receiving an Offer"
-               class="rounded-2xl shadow-lg w-full object-cover">
-        </div>
-      </div>
-
-      <!-- Step 5 -->
-      <div data-aos="fade-up" class="grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <img src="{% static 'images/contents/prepare-to-depart.jpg' %}" alt="Prepare to Depart"
-               class="rounded-2xl shadow-lg w-full object-cover">
-        </div>
-        <div>
-          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">5. Prepare to Depart</h2>
-          <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-            As your visa gets approved, it’s time to prepare for departure! We guide you through every detail — 
-            flight booking, travel insurance, accommodation arrangements, airport pickup services, 
-            and even what to pack for your new life abroad.
-          </p>
-          <p class="text-gray-700 dark:text-gray-300 mt-4 leading-relaxed">
-            StudyEdge also conducts pre-departure orientation sessions to help you adapt 
-            to the new culture, understand local laws, and manage your finances smartly.
-          </p>
-        </div>
-      </div>
-
-      <!-- Step 6 -->
-      <div data-aos="fade-up" class="grid md:grid-cols-2 gap-10 items-center md:flex-row-reverse">
-        <div>
-          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">6. Arrive and Thrive</h2>
-          <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-            Your journey doesn’t end when you land — it begins! Once you arrive, 
-            our support continues. We help you connect with student communities, 
-            learn about part-time job opportunities, and adjust to your academic environment with confidence.
-          </p>
-          <p class="text-gray-700 dark:text-gray-300 mt-4 leading-relaxed">
-            Whether it’s opening a bank account, managing your schedule, or finding 
-            local contacts, StudyEdge ensures you settle in comfortably and thrive 
-            in your new home away from home.
-          </p>
-        </div>
-        <div>
-          <img src="{% static 'images/contents/arrive-and-thrive.jpg' %}" alt="Arrive and Thrive"
-               class="rounded-2xl shadow-lg w-full object-cover">
-        </div>
-      </div>
+<!-- Hero Section -->
+<section id="hero" class="relative bg-gradient-to-br from-blue-600 to-[#17d05e] text-white py-24 md:py-36 overflow-hidden">
+    <!-- Decorative Background Elements -->
+    <div class="absolute inset-0 opacity-30 pointer-events-none">
+        <div class="absolute w-96 h-96 bg-white/10 rounded-full -top-48 -left-48 blur-3xl floating-blob"></div>
+        <div class="absolute w-80 h-80 bg-purple-400/20 rounded-full -bottom-32 -right-32 blur-3xl floating-blob" style="animation-delay: 1s;"></div>
     </div>
-  </div>
+    
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
+        <!-- Badge -->
+        <div class="inline-block bg-yellow-400 text-gray-900 px-6 py-2 rounded-full mb-6 shadow-lg transform transition duration-500 hover:scale-105 animate-fade-in-up">
+            <span class="text-sm font-semibold tracking-wider">🚀 Your Future Starts Here</span>
+        </div>
+        
+        <!-- Main Heading -->
+        <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold mb-6 text-white drop-shadow-2xl animate-fade-in-up">
+            Study Abroad <span class="text-yellow-400">Roadmap</span>
+        </h1>
+        
+        <!-- Subtitle -->
+        <p class="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed animate-fade-in-up delay-200">
+            Your complete interactive guide to studying abroad with <span class="font-bold text-yellow-300">StudyEdge</span> — simplified into 6 clear steps.
+        </p>
+        
+        <!-- Step Navigation -->
+        <div class="mt-16 flex flex-wrap justify-center gap-4 animate-fade-in-up delay-400">
+            <a href="#step-1" class="relative group cursor-pointer transition-transform duration-300 hover:scale-110">
+                <div class="w-14 h-14 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center font-bold text-lg border-2 border-white/30 transition-all duration-300 group-hover:bg-yellow-400 group-hover:text-gray-900 group-hover:border-yellow-400 shadow-xl">
+                    1
+                </div>
+                <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium">
+                    Step 1
+                </div>
+            </a>
+            <a href="#step-2" class="relative group cursor-pointer transition-transform duration-300 hover:scale-110">
+                <div class="w-14 h-14 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center font-bold text-lg border-2 border-white/30 transition-all duration-300 group-hover:bg-yellow-400 group-hover:text-gray-900 group-hover:border-yellow-400 shadow-xl">
+                    2
+                </div>
+                <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium">
+                    Step 2
+                </div>
+            </a>
+            <a href="#step-3" class="relative group cursor-pointer transition-transform duration-300 hover:scale-110">
+                <div class="w-14 h-14 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center font-bold text-lg border-2 border-white/30 transition-all duration-300 group-hover:bg-yellow-400 group-hover:text-gray-900 group-hover:border-yellow-400 shadow-xl">
+                    3
+                </div>
+                <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium">
+                    Step 3
+                </div>
+            </a>
+            <a href="#step-4" class="relative group cursor-pointer transition-transform duration-300 hover:scale-110">
+                <div class="w-14 h-14 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center font-bold text-lg border-2 border-white/30 transition-all duration-300 group-hover:bg-yellow-400 group-hover:text-gray-900 group-hover:border-yellow-400 shadow-xl">
+                    4
+                </div>
+                <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium">
+                    Step 4
+                </div>
+            </a>
+            <a href="#step-5" class="relative group cursor-pointer transition-transform duration-300 hover:scale-110">
+                <div class="w-14 h-14 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center font-bold text-lg border-2 border-white/30 transition-all duration-300 group-hover:bg-yellow-400 group-hover:text-gray-900 group-hover:border-yellow-400 shadow-xl">
+                    5
+                </div>
+                <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium">
+                    Step 5
+                </div>
+            </a>
+            <a href="#step-6" class="relative group cursor-pointer transition-transform duration-300 hover:scale-110">
+                <div class="w-14 h-14 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center font-bold text-lg border-2 border-white/30 transition-all duration-300 group-hover:bg-yellow-400 group-hover:text-gray-900 group-hover:border-yellow-400 shadow-xl">
+                    6
+                </div>
+                <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium">
+                    Step 6
+                </div>
+            </a>
+        </div>
+    </div>
 </section>
 
+<!-- Steps Section -->
+<section id="study-steps" class="relative bg-white py-20 md:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="space-y-24 lg:space-y-32">
 
-<!-- Student Support Form -->
+            <!-- Step 1 -->
+            <div id="step-1" class="relative group timeline-step">
+                <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                    <div class="relative animate-on-scroll">
+                        <div class="rounded-3xl overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-[1.02] border-4 border-blue-200">
+                            <div class="w-full h-80 md:h-96 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                                <i class="fas fa-globe text-white text-8xl opacity-30"></i>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 flex items-center">
+                                <i class="fas fa-globe text-white text-3xl mr-3"></i>
+                                <h4 class="text-white text-xl font-bold">Global Opportunity</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="animate-on-scroll">
+                        <div class="inline-flex items-center mb-6">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 flex items-center justify-center text-white font-extrabold text-xl mr-4 shadow-lg">
+                                1
+                            </div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+                                Why Study Abroad?
+                            </h2>
+                        </div>
+                        <div class="space-y-6">
+                            <p class="text-lg text-gray-700 leading-relaxed">
+                                Studying abroad is one of the most <strong>rewarding decisions</strong> you can make for your future. It allows you to experience a new culture, gain global exposure, and access internationally recognized qualifications.
+                            </p>
+                            <div class="bg-blue-50 p-5 rounded-xl border-l-4 border-blue-600 shadow-sm">
+                                <p class="text-gray-700 italic">
+                                    <span class="font-bold text-blue-600">For Nepalese students:</span> 
+                                    Gain access to modern facilities, innovative teaching methods, and become globally competitive in the fast-changing job market.
+                                </p>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed">
+                                Beyond academics, it helps you grow personally — building independence, adaptability, and communication skills that employers around the world value highly.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div id="step-2" class="relative group timeline-step">
+                <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                    <div class="relative animate-on-scroll lg:order-2">
+                        <div class="rounded-3xl overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-[1.02] border-4 border-green-200">
+                            <div class="w-full h-80 md:h-96 bg-gradient-to-br from-green-400 to-teal-600 flex items-center justify-center">
+                                <i class="fas fa-search-location text-white text-8xl opacity-30"></i>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-green-900/60 to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 flex items-center">
+                                <i class="fas fa-search-location text-white text-3xl mr-3"></i>
+                                <h4 class="text-white text-xl font-bold">Strategic Planning</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="animate-on-scroll lg:order-1">
+                        <div class="inline-flex items-center mb-6">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-green-500 to-teal-500 flex items-center justify-center text-white font-extrabold text-xl mr-4 shadow-lg">
+                                2
+                            </div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+                                Where and What to Study?
+                            </h2>
+                        </div>
+                        <div class="space-y-6">
+                            <p class="text-lg text-gray-700 leading-relaxed">
+                                Choosing the <strong>right destination and course</strong> is crucial for your success. Each country offers unique advantages — Australia and Canada for work opportunities, the UK for respected degrees, and the USA for research-driven programs.
+                            </p>
+                            
+                            <div class="p-4 bg-white rounded-xl shadow-md border border-gray-200">
+                                <div class="flex items-start space-x-3">
+                                    <i class="fas fa-chart-line text-2xl text-green-500 pt-1"></i>
+                                    <div>
+                                        <p class="text-base font-bold text-gray-900">The "Perfect Fit" Assessment</p>
+                                        <p class="text-sm text-gray-600">At <span class="font-bold text-green-600">StudyEdge</span>, we align your academic strengths, budget, and long-term goals to recommend the best programs and universities that fit your future career path.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <p class="text-gray-700 leading-relaxed">
+                                We focus on finding the best return on investment for your education.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div id="step-3" class="relative group timeline-step">
+                <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                    <div class="relative animate-on-scroll">
+                        <div class="rounded-3xl overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-[1.02] border-4 border-yellow-200">
+                            <div class="w-full h-80 md:h-96 bg-gradient-to-br from-yellow-400 to-orange-600 flex items-center justify-center">
+                                <i class="fas fa-file-alt text-white text-8xl opacity-30"></i>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-yellow-900/60 to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 flex items-center">
+                                <i class="fas fa-file-alt text-white text-3xl mr-3"></i>
+                                <h4 class="text-white text-xl font-bold">Paperwork Perfected</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="animate-on-scroll">
+                        <div class="inline-flex items-center mb-6">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 flex items-center justify-center text-white font-extrabold text-xl mr-4 shadow-lg">
+                                3
+                            </div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+                                How Do I Apply?
+                            </h2>
+                        </div>
+                        <div class="space-y-6">
+                            <p class="text-lg text-gray-700 leading-relaxed">
+                                The application demands precision. <span class="font-semibold text-yellow-600">StudyEdge</span> handles the complete process — from preparing your Statement of Purpose (SOP) and academic documentation, to submitting university applications.
+                            </p>
+                            
+                            <ul class="space-y-2 text-gray-700 bg-yellow-50 p-4 rounded-xl shadow-inner">
+                                <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> SOP, LOR, and CV preparation assistance.</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> English Test (IELTS/PTE/Duolingo) requirement guidance.</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Timely submission to multiple universities.</li>
+                            </ul>
+                            
+                            <p class="text-gray-700 leading-relaxed">
+                                Our expert team ensures your profile stands out and maximizes your acceptance rate.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div id="step-4" class="relative group timeline-step">
+                <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                    <div class="relative animate-on-scroll lg:order-2">
+                        <div class="rounded-3xl overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-[1.02] border-4 border-purple-200">
+                            <div class="w-full h-80 md:h-96 bg-gradient-to-br from-purple-400 to-pink-600 flex items-center justify-center">
+                                <i class="fas fa-trophy text-white text-8xl opacity-30"></i>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-purple-900/60 to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 flex items-center">
+                                <i class="fas fa-trophy text-white text-3xl mr-3"></i>
+                                <h4 class="text-white text-xl font-bold">Acceptance Secured</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="animate-on-scroll lg:order-1">
+                        <div class="inline-flex items-center mb-6">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white font-extrabold text-xl mr-4 shadow-lg">
+                                4
+                            </div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+                                After Receiving an Offer
+                            </h2>
+                        </div>
+                        <div class="space-y-6">
+                            <p class="text-lg text-gray-700 leading-relaxed">
+                                Congratulations! You have received your offer letter. StudyEdge assists you with offer acceptance, paying the initial tuition deposit, and obtaining your Confirmation of Enrolment (CoE) or CAS letter — the main document for your visa application.
+                            </p>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="p-3 bg-purple-100 rounded-lg text-center font-medium text-gray-800">
+                                    <i class="fas fa-file-signature text-purple-600 mr-1"></i> Offer Acceptance
+                                </div>
+                                <div class="p-3 bg-pink-100 rounded-lg text-center font-medium text-gray-800">
+                                    <i class="fas fa-money-check-alt text-pink-600 mr-1"></i> Tuition Payment Guidance
+                                </div>
+                            </div>
+                            
+                            <p class="text-gray-700 leading-relaxed">
+                                We also help you prepare your financial documents, health insurance (OSHC, etc.), and other formalities to ensure your transition to the visa stage is smooth and timely.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div id="step-5" class="relative group timeline-step">
+                <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                    <div class="relative animate-on-scroll">
+                        <div class="rounded-3xl overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-[1.02] border-4 border-red-200">
+                            <div class="w-full h-80 md:h-96 bg-gradient-to-br from-red-400 to-orange-600 flex items-center justify-center">
+                                <i class="fas fa-plane-departure text-white text-8xl opacity-30"></i>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-red-900/60 to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 flex items-center">
+                                <i class="fas fa-plane-departure text-white text-3xl mr-3"></i>
+                                <h4 class="text-white text-xl font-bold">Visa & Departure Prep</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="animate-on-scroll">
+                        <div class="inline-flex items-center mb-6">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-red-500 to-orange-500 flex items-center justify-center text-white font-extrabold text-xl mr-4 shadow-lg">
+                                5
+                            </div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+                                Prepare to Depart
+                            </h2>
+                        </div>
+                        <div class="space-y-6">
+                            <p class="text-lg text-gray-700 leading-relaxed">
+                                The <strong>visa application</strong> is the most sensitive step. Our dedicated team provides mock interviews, meticulous financial documentation support, and full submission management to maximize your success.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-3">
+                                <span class="inline-flex items-center px-4 py-2 bg-orange-100 rounded-full text-sm font-medium text-orange-700">
+                                    <i class="fas fa-passport mr-2"></i> Visa Interview Prep
+                                </span>
+                                <span class="inline-flex items-center px-4 py-2 bg-red-100 rounded-full text-sm font-medium text-red-700">
+                                    <i class="fas fa-route mr-2"></i> Pre-Departure Orientation
+                                </span>
+                            </div>
+                            
+                            <p class="text-gray-700 leading-relaxed">
+                                Once approved, we coordinate your pre-departure details: flight booking, insurance, accommodation arrangements, and even what to pack for your new life abroad!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 6 -->
+            <div id="step-6" class="relative group timeline-step">
+                <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                    <div class="relative animate-on-scroll lg:order-2">
+                        <div class="rounded-3xl overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-[1.02] border-4 border-teal-200">
+                            <div class="w-full h-80 md:h-96 bg-gradient-to-br from-teal-400 to-cyan-600 flex items-center justify-center">
+                                <i class="fas fa-check-double text-white text-8xl opacity-30"></i>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-teal-900/60 to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 flex items-center">
+                                <i class="fas fa-check-double text-white text-3xl mr-3"></i>
+                                <h4 class="text-white text-xl font-bold">Post-Arrival Success</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="animate-on-scroll lg:order-1">
+                        <div class="inline-flex items-center mb-6">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-teal-500 to-cyan-500 flex items-center justify-center text-white font-extrabold text-xl mr-4 shadow-lg">
+                                6
+                            </div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+                                Arrive and Thrive
+                            </h2>
+                        </div>
+                        <div class="space-y-6">
+                            <p class="text-lg text-gray-700 leading-relaxed">
+                                Your journey doesn't end when you land — it begins! Our <strong>post-arrival support</strong> ensures you settle in comfortably and thrive in your new home away from home.
+                            </p>
+                            
+                            <div class="bg-teal-50 p-5 rounded-xl border-l-4 border-teal-600 shadow-sm">
+                                <ul class="text-sm font-medium space-y-2">
+                                    <li class="flex items-center text-gray-800"><i class="fas fa-users mr-2 text-teal-600"></i> Student Community Connect and Networking.</li>
+                                    <li class="flex items-center text-gray-800"><i class="fas fa-briefcase mr-2 text-cyan-600"></i> Part-time Job Search Guidance.</li>
+                                    <li class="flex items-center text-gray-800"><i class="fas fa-money-bill-wave mr-2 text-green-600"></i> Settling in: Bank Account and Mobile Setup.</li>
+                                </ul>
+                            </div>
+                            
+                            <p class="text-gray-700 leading-relaxed">
+                                Whether it's managing your schedule or finding local contacts, StudyEdge is always there to ensure your transition is successful.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% include "components/student_support_form.html" %}
+<!-- CTA Section -->
+<section class="bg-gradient-to-r from-blue-600 to-green-700 py-20 md:py-28 text-center">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-white">
+            Ready to Start Your Global Future?
+        </h2>
+        <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Let our expert counsellors guide you through every step of this roadmap with zero confusion and maximum confidence.
+        </p>
+        <a href="#contact" class="inline-flex items-center bg-yellow-400 text-blue-900 hover:bg-yellow-300 px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 shadow-xl">
+            <i class="fas fa-headset mr-3"></i> Book a Free Consultation
+        </a>
+    </div>
+</section>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Scroll-Based Visibility for Timeline Steps
+    const sections = document.querySelectorAll('.animate-on-scroll');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetID = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetID);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+});
+</script>
 {% endblock %}

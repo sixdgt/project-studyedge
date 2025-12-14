@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "57c0455191c7c44692b68b2b665d34204af800fc801bf856a4f053d856772651"
+            "sha256": "f6e732f2cb555a7907932b75a51dc968bbf28b9c069d926c8f8a88f06068e5da"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -44,12 +44,12 @@
         },
         "django-tailwind": {
             "hashes": [
-                "sha256:60bae45a9981bdf3ebaaa4a8e588533327c90e5857a64f57c26a39b7f234ac0e",
-                "sha256:ff40ccb263faefac555fbaa340d6014f2b07fee6be2c8d5659f2cd63dbce02e9"
+                "sha256:0e4a2836cb36e8952700457d049fadb8743583017cef80fa3a374f8597c289f4",
+                "sha256:b3a3eb2d22cbb8c17565898fb68ccedcf806542b04fe4107bdfec7035d582819"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.10' and python_version < '4.0'",
-            "version": "==4.2.0"
+            "markers": "python_version >= '3.11'",
+            "version": "==4.4.2"
         },
         "psycopg2": {
             "hashes": [
@@ -65,6 +65,14 @@
             "markers": "python_version >= '3.9'",
             "version": "==2.9.11"
         },
+        "pytailwindcss": {
+            "hashes": [
+                "sha256:1f71dd64020aacb40608dfe8725ca441c772016c344f757ccbc74b8b6143027d",
+                "sha256:a9b770ad3c0a0f40073052bcfe81a060b550fed38af614a472f5aa7bb85fa8aa"
+            ],
+            "markers": "python_version >= '3.11' and python_version < '4.0'",
+            "version": "==0.3.0"
+        },
         "sqlparse": {
             "hashes": [
                 "sha256:4396a7d3cf1cd679c1be976cf3dc6e0a51d0111e87787e7a8d780e7d5a998f9e",
@@ -75,11 +83,11 @@
         },
         "tzdata": {
             "hashes": [
-                "sha256:1a403fada01ff9221ca8044d701868fa132215d84beb92242d9acd2147f667a8",
-                "sha256:b60a638fcc0daffadf82fe0f57e53d06bdec2f36c4df66280ae79bce6bd6f2b9"
+                "sha256:06a47e5700f3081aab02b2e513160914ff0694bce9947d6b76ebd6bf57cfc5d1",
+                "sha256:de39c2ca5dc7b0344f2eba86f49d614019d29f060fc4ebc8a417896a620b56a7"
             ],
             "markers": "python_version >= '2'",
-            "version": "==2025.2"
+            "version": "==2025.3"
         }
     },
     "develop": {}

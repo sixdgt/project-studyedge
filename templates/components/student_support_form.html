@@ -1,27 +1,451 @@
 {% load static %}
-
-<section id="student-support" class="bg-gray-50 dark:bg-gray-900 py-20 transition-colors duration-500">
-    <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center">{{ student_support_title }}</h2>
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
-        <!-- Left Image -->
-        <div data-aos="fade-right" class="flex justify-center">
-            <img src="{% static 'images/contents/student-support.jpg' %}" alt="Student Support" class="rounded-2xl shadow-lg w-full max-w-md object-cover">
-        </div>
-
-        <!-- Right Form -->
-        <div data-aos="fade-left" class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
-            <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center">Enter your details and get a free counselling session with our experts</h2>
+<style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
         
-            <form action="#" method="POST" class="space-y-5">
-                {% csrf_token %}
-                {{ form }}
-                
-                <!-- Submit -->
-                <button type="submit"
-                        class="w-full bg-[#1052a0] hover:bg-[#4178be] text-white py-3 rounded-lg transition-all duration-300 font-semibold shadow-md">
-                Submit Details
-                </button>
-            </form>
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .animate-slide-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+        
+        .animate-slide-right {
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+        
+        .form-field {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-field input:focus ~ label,
+        .form-field input:not(:placeholder-shown) ~ label,
+        .form-field select:focus ~ label,
+        .form-field select:not([value=""]) ~ label {
+            transform: translateY(-1.5rem) scale(0.85);
+            color: #1052a0;
+        }
+        
+        .form-field label {
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .gradient-border {
+            position: relative;
+            background: white;
+            border-radius: 1rem;
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 1rem;
+            padding: 2px;
+            background: linear-gradient(135deg, #1052a0, #4178be, #6366f1);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gradient-border:hover::before {
+            opacity: 1;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            transition: color 0.3s ease;
+        }
+
+        .form-field input:focus ~ .input-icon,
+        .form-field select:focus ~ .input-icon {
+            color: #1052a0;
+        }
+
+        .benefit-card {
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .pulse-dot {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .5;
+            }
+        }
+    </style>
+
+<section id="student-support" class="relative py-20 overflow-hidden">
+    <!-- Background Decoration -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-200/30 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-200/30 rounded-full blur-3xl"></div>
+    </div>
+
+    <!-- Title -->
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 mb-12 text-center animate-fade-in-up">
+        <span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">
+            <i class="fas fa-star mr-2"></i>Free Counselling Session
+        </span>
+        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+            Start Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-green-600">Study Abroad Journey</span>
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Connect with our expert counsellors and get personalized guidance for your international education dreams
+        </p>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            
+            <!-- Left Side - Benefits & Image -->
+            <div class="space-y-8 animate-slide-left">
+                <!-- Image Card -->
+                <div class="relative group">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-green-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
+                    <div class="relative bg-white rounded-2xl overflow-hidden shadow-xl">
+                        <div class="aspect-[4/3] bg-gradient-to-br from-blue-500 to-green-600 flex items-center justify-center">
+                            <div class="text-center text-white p-8">
+                                <i class="fas fa-user-graduate text-6xl mb-4 floating-icon"></i>
+                                <h3 class="text-2xl font-bold">Expert Guidance Awaits</h3>
+                                <p class="mt-2 text-blue-100">1000+ Students Successfully Placed</p>
+                            </div>
+                        </div>
+                        <!-- Stats Bar -->
+                        <div class="grid grid-cols-3 divide-x divide-gray-200 bg-white">
+                            <div class="p-4 text-center">
+                                <div class="text-2xl font-bold text-blue-600">15+</div>
+                                <div class="text-xs text-gray-600">Countries</div>
+                            </div>
+                            <div class="p-4 text-center">
+                                <div class="text-2xl font-bold text-gray-600">500+</div>
+                                <div class="text-xs text-gray-600">Universities</div>
+                            </div>
+                            <div class="p-4 text-center">
+                                <div class="text-2xl font-bold text-green-600">95%</div>
+                                <div class="text-xs text-gray-600">Visa Success</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefits Cards -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="benefit-card bg-white p-5 rounded-xl shadow-md border border-gray-100">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
+                            <i class="fas fa-clock text-blue-600 text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-1">Save Time</h4>
+                        <p class="text-sm text-gray-600">Expert guidance shortens your application process</p>
+                    </div>
+                    
+                    <div class="benefit-card bg-white p-5 rounded-xl shadow-md border border-gray-100">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-3">
+                            <i class="fas fa-dollar-sign text-green-600 text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-1">Free Service</h4>
+                        <p class="text-sm text-gray-600">No hidden charges for counselling sessions</p>
+                    </div>
+                    
+                    <div class="benefit-card bg-white p-5 rounded-xl shadow-md border border-gray-100">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-3">
+                            <i class="fas fa-globe text-green-600 text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-1">Global Network</h4>
+                        <p class="text-sm text-gray-600">Access to top universities worldwide</p>
+                    </div>
+                    
+                    <div class="benefit-card bg-white p-5 rounded-xl shadow-md border border-gray-100">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-3">
+                            <i class="fas fa-certificate text-green-600 text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-1">Certified Experts</h4>
+                        <p class="text-sm text-gray-600">Counsellors with years of experience</p>
+                    </div>
+                </div>
+
+                <!-- Trust Indicators -->
+                <div class="bg-gradient-to-r from-blue-600 to-green-600 p-6 rounded-xl text-white">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="relative">
+                            <div class="w-3 h-3 bg-green-400 rounded-full pulse-dot"></div>
+                            <div class="absolute inset-0 w-3 h-3 bg-green-400 rounded-full animate-ping"></div>
+                        </div>
+                        <span class="font-semibold">24/7 Support Available</span>
+                    </div>
+                    <p class="text-sm text-blue-100">Our team is always ready to help you with your queries and concerns throughout your journey.</p>
+                </div>
+            </div>
+
+            <!-- Right Side - Form -->
+            <div class="animate-slide-right">
+                <div class="gradient-border bg-white p-8 rounded-2xl shadow-2xl">
+                    <div class="text-center mb-8">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-green-600 rounded-full mb-4">
+                            <i class="fas fa-calendar-check text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Book Your Free Session</h3>
+                        <p class="text-gray-600">Fill in your details and our experts will reach out to you</p>
+                    </div>
+
+                    <form action="#" method="POST" class="space-y-6" id="counsellingForm">
+                        <!-- Full Name -->
+                        <div class="relative">
+                            <i class="fas fa-user absolute left-4 top-4 text-gray-400"></i>
+                            <input type="text" name="full_name" required
+                                   class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none"
+                                   placeholder="Enter your full name">
+                        </div>
+
+                        <!-- Email -->
+                        <div class="relative">
+                            <i class="fas fa-envelope absolute left-4 top-4 text-gray-400"></i>
+                            <input type="email" name="email" required
+                                   class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none"
+                                   placeholder="Enter your email address">
+                        </div>
+
+                        <!-- Contact Number -->
+                        <div class="relative">
+                            <i class="fas fa-phone absolute left-4 top-4 text-gray-400"></i>
+                            <input type="tel" name="contact_number" required
+                                   class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none"
+                                   placeholder="Enter your contact number">
+                        </div>
+
+                        <!-- Address -->
+                        <div class="relative">
+                            <i class="fas fa-map-marker-alt absolute left-4 top-4 text-gray-400"></i>
+                            <input type="text" name="address" required
+                                   class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none"
+                                   placeholder="Enter your address">
+                        </div>
+
+                        <!-- Date and Time Grid -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="relative">
+                                <i class="fas fa-calendar absolute left-4 top-4 text-gray-400 pointer-events-none z-10"></i>
+                                <input type="date" name="preferred_date" required
+                                       class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none">
+                            </div>
+                            <div class="relative">
+                                <i class="fas fa-clock absolute left-4 top-4 text-gray-400 pointer-events-none z-10"></i>
+                                <input type="time" name="preferred_time" required
+                                       class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none">
+                            </div>
+                        </div>
+
+                        <!-- Preferred Destination -->
+                        <div class="relative">
+                            <i class="fas fa-globe-americas absolute left-4 top-4 text-gray-400 pointer-events-none z-10"></i>
+                            <select name="preferred_destination" required
+                                    class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none appearance-none bg-white">
+                                <option value="">Select Study Destination</option>
+                                <option value="australia">Australia</option>
+                                <option value="canada">Canada</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="usa">United States</option>
+                                <option value="germany">Germany</option>
+                                <option value="ireland">Ireland</option>
+                                <option value="newzealand">New Zealand</option>
+                            </select>
+                            <i class="fas fa-chevron-down absolute right-4 top-4 text-gray-400 pointer-events-none"></i>
+                        </div>
+
+                        <!-- Academic Levels Grid -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="relative">
+                                <i class="fas fa-graduation-cap absolute left-4 top-4 text-gray-400 pointer-events-none z-10"></i>
+                                <select name="current_academic_level" required
+                                        class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none appearance-none bg-white">
+                                    <option value="">Current Level</option>
+                                    <option value="high_school">High School</option>
+                                    <option value="bachelors">Bachelor's</option>
+                                    <option value="masters">Master's</option>
+                                </select>
+                                <i class="fas fa-chevron-down absolute right-4 top-4 text-gray-400 pointer-events-none"></i>
+                            </div>
+                            <div class="relative">
+                                <i class="fas fa-user-graduate absolute left-4 top-4 text-gray-400 pointer-events-none z-10"></i>
+                                <select name="intended_academic_level" required
+                                        class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none appearance-none bg-white">
+                                    <option value="">Intended Level</option>
+                                    <option value="bachelors">Bachelor's</option>
+                                    <option value="masters">Master's</option>
+                                    <option value="phd">PhD</option>
+                                </select>
+                                <i class="fas fa-chevron-down absolute right-4 top-4 text-gray-400 pointer-events-none"></i>
+                            </div>
+                        </div>
+
+                        <!-- Counselling Mode -->
+                        <div class="relative">
+                            <i class="fas fa-video absolute left-4 top-4 text-gray-400 pointer-events-none z-10"></i>
+                            <select name="counselling_mode" required
+                                    class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none appearance-none bg-white">
+                                <option value="">Select Counselling Mode</option>
+                                <option value="online">Online (Video Call)</option>
+                                <option value="in_person">In-Person Visit</option>
+                                <option value="phone">Phone Call</option>
+                            </select>
+                            <i class="fas fa-chevron-down absolute right-4 top-4 text-gray-400 pointer-events-none"></i>
+                        </div>
+
+                        <!-- Terms Checkbox -->
+                        <div class="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg">
+                            <input type="checkbox" name="accept_terms" required
+                                   class="mt-1 w-5 h-5 text-blue-600 border-2 border-gray-300 rounded focus:ring-2 focus:ring-blue-500 cursor-pointer">
+                            <label class="text-sm text-gray-700 cursor-pointer">
+                                I accept the <a href="#" class="text-blue-600 hover:underline font-semibold">terms and conditions</a> and agree to receive communication from StudyEdge regarding my counselling session.
+                            </label>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit"
+                                class="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white py-4 rounded-lg transition-all duration-300 font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-[1.02] flex items-center justify-center group">
+                            <span>Book Free Counselling</span>
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+
+                        <!-- Trust Badge -->
+                        <div class="text-center pt-4">
+                            <div class="flex items-center justify-center gap-2 text-sm text-gray-600">
+                                <i class="fas fa-shield-alt text-green-600"></i>
+                                <span>Your information is 100% secure and confidential</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonial Strip -->
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 mt-16">
+        <div class="bg-white rounded-2xl shadow-lg p-8">
+            <div class="text-center mb-6">
+                <div class="flex justify-center gap-1 mb-2">
+                    <i class="fas fa-star text-yellow-400 text-xl"></i>
+                    <i class="fas fa-star text-yellow-400 text-xl"></i>
+                    <i class="fas fa-star text-yellow-400 text-xl"></i>
+                    <i class="fas fa-star text-yellow-400 text-xl"></i>
+                    <i class="fas fa-star text-yellow-400 text-xl"></i>
+                </div>
+                <p class="text-gray-600 italic">"StudyEdge helped me get admitted to my dream university in Canada. The counselling was professional and the guidance was invaluable!"</p>
+                <p class="text-gray-900 font-semibold mt-3">- Rajesh Kumar, Student at University of Toronto</p>
+            </div>
         </div>
     </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Form validation feedback
+    const form = document.getElementById('counsellingForm');
+    const inputs = form.querySelectorAll('input[required], select[required]');
+    
+    inputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            if (this.value.trim() === '') {
+                this.classList.add('border-red-500');
+                this.classList.remove('border-gray-200');
+            } else {
+                this.classList.remove('border-red-500');
+                this.classList.add('border-green-500');
+            }
+        });
+        
+        input.addEventListener('focus', function() {
+            this.classList.remove('border-red-500', 'border-green-500');
+            this.classList.add('border-blue-500');
+        });
+    });
+
+    // Form submission
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Add loading state to button
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Processing...';
+        submitBtn.disabled = true;
+        
+        // Simulate form submission (replace with actual form submission)
+        setTimeout(() => {
+            alert('Thank you! Your counselling session has been booked. We will contact you shortly.');
+            form.reset();
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }, 2000);
+    });
+
+    // Set minimum date to today
+    const dateInput = form.querySelector('input[type="date"]');
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
+});
+</script>
