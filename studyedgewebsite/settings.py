@@ -17,7 +17,7 @@ import environ
 env = environ.Env()
 environ.Env.read_env(".env")
 
-NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
+NPM_BIN_PATH = "/usr/local/bin/npm"
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
