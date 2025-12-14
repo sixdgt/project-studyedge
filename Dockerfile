@@ -18,4 +18,7 @@ RUN pip install gunicorn
 RUN pip install pipenv
 RUN pipenv install --deploy --ignore-pipfile --system
 
+WORKDIR /home/studyedge/theme
+RUN npm install
+WORKDIR /home/studyedge
 RUN NPM_BIN_PATH="/usr/bin/npm" python manage.py tailwind build
