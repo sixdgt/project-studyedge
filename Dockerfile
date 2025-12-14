@@ -17,3 +17,5 @@ RUN python -m pip install --upgrade pip
 RUN pip install gunicorn
 RUN pip install pipenv
 RUN pipenv install --deploy --ignore-pipfile --system
+RUN python manage.py collectstatic --noinput
+RUN python manage.py tailwindcss build ./theme/static_src/css/tailwind.css -o ./theme/static/css/tailwind.css
