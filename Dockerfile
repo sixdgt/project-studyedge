@@ -18,6 +18,4 @@ RUN pip install gunicorn
 RUN pip install pipenv
 RUN pipenv install --deploy --ignore-pipfile --system
 
-RUN which npm
-
-RUN python manage.py tailwind build
+RUN NPM_BIN_PATH="/usr/local/bin/npm" python manage.py tailwind build
