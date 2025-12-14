@@ -4,7 +4,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONBUFFERED=1
 
 RUN apt update
-RUN apt-get install -y libpq-dev gcc && rm -rf /var/apt/lists/*
+RUN apt-get install -y libpq-dev gcc nodejs npm && rm -rf /var/apt/lists/*
 
 # creating user inside docker
 RUN adduser -h /home/studyedge -s /bin/bash -D -u 2000 studyedge
@@ -17,3 +17,4 @@ RUN python -m pip install --upgrade pip
 RUN pip install gunicorn
 RUN pip install pipenv
 RUN pipenv install --deploy --ignore-pipfile --system
+RUN python manage.py tailwind build
