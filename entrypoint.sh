@@ -1,5 +1,5 @@
 #!/bin/sh
-set -e
+
 if [ "$DATABASE" = "postgres" ]
 then
     echo "Waiting for postgres..."
@@ -8,6 +8,17 @@ then
     done
     echo "PostgreSQL Started"
 fi
+
+cd /home/studyedge
+# --- Auto-create Tailwind theme app if missing ---
+if [ ! -d "theme" ]; then
+    echo "Creating Tailwind app 'theme'..."
+    python manage.py tailwind init --app-name theme --template 1
+fi
+
+# Install & build Tailwind CSS
+echo "Installing Tailwind CSS..."
+python manage.py tailwind install
 
 echo "Building Tailwind CSS..."
 python manage.py tailwind build
