@@ -1,5 +1,5 @@
 #!/bin/sh
-
+set -e
 if [ "$DATABASE" = "postgres" ]
 then
     echo "Waiting for postgres..."
@@ -10,7 +10,6 @@ then
 fi
 
 echo "Building Tailwind CSS..."
-python manage.py tailwind install
 python manage.py tailwind build
 
 echo "Applying Migrations..."
