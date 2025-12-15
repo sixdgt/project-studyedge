@@ -9,6 +9,11 @@ then
     echo "PostgreSQL Started"
 fi
 
+echo "Building Tailwind CSS..."
+python manage.py tailwind install
+python manage.py tailwind build
+
+echo "Applying Migrations..."
 python manage.py migrate
 python manage.py collectstatic --no-input
 
