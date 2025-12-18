@@ -1,0 +1,481 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}About Us | Study Edge Experts{% endblock %}
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'css/about_us.css' %}">
+{% endblock %}
+{% block content %}
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white py-24 md:py-36 overflow-hidden">
+    <!-- Animated Background -->
+    <div class="absolute inset-0 opacity-20">
+        <div class="absolute w-[600px] h-[600px] bg-blue-500/30 rounded-full -top-48 -left-48 blur-3xl animate-pulse"></div>
+        <div class="absolute w-[500px] h-[500px] bg-purple-500/30 rounded-full -bottom-32 -right-32 blur-3xl animate-pulse" style="animation-delay: 1.5s;"></div>
+    </div>
+    
+    <!-- Grid Pattern -->
+    <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <div class="text-center">
+            <!-- Animated Badge -->
+            <div class="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500/20 to-green-500/20 backdrop-blur-xl border border-white/20 px-6 py-3 rounded-full mb-8 shadow-2xl">
+                <span class="relative flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-cyan-500"></span>
+                </span>
+                <span class="text-sm font-semibold tracking-wide text-cyan-300">Trusted Since 2015</span>
+            </div>
+            
+            <!-- Main Heading -->
+            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6">
+                <span class="block bg-gradient-to-r from-white via-blue-100 to-cyan-200 bg-clip-text text-transparent">
+                    Redefining
+                </span>
+                <span class="shimmer-text">Study Abroad</span>
+                <span class="block bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    Excellence
+                </span>
+            </h1>
+            
+            <!-- Subtitle -->
+            <p class="text-xl md:text-2xl text-blue-200 max-w-3xl mx-auto mb-10 leading-relaxed">
+                Where <span class="font-bold text-white">trust meets transparency</span> in global education
+            </p>
+            
+            <!-- Stats -->
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16 mt-12">
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-2">
+                        <span class="stat-number" data-count="1000">0</span>+
+                    </div>
+                    <div class="text-blue-300 font-medium">Students Guided</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-2">
+                        <span class="stat-number" data-count="50">0</span>+
+                    </div>
+                    <div class="text-blue-300 font-medium">Universities</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-2">
+                        <span class="stat-number" data-count="6">0</span>
+                    </div>
+                    <div class="text-blue-300 font-medium">Countries</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-2">
+                        <span class="stat-number" data-count="98">0</span>%
+                    </div>
+                    <div class="text-blue-300 font-medium">Visa Success</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Trust Badges Section -->
+<section class="py-16 bg-gradient-to-b from-white to-gray-50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                <span class="text-blue-600">Accredited</span> & Trusted
+            </h2>
+            <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                Your trusted partner in legal and ethical study abroad guidance
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Badge 1 -->
+            <div class="trust-badge p-6 rounded-2xl shadow-lg">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-shield-check text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">Government-Compliant Consultancy</h3>
+                </div>
+                <p class="text-gray-600">Legally registered under Nepal Government regulations</p>
+            </div>
+            
+            <!-- Badge 2 -->
+            <div class="trust-badge p-6 rounded-2xl shadow-lg">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-university text-green-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">Accredited Institutions Only</h3>
+                </div>
+                <p class="text-gray-600">Partnering with officially recognized universities worldwide</p>
+            </div>
+            
+            <!-- Badge 3 -->
+            <div class="trust-badge p-6 rounded-2xl shadow-lg">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-file-contract text-purple-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">Country-Specific Visa Standards</h3>
+                </div>
+                <p class="text-gray-600">Following embassy and immigration requirements precisely</p>
+            </div>
+            
+            <!-- Badge 4 -->
+            <div class="trust-badge p-6 rounded-2xl shadow-lg">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-handshake text-amber-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">Ethical & Transparent Guidance</h3>
+                </div>
+                <p class="text-gray-600">No hidden fees, no misleading promises</p>
+            </div>
+            
+            <!-- Badge 5 -->
+            <div class="trust-badge p-6 rounded-2xl shadow-lg">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-user-graduate text-cyan-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">Student-First Approach</h3>
+                </div>
+                <p class="text-gray-600">Personalized counseling based on your goals</p>
+            </div>
+            
+            <!-- Badge 6 -->
+            <div class="trust-badge p-6 rounded-2xl shadow-lg">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-globe-asia text-red-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">Global Education Experts</h3>
+                </div>
+                <p class="text-gray-600">Expert knowledge across 6+ study destinations</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Story Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Our <span class="text-blue-600">Journey</span> of Trust
+                </h2>
+                <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                    Study Edge Experts began with a simple mission: to provide <span class="font-semibold text-blue-700">ethical, transparent, and legally compliant</span> study abroad guidance to Nepali students. We recognized the need for a consultancy that puts student welfare above all else.
+                </p>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Unlike commission-driven agencies, we focus on <span class="font-semibold text-green-700">student suitability and long-term success</span>. Every recommendation is based on official accreditation, embassy requirements, and what's genuinely best for your future.
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-green-500"></i>
+                        <span class="font-medium">Legally Registered in Nepal</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-green-500"></i>
+                        <span class="font-medium">Ministry of Education Compliant</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-green-500"></i>
+                        <span class="font-medium">Zero Fraudulent Practices</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div class="gradient-card rounded-3xl p-8 shadow-2xl">
+                    <div class="absolute -top-6 -left-6 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center floating">
+                        <!-- <i class="fas fa-gem text-white text-3xl"></i> -->
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center floating" style="animation-delay: 1s;">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Our Core Promise</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-balance-scale text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Ethical Counseling</h4>
+                                <p class="text-gray-600">No misleading promises, only realistic pathways</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-passport text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Visa Compliance</h4>
+                                <p class="text-gray-600">Following UKVI, IRCC & embassy standards</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-university text-purple-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Accredited Institutions</h4>
+                                <p class="text-gray-600">Only recognized universities & colleges</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Global Reach Section -->
+<section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Global <span class="text-blue-600">Education</span> Standards
+            </h2>
+            <p class="text-gray-600 text-lg max-w-3xl mx-auto">
+                We follow official accreditation and immigration requirements across all major study destinations
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Country Card 1 -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow">
+                <div class="flex items-center gap-4 mb-6">
+                    <img src="https://flagcdn.com/w320/gb.png" class="flag-icon" alt="UK Flag">
+                    <h3 class="text-xl font-bold text-gray-900">United Kingdom</h3>
+                </div>
+                <ul class="space-y-3">
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-500"></i>
+                        <span>UKVI (UK Visas & Immigration)</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-500"></i>
+                        <span>British Council guidelines</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-500"></i>
+                        <span>Recognized UK universities</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Country Card 2 -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow">
+                <div class="flex items-center gap-4 mb-6">
+                    <img src="https://flagcdn.com/w320/ca.png" class="flag-icon" alt="Canada Flag">
+                    <h3 class="text-xl font-bold text-gray-900">Canada</h3>
+                </div>
+                <ul class="space-y-3">
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-500"></i>
+                        <span>IRCC Compliance</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-500"></i>
+                        <span>Designated Learning Institutions</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-500"></i>
+                        <span>Post-Graduation Work Permits</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Country Card 3 -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow">
+                <div class="flex items-center gap-4 mb-6">
+                    <img src="https://flagcdn.com/w320/au.png" class="flag-icon" alt="Australia Flag">
+                    <h3 class="text-xl font-bold text-gray-900">Australia</h3>
+                </div>
+                <ul class="space-y-3">
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-500"></i>
+                        <span>CRICOS Registered Institutions</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-500"></i>
+                        <span>Australian Government Framework</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-500"></i>
+                        <span>Genuine Temporary Entrant</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Country Card 4 -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow">
+                <div class="flex items-center gap-4 mb-6">
+                    <img src="https://flagcdn.com/w320/us.png" class="flag-icon" alt="USA Flag">
+                    <h3 class="text-xl font-bold text-gray-900">United States</h3>
+                </div>
+                <ul class="space-y-3">
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-500"></i>
+                        <span>SEVP-Approved Universities</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-500"></i>
+                        <span>Department of Education Recognition</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-500"></i>
+                        <span>F-1 Visa Compliance</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Country Card 5 -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow">
+                <div class="flex items-center gap-4 mb-6">
+                    <img src="https://flagcdn.com/w320/nz.png" class="flag-icon" alt="New Zealand Flag">
+                    <h3 class="text-xl font-bold text-gray-900">New Zealand</h3>
+                </div>
+                <ul class="space-y-3">
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-500"></i>
+                        <span>NZQA Approved Institutions</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-500"></i>
+                        <span>Immigration NZ Standards</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-500"></i>
+                        <span>Pathway to Residence</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Country Card 6 -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="flag-icon bg-gradient-to-r from-blue-600 to-yellow-400 flex items-center justify-center text-white font-bold">EU</div>
+                    <h3 class="text-xl font-bold text-gray-900">Europe</h3>
+                </div>
+                <ul class="space-y-3">
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-500"></i>
+                        <span>Country-Specific Education Authorities</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-500"></i>
+                        <span>EU Quality Assurance</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-500"></i>
+                        <span>Schengen Visa Compliance</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Overview -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Our <span class="text-blue-600">Comprehensive</span> Support
+            </h2>
+            <p class="text-gray-600 text-lg max-w-3xl mx-auto">
+                End-to-end guidance from counseling to post-arrival support
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Service 1 -->
+            <div class="text-center p-6 rounded-2xl bg-gradient-to-b from-blue-50 to-white">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-comments-dollar text-blue-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Career Counseling</h3>
+                <p class="text-gray-600">Personalized guidance based on your academic background and career goals</p>
+            </div>
+            
+            <!-- Service 2 -->
+            <div class="text-center p-6 rounded-2xl bg-gradient-to-b from-green-50 to-white">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-language text-green-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">IELTS/PTE Prep</h3>
+                <p class="text-gray-600">Tailored test preparation classes with proven success strategies</p>
+            </div>
+            
+            <!-- Service 3 -->
+            <div class="text-center p-6 rounded-2xl bg-gradient-to-b from-purple-50 to-white">
+                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-university text-purple-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">University Selection</h3>
+                <p class="text-gray-600">Strategic selection of accredited institutions matching your profile</p>
+            </div>
+            
+            <!-- Service 4 -->
+            <div class="text-center p-6 rounded-2xl bg-gradient-to-b from-amber-50 to-white">
+                <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-passport text-amber-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Visa Assistance</h3>
+                <p class="text-gray-600">Complete visa documentation and interview preparation support</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% include "components/student_support_form.html" %}
+<!-- CTA Section -->
+<section class="bg-gradient-to-r from-blue-600 to-green-700 py-20 md:py-28 text-center">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-white">
+            Ready to Start Your Global Future?
+        </h2>
+        <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Let our expert counsellors guide you through every step of this roadmap with zero confusion and maximum confidence.
+        </p>
+        <a href="#contact" class="inline-flex items-center bg-yellow-400 text-blue-900 hover:bg-yellow-300 px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 shadow-xl">
+            <i class="fas fa-headset mr-3"></i> Book a Free Consultation
+        </a>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Animated counter for stats
+    const counters = document.querySelectorAll('.stat-number');
+    
+    counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-count'));
+        const duration = 2000; // 2 seconds
+        const increment = target / (duration / 16); // 60fps
+        
+        let current = 0;
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            counter.textContent = Math.floor(current);
+        }, 16);
+    });
+    
+    // Add floating animation to multiple elements
+    const floatingElements = document.querySelectorAll('.floating');
+    floatingElements.forEach((el, index) => {
+        el.style.animationDelay = `${index * 0.5}s`;
+    });
+});
+</script>
+
+{% endblock %}

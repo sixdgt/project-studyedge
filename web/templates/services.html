@@ -1,0 +1,662 @@
+{% extends "base.html" %}
+{% block title %}Our Services | Study Edge Experts{% endblock %}
+{% block content %}
+
+<style>
+/* Modern Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+.floating {
+    animation: float 3s ease-in-out infinite;
+}
+
+.shimmer-text {
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+}
+
+/* Service Cards */
+.service-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Feature Icons */
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 30px;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .feature-icon {
+    transform: scale(1.1);
+}
+
+/* Process Timeline */
+.process-timeline {
+    position: relative;
+}
+
+.process-timeline::before {
+    content: '';
+    position: absolute;
+    left: 25px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+}
+
+.process-step {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.process-step::before {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #3b82f6;
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* Destination Cards */
+.destination-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.destination-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.destination-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    padding: 30px;
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.destination-card:hover .destination-overlay {
+    transform: translateY(0);
+}
+
+/* Number Counter */
+.service-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    opacity: 0.9;
+}
+</style>
+
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white py-24 md:py-36 overflow-hidden">
+    <!-- Animated Background -->
+    <div class="absolute inset-0 opacity-20">
+        <div class="absolute w-[600px] h-[600px] bg-blue-500/30 rounded-full -top-48 -left-48 blur-3xl animate-pulse"></div>
+        <div class="absolute w-[500px] h-[500px] bg-purple-500/30 rounded-full -bottom-32 -right-32 blur-3xl animate-pulse" style="animation-delay: 1.5s;"></div>
+    </div>
+    
+    <!-- Grid Pattern -->
+    <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <div class="text-center">
+            <!-- Animated Badge -->
+            <div class="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500/20 to-green-500/20 backdrop-blur-xl border border-white/20 px-6 py-3 rounded-full mb-8 shadow-2xl">
+                <span class="relative flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-cyan-500"></span>
+                </span>
+                <span class="text-sm font-semibold tracking-wide text-cyan-300">Comprehensive Support</span>
+            </div>
+            
+            <!-- Main Heading -->
+            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6">
+                <span class="block bg-gradient-to-r from-white via-blue-100 to-cyan-200 bg-clip-text text-transparent">
+                    Your Complete
+                </span>
+                <span class="shimmer-text">Study Abroad</span>
+                <span class="block bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    Support System
+                </span>
+            </h1>
+            
+            <!-- Subtitle -->
+            <p class="text-xl md:text-2xl text-blue-200 max-w-3xl mx-auto mb-10 leading-relaxed">
+                From <span class="font-bold text-white">dream to destination</span> — we handle every step with precision and care
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Services Overview -->
+<section class="py-20 bg-gradient-to-b from-white to-gray-50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Our <span class="text-blue-600">Comprehensive</span> Services
+            </h2>
+            <p class="text-gray-600 text-lg max-w-3xl mx-auto">
+                End-to-end guidance designed for your success. Every service is delivered with transparency and expertise.
+            </p>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Service 1: Free Consultation -->
+            <div class="service-card rounded-2xl p-8 shadow-lg">
+                <div class="service-number">01</div>
+                <div class="feature-icon bg-gradient-to-br from-blue-100 to-blue-200 text-blue-600">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Free Career Consultation</h3>
+                <p class="text-gray-600 mb-6">
+                    Start your journey with personalized, one-on-one counseling at absolutely no cost. Our experts analyze your profile and aspirations to create a tailored roadmap.
+                </p>
+                <div class="space-y-3">
+                    <div class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span class="text-gray-700">Profile assessment & career path analysis</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span class="text-gray-700">Country & program suitability evaluation</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span class="text-gray-700">Timeline planning & roadmap creation</span>
+                    </div>
+                </div>
+                <button class="mt-8 w-full py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300">
+                    Book Free Session
+                </button>
+            </div>
+
+            <!-- Service 2: Documentation Support -->
+            <div class="service-card rounded-2xl p-8 shadow-lg">
+                <div class="service-number">02</div>
+                <div class="feature-icon bg-gradient-to-br from-green-100 to-green-200 text-green-600">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Documentation Support</h3>
+                <p class="text-gray-600 mb-6">
+                    We meticulously handle all paperwork - from academic transcripts to financial documents, ensuring 100% accuracy and embassy compliance.
+                </p>
+                <div class="space-y-3">
+                    <div class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span class="text-gray-700">Academic document verification & formatting</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span class="text-gray-700">Financial proof preparation & bank liaison</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span class="text-gray-700">Visa application document checklist & review</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span class="text-gray-700">SOP, LOR drafting & editing support</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3: Course & University Guidance -->
+            <div class="service-card rounded-2xl p-8 shadow-lg">
+                <div class="service-number">03</div>
+                <div class="feature-icon bg-gradient-to-br from-purple-100 to-purple-200 text-purple-600">
+                    <i class="fas fa-university"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Course & University Guidance</h3>
+                <p class="text-gray-600 mb-6">
+                    Strategic selection of accredited universities and courses that align with your academic background and career aspirations.
+                </p>
+                <div class="space-y-3">
+                    <div class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span class="text-gray-700">University shortlisting based on your profile</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span class="text-gray-700">Course selection & career outcome analysis</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span class="text-gray-700">Application strategy & deadline management</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span class="text-gray-700">University liaison & follow-up support</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 4: Study Destinations -->
+            <div class="service-card rounded-2xl p-8 shadow-lg">
+                <div class="service-number">04</div>
+                <div class="feature-icon bg-gradient-to-br from-red-100 to-red-200 text-red-600">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Study Destinations Expertise</h3>
+                <p class="text-gray-600 mb-6">
+                    In-depth knowledge of top study destinations including admission requirements, living costs, and post-study opportunities.
+                </p>
+                <div class="grid grid-cols-2 gap-3 mb-6">
+                    <span class="bg-blue-50 text-blue-700 px-3 py-2 rounded-lg text-center text-sm font-medium">Australia</span>
+                    <span class="bg-red-50 text-red-700 px-3 py-2 rounded-lg text-center text-sm font-medium">Canada</span>
+                    <span class="bg-purple-50 text-purple-700 px-3 py-2 rounded-lg text-center text-sm font-medium">UK</span>
+                    <span class="bg-green-50 text-green-700 px-3 py-2 rounded-lg text-center text-sm font-medium">USA</span>
+                    <span class="bg-cyan-50 text-cyan-700 px-3 py-2 rounded-lg text-center text-sm font-medium">New Zealand</span>
+                    <span class="bg-yellow-50 text-yellow-700 px-3 py-2 rounded-lg text-center text-sm font-medium">Europe</span>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span class="text-gray-700">Country comparison & selection guidance</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span class="text-gray-700">Cost of living & accommodation support</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 5: Financial Guidance -->
+            <div class="service-card rounded-2xl p-8 shadow-lg">
+                <div class="service-number">05</div>
+                <div class="feature-icon bg-gradient-to-br from-amber-100 to-amber-200 text-amber-600">
+                    <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Financial Planning & Guidance</h3>
+                <p class="text-gray-600 mb-6">
+                    Comprehensive financial planning including education loans, budgeting, and funding strategies for your study abroad journey.
+                </p>
+                <div class="space-y-3">
+                    <div class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span class="text-gray-700">Education loan application assistance</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span class="text-gray-700">Budget planning & expense estimation</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span class="text-gray-700">Bank documentation & processing support</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span class="text-gray-700">Part-time work opportunity guidance</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 6: Scholarship Guidance -->
+            <div class="service-card rounded-2xl p-8 shadow-lg">
+                <div class="service-number">06</div>
+                <div class="feature-icon bg-gradient-to-br from-cyan-100 to-cyan-200 text-cyan-600">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Scholarship & Funding Support</h3>
+                <p class="text-gray-600 mb-6">
+                    Maximize your chances of securing scholarships with our expert guidance on available opportunities and application strategies.
+                </p>
+                <div class="space-y-3">
+                    <div class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span class="text-gray-700">Scholarship database access & matching</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span class="text-gray-700">Application essay writing & review</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span class="text-gray-700">Deadline tracking & submission support</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                        <span class="text-gray-700">University-specific scholarship guidance</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Additional Services -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                <span class="text-blue-600">Additional</span> Support Services
+            </h2>
+            <p class="text-gray-600 text-lg max-w-3xl mx-auto">
+                Beyond the basics - we provide complete support for your entire study abroad journey
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Additional Service 1 -->
+            <div class="bg-gray-50 rounded-xl p-6 text-center hover:bg-blue-50 transition-colors">
+                <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-language text-blue-600 text-xl"></i>
+                </div>
+                <h4 class="font-bold text-gray-900 mb-2">IELTS/PTE Preparation</h4>
+                <p class="text-sm text-gray-600">Test preparation classes with mock tests</p>
+            </div>
+
+            <!-- Additional Service 2 -->
+            <div class="bg-gray-50 rounded-xl p-6 text-center hover:bg-green-50 transition-colors">
+                <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-plane text-green-600 text-xl"></i>
+                </div>
+                <h4 class="font-bold text-gray-900 mb-2">Pre-Departure Briefing</h4>
+                <p class="text-sm text-gray-600">Everything you need to know before flying</p>
+            </div>
+
+            <!-- Additional Service 3 -->
+            <div class="bg-gray-50 rounded-xl p-6 text-center hover:bg-purple-50 transition-colors">
+                <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-home text-purple-600 text-xl"></i>
+                </div>
+                <h4 class="font-bold text-gray-900 mb-2">Accommodation Assistance</h4>
+                <p class="text-sm text-gray-600">Finding safe & affordable housing options</p>
+            </div>
+
+            <!-- Additional Service 4 -->
+            <div class="bg-gray-50 rounded-xl p-6 text-center hover:bg-amber-50 transition-colors">
+                <div class="w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-users text-amber-600 text-xl"></i>
+                </div>
+                <h4 class="font-bold text-gray-900 mb-2">Post-Arrival Support</h4>
+                <p class="text-sm text-gray-600">Settling in assistance in your new country</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process Timeline -->
+<section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Our <span class="text-blue-600">Step-by-Step</span> Process
+            </h2>
+            <p class="text-gray-600 text-lg max-w-3xl mx-auto">
+                A transparent, structured approach to ensure your study abroad journey is smooth and successful
+            </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+            <div class="process-timeline pl-12">
+                <!-- Step 1 -->
+                <div class="process-step">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                                1
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">Initial Consultation & Profile Assessment</h3>
+                        </div>
+                        <p class="text-gray-600">We begin with understanding your academic background, career goals, and preferences to create a personalized plan.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="process-step">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                                2
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">University & Course Selection</h3>
+                        </div>
+                        <p class="text-gray-600">Based on your profile, we shortlist accredited universities and courses that match your aspirations.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="process-step">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                                3
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">Application Processing</h3>
+                        </div>
+                        <p class="text-gray-600">We handle all application documentation, SOP/LOR drafting, and submission with careful attention to deadlines.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="process-step">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-amber-500 to-amber-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                                4
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">Visa & Financial Preparation</h3>
+                        </div>
+                        <p class="text-gray-600">Complete visa documentation support, financial proof preparation, and interview coaching.</p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="process-step">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                                5
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">Pre-Departure & Post-Arrival Support</h3>
+                        </div>
+                        <p class="text-gray-600">Final preparations including accommodation, travel arrangements, and settling-in assistance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Why <span class="text-blue-600">Choose</span> Our Services?
+                </h2>
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-shield-alt text-blue-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-2">100% Legal & Compliant</h4>
+                            <p class="text-gray-600">All our services follow government regulations and embassy requirements strictly.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-user-check text-green-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-2">Personalized Approach</h4>
+                            <p class="text-gray-600">Every student receives customized guidance based on their unique profile and goals.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-clock text-purple-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-2">End-to-End Support</h4>
+                            <p class="text-gray-600">We support you from initial consultation through to settling in your new country.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div class="gradient-card rounded-3xl p-8 shadow-2xl">
+                    <div class="text-center mb-8">
+                        <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-medal text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">Our Success Metrics</h3>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-blue-600 mb-2">98%</div>
+                            <div class="text-gray-600">Visa Success Rate</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-green-600 mb-2">1000+</div>
+                            <div class="text-gray-600">Students Guided</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-purple-600 mb-2">50+</div>
+                            <div class="text-gray-600">University Partners</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-amber-600 mb-2">24/7</div>
+                            <div class="text-gray-600">Support Available</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include "components/student_support_form.html" %}
+
+<section class="bg-gradient-to-r from-blue-600 to-green-700 py-20 md:py-28 text-center">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-white">
+            Ready to Start Your Global Future?
+        </h2>
+        <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Let our expert counsellors guide you through every step of this roadmap with zero confusion and maximum confidence.
+        </p>
+        <a href="#contact" class="inline-flex items-center bg-yellow-400 text-blue-900 hover:bg-yellow-300 px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 shadow-xl">
+            <i class="fas fa-headset mr-3"></i> Book a Free Consultation
+        </a>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Add floating animation to service cards on hover
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-10px)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+        });
+    });
+    
+    // Animate process steps on scroll
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateX(0)';
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.process-step').forEach(step => {
+        step.style.opacity = '0';
+        step.style.transform = 'translateX(-20px)';
+        step.style.transition = 'all 0.6s ease';
+        observer.observe(step);
+    });
+});
+</script>
+
+{% endblock %}

@@ -1,7 +1,31 @@
 {% extends "base.html" %}
 {% block title %}Study Abroad Steps | StudyEdge{% endblock %}
 {% block content %}
-<!-- Hero Section -->
+<style>
+/* Additional CSS for smooth animations */
+.faq-content {
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: max-height;
+}
+
+.faq-btn i {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rotate-180 {
+    transform: rotate(180deg);
+}
+
+/* Smooth hover effects */
+.bg-white {
+    transition: all 0.3s ease;
+}
+
+.bg-white:hover {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+</style>
+
 <!-- Hero Section -->
 <section id="hero" class="relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white py-24 md:py-36 overflow-hidden">
     <!-- Animated Background -->
@@ -46,14 +70,6 @@
     </div>
 </section>
 
-<style>
-.step-nav-item {
-    position: relative;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-</style>
-
 <!-- FAQ Section -->
 <section id="faq" class="bg-gray-50 py-20 md:py-28">
     <div class="max-w-5xl mx-auto px-6 lg:px-8">
@@ -69,133 +85,146 @@
         </div>
 
         <!-- FAQ Items -->
-        <div class="space-y-5">
+        <div class="space-y-5" id="faq-container">
 
             <!-- FAQ 1 -->
-            <div class="bg-white rounded-2xl shadow-md border border-gray-200">
-                <button class="faq-btn w-full flex justify-between items-center p-6 text-left">
+            <div class="bg-white rounded-2xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg">
+                <button class="faq-btn w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 rounded-2xl transition-colors duration-200">
                     <span class="text-lg font-semibold text-gray-900">
                         Is Study Edge Experts accredited and legally recognized in Nepal?
                     </span>
                     <i class="fas fa-chevron-down transition-transform duration-300"></i>
                 </button>
-                <div class="faq-content hidden px-6 pb-6 text-gray-700 leading-relaxed">
-                    <p>
-                        Yes. <strong>Study Edge Experts</strong> is a legally registered education consultancy in Nepal,
-                        operating under the rules and guidelines set by the Government of Nepal and the
-                        Ministry of Education, Science & Technology.
-                    </p>
-                    <p class="mt-3">
-                        We strictly follow ethical business practices and provide transparent, student-first guidance.
-                    </p>
+                <div class="faq-content overflow-hidden transition-all duration-300 ease-in-out max-h-0">
+                    <div class="px-6 pb-6 pt-0 text-gray-700 leading-relaxed">
+                        <p>
+                            Yes. <strong>Study Edge Experts</strong> is a legally registered education consultancy in Nepal,
+                            operating under the rules and guidelines set by the Government of Nepal and the
+                            Ministry of Education, Science & Technology.
+                        </p>
+                        <p class="mt-3">
+                            We strictly follow ethical business practices and provide transparent, student-first guidance.
+                        </p>
+                    </div>
                 </div>
             </div>
 
             <!-- FAQ 2 -->
-            <div class="bg-white rounded-2xl shadow-md border border-gray-200">
-                <button class="faq-btn w-full flex justify-between items-center p-6 text-left">
+            <div class="bg-white rounded-2xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg">
+                <button class="faq-btn w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 rounded-2xl transition-colors duration-200">
                     <span class="text-lg font-semibold text-gray-900">
                         Do you work only with accredited universities and colleges?
                     </span>
                     <i class="fas fa-chevron-down transition-transform duration-300"></i>
                 </button>
-                <div class="faq-content hidden px-6 pb-6 text-gray-700 leading-relaxed">
-                    <p>
-                        Absolutely. We assist students in applying only to
-                        <strong>recognized and accredited universities</strong> approved by official
-                        education authorities in destination countries such as:
-                    </p>
-                    <ul class="list-disc ml-6 mt-3 space-y-1">
-                        <li>UK</li>
-                        <li>Canada</li>
-                        <li>Australia</li>
-                        <li>USA</li>
-                        <li>New Zealand</li>
-                        <li>Europe</li>
-                    </ul>
+                <div class="faq-content overflow-hidden transition-all duration-300 ease-in-out max-h-0">
+                    <div class="px-6 pb-6 pt-0 text-gray-700 leading-relaxed">
+                        <p>
+                            Absolutely. We assist students in applying only to
+                            <strong>recognized and accredited universities</strong> approved by official
+                            education authorities in destination countries such as:
+                        </p>
+                        <ul class="list-disc ml-6 mt-3 space-y-1">
+                            <li>UK</li>
+                            <li>Canada</li>
+                            <li>Australia</li>
+                            <li>USA</li>
+                            <li>New Zealand</li>
+                            <li>Europe</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
             <!-- FAQ 3 -->
-            <div class="bg-white rounded-2xl shadow-md border border-gray-200">
-                <button class="faq-btn w-full flex justify-between items-center p-6 text-left">
+            <div class="bg-white rounded-2xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg">
+                <button class="faq-btn w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 rounded-2xl transition-colors duration-200">
                     <span class="text-lg font-semibold text-gray-900">
                         Are your services aligned with embassy and visa requirements?
                     </span>
                     <i class="fas fa-chevron-down transition-transform duration-300"></i>
                 </button>
-                <div class="faq-content hidden px-6 pb-6 text-gray-700 leading-relaxed">
-                    <p>
-                        Yes. Our visa counseling and documentation processes strictly follow
-                        current embassy and immigration requirements, including:
-                    </p>
-                    <ul class="list-disc ml-6 mt-3 space-y-1">
-                        <li>UKVI (United Kingdom)</li>
-                        <li>IRCC (Canada)</li>
-                        <li>Country-specific student visa standards</li>
-                    </ul>
+                <div class="faq-content overflow-hidden transition-all duration-300 ease-in-out max-h-0">
+                    <div class="px-6 pb-6 pt-0 text-gray-700 leading-relaxed">
+                        <p>
+                            Yes. Our visa counseling and documentation processes strictly follow
+                            current embassy and immigration requirements, including:
+                        </p>
+                        <ul class="list-disc ml-6 mt-3 space-y-1">
+                            <li>UKVI (United Kingdom)</li>
+                            <li>IRCC (Canada)</li>
+                            <li>Country-specific student visa standards</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
             <!-- FAQ 4 -->
-            <div class="bg-white rounded-2xl shadow-md border border-gray-200">
-                <button class="faq-btn w-full flex justify-between items-center p-6 text-left">
+            <div class="bg-white rounded-2xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg">
+                <button class="faq-btn w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 rounded-2xl transition-colors duration-200">
                     <span class="text-lg font-semibold text-gray-900">
                         Are you affiliated with all universities you recommend?
                     </span>
                     <i class="fas fa-chevron-down transition-transform duration-300"></i>
                 </button>
-                <div class="faq-content hidden px-6 pb-6 text-gray-700 leading-relaxed">
-                    <p>
-                        We work with a wide range of officially recognized institutions through
-                        direct partnerships or authorized application processes.
-                    </p>
-                    <p class="mt-3 font-medium text-blue-700">
-                        Our priority is student suitability and compliance — not commission-based placements.
-                    </p>
+                <div class="faq-content overflow-hidden transition-all duration-300 ease-in-out max-h-0">
+                    <div class="px-6 pb-6 pt-0 text-gray-700 leading-relaxed">
+                        <p>
+                            We work with a wide range of officially recognized institutions through
+                            direct partnerships or authorized application processes.
+                        </p>
+                        <p class="mt-3 font-medium text-blue-700">
+                            Our priority is student suitability and compliance — not commission-based placements.
+                        </p>
+                    </div>
                 </div>
             </div>
 
             <!-- FAQ 5 -->
-            <div class="bg-white rounded-2xl shadow-md border border-gray-200">
-                <button class="faq-btn w-full flex justify-between items-center p-6 text-left">
+            <div class="bg-white rounded-2xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg">
+                <button class="faq-btn w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 rounded-2xl transition-colors duration-200">
                     <span class="text-lg font-semibold text-gray-900">
                         How does accreditation benefit students?
                     </span>
                     <i class="fas fa-chevron-down transition-transform duration-300"></i>
                 </button>
-                <div class="faq-content hidden px-6 pb-6 text-gray-700 leading-relaxed">
-                    <ul class="space-y-2">
-                        <li>✔ Admission to legitimate institutions</li>
-                        <li>✔ Visa applications that meet embassy standards</li>
-                        <li>✔ Protection from fraudulent colleges</li>
-                        <li>✔ Long-term academic and career security</li>
-                    </ul>
+                <div class="faq-content overflow-hidden transition-all duration-300 ease-in-out max-h-0">
+                    <div class="px-6 pb-6 pt-0 text-gray-700 leading-relaxed">
+                        <ul class="space-y-2">
+                            <li>✔ Admission to legitimate institutions</li>
+                            <li>✔ Visa applications that meet embassy standards</li>
+                            <li>✔ Protection from fraudulent colleges</li>
+                            <li>✔ Long-term academic and career security</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
             <!-- FAQ 6 -->
-            <div class="bg-white rounded-2xl shadow-md border border-gray-200">
-                <button class="faq-btn w-full flex justify-between items-center p-6 text-left">
+            <div class="bg-white rounded-2xl shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg">
+                <button class="faq-btn w-full flex justify-between items-center p-6 text-left hover:bg-gray-50 rounded-2xl transition-colors duration-200">
                     <span class="text-lg font-semibold text-gray-900">
                         Can parents verify your legitimacy?
                     </span>
                     <i class="fas fa-chevron-down transition-transform duration-300"></i>
                 </button>
-                <div class="faq-content hidden px-6 pb-6 text-gray-700 leading-relaxed">
-                    <p>Yes. Parents are always welcome to:</p>
-                    <ul class="list-disc ml-6 mt-3 space-y-1">
-                        <li>Visit our office</li>
-                        <li>Review our legal registration</li>
-                        <li>Check Google reviews</li>
-                        <li>Verify official offer letters and visa documentation</li>
-                    </ul>
+                <div class="faq-content overflow-hidden transition-all duration-300 ease-in-out max-h-0">
+                    <div class="px-6 pb-6 pt-0 text-gray-700 leading-relaxed">
+                        <p>Yes. Parents are always welcome to:</p>
+                        <ul class="list-disc ml-6 mt-3 space-y-1">
+                            <li>Visit our office</li>
+                            <li>Review our legal registration</li>
+                            <li>Check Google reviews</li>
+                            <li>Verify official offer letters and visa documentation</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
         </div>
     </div>
 </section>
+
 
 {% include "components/student_support_form.html" %}
 
@@ -215,14 +244,44 @@
 
 <!-- FAQ Script -->
 <script>
-document.querySelectorAll('.faq-btn').forEach(button => {
-    button.addEventListener('click', () => {
-        const content = button.nextElementSibling;
-        const icon = button.querySelector('i');
-
-        content.classList.toggle('hidden');
-        icon.classList.toggle('rotate-180');
+document.addEventListener('DOMContentLoaded', function() {
+    const faqButtons = document.querySelectorAll('.faq-btn');
+    
+    faqButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const faqItem = this.closest('.bg-white');
+            const content = faqItem.querySelector('.faq-content');
+            const icon = this.querySelector('i');
+            
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-content').forEach(otherContent => {
+                if (otherContent !== content && otherContent.classList.contains('active')) {
+                    otherContent.style.maxHeight = '0px';
+                    otherContent.classList.remove('active');
+                    otherContent.closest('.bg-white').querySelector('i').classList.remove('rotate-180');
+                }
+            });
+            
+            // Toggle current FAQ item
+            if (content.classList.contains('active')) {
+                // Collapse
+                content.style.maxHeight = '0px';
+                content.classList.remove('active');
+                icon.classList.remove('rotate-180');
+            } else {
+                // Expand
+                content.style.maxHeight = content.scrollHeight + 'px';
+                content.classList.add('active');
+                icon.classList.add('rotate-180');
+            }
+        });
     });
+    
+    // Optional: Open first FAQ by default
+    const firstFaq = document.querySelector('.faq-btn');
+    if (firstFaq) {
+        firstFaq.click();
+    }
 });
 </script>
 {% endblock %}

@@ -1,0 +1,241 @@
+/* Floating Label Effect */
+.floating-label-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.floating-label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    color: #6b7280;
+    transition: all 0.2s ease-out;
+    pointer-events: none;
+    background: white;
+    padding: 0 0.25rem;
+    z-index: 1;
+}
+
+.form-input-peer:focus ~ .floating-label,
+.form-input-peer:not(:placeholder-shown) ~ .floating-label {
+    top: 0;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    color: #3b82f6;
+    font-weight: 500;
+}
+
+/* Date picker custom icon */
+.date-picker-icon::-webkit-calendar-picker-indicator {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23374151" viewBox="0 0 16 16"><path d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/><path d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 16px;
+    cursor: pointer;
+}
+
+/* Form validation styles */
+.form-input-peer.valid {
+    border-color: #10b981;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2310b981" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 16px;
+    padding-right: 2.5rem;
+}
+
+.form-input-peer.invalid {
+    border-color: #ef4444;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23ef4444" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 16px;
+    padding-right: 2.5rem;
+}
+
+/* Checkbox container for better alignment */
+.checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    background: #f9fafb;
+    transition: all 0.3s ease;
+}
+
+.checkbox-container:hover {
+    background: #f3f4f6;
+}
+
+/* Form submit button animation */
+.submit-btn {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.submit-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: translateX(-100%) rotate(45deg);
+    transition: transform 0.6s;
+}
+
+.submit-btn:hover::after {
+    transform: translateX(100%) rotate(45deg);
+}
+
+/* Loading animation */
+.loading-spinner {
+    display: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-30px) translateX(20px); }
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  display: flex;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+}
+
+/* Fixed USA icon issue */
+.fa-map-marker-alt {
+  display: inline-block;
+}
+
+/* Ensure all destination images have same aspect ratio */
+.destination-image {
+  width: 100%;
+  height: 256px;
+  object-fit: cover;
+}
+
+/* Fix responsive layout for USA card */
+@media (min-width: 1024px) {
+  .lg\:col-start-2 {
+    grid-column-start: 2;
+  }
+}
+
+/* Custom animations for background elements */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+  33% { transform: translateY(-20px) translateX(10px) rotate(5deg); }
+  66% { transform: translateY(10px) translateX(-15px) rotate(-5deg); }
+}
+
+@keyframes float-medium {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+  50% { transform: translateY(-15px) translateX(20px) scale(1.05); }
+}
+
+@keyframes float-fast {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-10px) translateX(15px); }
+  50% { transform: translateY(5px) translateX(-10px); }
+  75% { transform: translateY(-5px) translateX(5px); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-medium {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes particle-1 {
+  0% { transform: translate(0, 0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translate(100vw, 100vh); opacity: 0; }
+}
+
+@keyframes particle-2 {
+  0% { transform: translate(100vw, 0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translate(0, 100vh); opacity: 0; }
+}
+
+@keyframes particle-3 {
+  0% { transform: translate(0, 100vh); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translate(100vw, 0); opacity: 0; }
+}
+
+@keyframes particle-4 {
+  0% { transform: translate(100vw, 100vh); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translate(0, 0); opacity: 0; }
+}
+
+@keyframes particle-5 {
+  0% { transform: translate(50vw, 0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translate(50vw, 100vh); opacity: 0; }
+}
+
+/* Apply animations */
+.animate-float-slow { animation: float-slow 15s ease-in-out infinite; }
+.animate-float-medium { animation: float-medium 10s ease-in-out infinite; }
+.animate-float-fast { animation: float-fast 8s ease-in-out infinite; }
+.animate-spin-slow { animation: spin-slow 30s linear infinite; }
+.animate-spin-medium { animation: spin-medium 20s linear infinite; }
+.animate-particle-1 { animation: particle-1 15s linear infinite; }
+.animate-particle-2 { animation: particle-2 20s linear infinite; }
+.animate-particle-3 { animation: particle-3 25s linear infinite; }
+.animate-particle-4 { animation: particle-4 18s linear infinite; }
+.animate-particle-5 { animation: particle-5 22s linear infinite; }
+
+/* Position particles */
+.particle:nth-child(1) { top: 10%; left: 20%; }
+.particle:nth-child(2) { top: 30%; right: 15%; }
+.particle:nth-child(3) { bottom: 20%; left: 25%; }
+.particle:nth-child(4) { bottom: 40%; right: 30%; }
+.particle:nth-child(5) { top: 50%; left: 50%; }

@@ -1,0 +1,82 @@
+{% load static %}
+<header class="sticky top-0 z-50 transition-colors duration-500 header-animate">
+    <!-- Top Info Bar (Desktop Only) -->
+    <div class="hidden md:flex justify-between items-center top-bar-glass text-[#05339C] dark:text-[#05339C] px-4 sm:px-6 lg:px-8 h-10 transition-colors duration-300">
+        <div class="flex items-center space-x-4">
+            <span class="top-bar-item hover:text-white cursor-pointer flex items-center gap-2">
+                <i class="fa-solid fa-handshake-angle"></i> Get Free Consultation
+            </span>
+            <span class="top-bar-item hover:text-white cursor-pointer flex items-center gap-2">
+                <i class="fa-solid fa-envelope"></i> admin@studyedgeexperts.com
+            </span>
+        </div>
+        <div class="flex items-center space-x-4">
+            <span class="text-sm flex items-center gap-2">Follow Us:
+                <a href="https://www.tiktok.com/@study.edge.expert" target="_blank" class="social-icon text-black hover:text-white transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61555128701673" target="_blank" class="social-icon text-blue-600 hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/study_edge_experts_pvt_ltd/" target="_blank" class="social-icon text-pink-400 hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon text-red-400 hover:text-white transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/in/studyedge-experts-795592314/" target="_blank" class="social-icon text-blue-500 hover:text-white transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+            </span>
+            <span class="text-sm flex items-center gap-2">Contact Us:
+                <a href="#" class="contact-item ml-2 text-green-800 hover:text-white flex items-center gap-1"><i class="fa-brands fa-whatsapp"></i> +977-9767479334</a>
+                <a href="#" class="contact-item ml-2 text-blue-700 hover:text-white flex items-center gap-1"><i class="fa-solid fa-mobile"></i> +977-9767479334</a>
+                <a href="#" class="contact-item ml-2 text-blue-700 hover:text-white flex items-center gap-1"><i class="fa-solid fa-phone"></i> +977-1-4547288</a>
+            </span>
+        </div>
+    </div>
+
+    <!-- Main Nav -->
+    <div class="header-glass shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <!-- Logo -->
+            <a href="/" class="logo-container flex items-center space-x-2">
+                <img src="{% static 'images/contents/SEE_Logo.jpeg' %}" alt="StudyEdge Logo" class="h-12 w-auto rounded-full shadow-lg">
+                <span class="hidden sm:inline text-2xl font-bold text-white dark:text-white">StudyEdge</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex space-x-6 items-center text-white dark:text-white">
+                <a href="{% url 'study_abroad_steps' %}" class="nav-item hover:text-[#41A67E] dark:hover:text-[#41A67E]">Study Abroad Paths</a>
+                <a href="#destinations" class="nav-item hover:text-[#41A67E] dark:hover:text-[#41A67E]">Destinations</a>
+                <a href="{% url 'services' %}" class="nav-item hover:text-[#41A67E] dark:hover:text-[#41A67E]">Our Services</a>
+                <a href="#english-tests" class="nav-item hover:text-[#41A67E] dark:hover:text-[#41A67E]">Book English Tests</a>
+                <a href="{% url 'about_us' %}" class="nav-item hover:text-[#41A67E] dark:hover:text-[#41A67E]">About Us</a>
+                <a href="{% url 'faq_details' %}" class="nav-item hover:text-[#41A67E] dark:hover:text-[#41A67E]">FAQ Details</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center space-x-2">
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-toggle" class="md:hidden p-2 rounded-lg bg-[#41A67E] hover:bg-[#358c67] text-white transition-all duration-300 hover:scale-110">
+                    <i id="menu-icon" class="fa-solid fa-bars fa-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <nav id="mobile-menu" class="md:hidden lg:hidden overflow-hidden max-h-0 bg-gradient-to-b from-white to-gray-50 dark:bg-gradient-to-b dark:from-white dark:to-gray-50 transition-all duration-500 px-4 py-0 space-y-2 shadow-lg">
+            <!-- Top info (mobile) -->
+            <div class="flex flex-col space-y-2 py-2 border-b border-gray-200 dark:border-gray-200">
+                <span class="hover:text-blue-500 dark:hover:text-blue-500 transition-all duration-300 cursor-pointer flex items-center gap-2"><i class="fa-solid fa-handshake-angle"></i> Free Consultation</span>
+                <span class="hover:text-blue-500 dark:hover:text-blue-500 transition-all duration-300 cursor-pointer flex items-center gap-2"><i class="fa-solid fa-envelope"></i> admin@studyedgeexperts.com</span>
+                <span class="flex items-center gap-2">Follow Us:
+                    <a href="https://www.tiktok.com/@study.edge.expert" target="_blank" class="ml-2 text-black hover:text-blue-500 social-icon"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61555128701673" target="_blank" class="ml-2 text-blue-600 hover:text-blue-500 social-icon"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/study_edge_experts_pvt_ltd/" target="_blank" class="ml-2 text-pink-400 hover:text-blue-500 social-icon"><i class="fa-brands fa-instagram"></i></a>
+                </span>
+                <span class="flex items-center gap-2">Contact Us:
+                    <a href="#" class="ml-2 text-green-600 hover:text-blue-500 social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="ml-2 text-blue-600 hover:text-blue-500 social-icon"><i class="fa-solid fa-phone"></i> +977-9767479334</a>
+                </span>
+            </div>
+
+            <!-- Main nav links -->
+            <a href="{% url 'study_abroad_steps' %}" class="block py-2 hover:text-blue-500 dark:hover:text-blue-500 transition-all duration-300 hover:pl-2">Study Abroad Paths</a>
+            <a href="#destinations" class="block py-2 hover:text-blue-500 dark:hover:text-blue-500 transition-all duration-300 hover:pl-2">Destinations</a>
+            <a href="#services" class="block py-2 hover:text-blue-500 dark:hover:text-blue-500 transition-all duration-300 hover:pl-2">Our Services</a>
+            <a href="#english-tests" class="block py-2 hover:text-blue-500 dark:hover:text-blue-500 transition-all duration-300 hover:pl-2">Book English Tests</a>
+            <a href="#student-support" class="block py-2 hover:text-blue-500 dark:hover:text-blue-500 transition-all duration-300 hover:pl-2">Book your appointment</a>
+        </nav>
+    </div>
+</header>
