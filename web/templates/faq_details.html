@@ -1,0 +1,228 @@
+{% extends "base.html" %}
+{% block title %}Study Abroad Steps | StudyEdge{% endblock %}
+{% block content %}
+<!-- Hero Section -->
+<!-- Hero Section -->
+<section id="hero" class="relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white py-24 md:py-36 overflow-hidden">
+    <!-- Animated Background -->
+    <div class="absolute inset-0 opacity-20">
+        <div class="absolute w-[600px] h-[600px] bg-blue-500/30 rounded-full -top-48 -left-48 blur-3xl animate-pulse"></div>
+        <div class="absolute w-[500px] h-[500px] bg-purple-500/30 rounded-full -bottom-32 -right-32 blur-3xl animate-pulse" style="animation-delay: 1.5s;"></div>
+        <div class="absolute w-[400px] h-[400px] bg-cyan-500/20 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-3xl animate-pulse" style="animation-delay: 0.75s;"></div>
+    </div>
+    
+    <!-- Grid Pattern Overlay -->
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 text-center">
+        <!-- Modern Badge -->
+        <div class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/20 to-green-500/20 backdrop-blur-xl border border-white/20 px-5 py-2.5 rounded-full mb-8 shadow-2xl animate-fade-in-up">
+            <span class="relative flex h-2.5 w-2.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-500"></span>
+            </span>
+            <span class="text-sm font-semibold tracking-wide text-cyan-300">Your Global Education Journey</span>
+        </div>
+        
+        <!-- Main Heading with Gradient -->
+        <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 animate-fade-in-up">
+            <span class="bg-gradient-to-r from-white via-blue-100 to-cyan-200 bg-clip-text text-transparent drop-shadow-2xl">
+                Frequently Asked
+            </span>
+            <br/>
+            <span class="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                Questions
+            </span>
+        </h1>
+        
+        <!-- Enhanced Subtitle -->
+        <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-4 animate-fade-in-up delay-200">
+            Your satisfaction, our <span class="font-bold text-white">Priority</span>
+        </p>
+        <p class="text-base md:text-lg text-blue-300 font-medium animate-fade-in-up delay-300">
+            Clear answers. Complete transparency. Trusted guidance for students and parents.
+        </p>
+        
+    </div>
+</section>
+
+<style>
+.step-nav-item {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+</style>
+
+<!-- FAQ Section -->
+<section id="faq" class="bg-gray-50 py-20 md:py-28">
+    <div class="max-w-5xl mx-auto px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center mb-14">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+                Transparency is our core <span class="text-blue-600">Principle</span>
+            </h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                Clear answers to common questions about our accreditation, partnerships, and services.
+            </p>
+        </div>
+
+        <!-- FAQ Items -->
+        <div class="space-y-5">
+
+            <!-- FAQ 1 -->
+            <div class="bg-white rounded-2xl shadow-md border border-gray-200">
+                <button class="faq-btn w-full flex justify-between items-center p-6 text-left">
+                    <span class="text-lg font-semibold text-gray-900">
+                        Is Study Edge Experts accredited and legally recognized in Nepal?
+                    </span>
+                    <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div class="faq-content hidden px-6 pb-6 text-gray-700 leading-relaxed">
+                    <p>
+                        Yes. <strong>Study Edge Experts</strong> is a legally registered education consultancy in Nepal,
+                        operating under the rules and guidelines set by the Government of Nepal and the
+                        Ministry of Education, Science & Technology.
+                    </p>
+                    <p class="mt-3">
+                        We strictly follow ethical business practices and provide transparent, student-first guidance.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="bg-white rounded-2xl shadow-md border border-gray-200">
+                <button class="faq-btn w-full flex justify-between items-center p-6 text-left">
+                    <span class="text-lg font-semibold text-gray-900">
+                        Do you work only with accredited universities and colleges?
+                    </span>
+                    <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div class="faq-content hidden px-6 pb-6 text-gray-700 leading-relaxed">
+                    <p>
+                        Absolutely. We assist students in applying only to
+                        <strong>recognized and accredited universities</strong> approved by official
+                        education authorities in destination countries such as:
+                    </p>
+                    <ul class="list-disc ml-6 mt-3 space-y-1">
+                        <li>UK</li>
+                        <li>Canada</li>
+                        <li>Australia</li>
+                        <li>USA</li>
+                        <li>New Zealand</li>
+                        <li>Europe</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="bg-white rounded-2xl shadow-md border border-gray-200">
+                <button class="faq-btn w-full flex justify-between items-center p-6 text-left">
+                    <span class="text-lg font-semibold text-gray-900">
+                        Are your services aligned with embassy and visa requirements?
+                    </span>
+                    <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div class="faq-content hidden px-6 pb-6 text-gray-700 leading-relaxed">
+                    <p>
+                        Yes. Our visa counseling and documentation processes strictly follow
+                        current embassy and immigration requirements, including:
+                    </p>
+                    <ul class="list-disc ml-6 mt-3 space-y-1">
+                        <li>UKVI (United Kingdom)</li>
+                        <li>IRCC (Canada)</li>
+                        <li>Country-specific student visa standards</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="bg-white rounded-2xl shadow-md border border-gray-200">
+                <button class="faq-btn w-full flex justify-between items-center p-6 text-left">
+                    <span class="text-lg font-semibold text-gray-900">
+                        Are you affiliated with all universities you recommend?
+                    </span>
+                    <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div class="faq-content hidden px-6 pb-6 text-gray-700 leading-relaxed">
+                    <p>
+                        We work with a wide range of officially recognized institutions through
+                        direct partnerships or authorized application processes.
+                    </p>
+                    <p class="mt-3 font-medium text-blue-700">
+                        Our priority is student suitability and compliance — not commission-based placements.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="bg-white rounded-2xl shadow-md border border-gray-200">
+                <button class="faq-btn w-full flex justify-between items-center p-6 text-left">
+                    <span class="text-lg font-semibold text-gray-900">
+                        How does accreditation benefit students?
+                    </span>
+                    <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div class="faq-content hidden px-6 pb-6 text-gray-700 leading-relaxed">
+                    <ul class="space-y-2">
+                        <li>✔ Admission to legitimate institutions</li>
+                        <li>✔ Visa applications that meet embassy standards</li>
+                        <li>✔ Protection from fraudulent colleges</li>
+                        <li>✔ Long-term academic and career security</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="bg-white rounded-2xl shadow-md border border-gray-200">
+                <button class="faq-btn w-full flex justify-between items-center p-6 text-left">
+                    <span class="text-lg font-semibold text-gray-900">
+                        Can parents verify your legitimacy?
+                    </span>
+                    <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div class="faq-content hidden px-6 pb-6 text-gray-700 leading-relaxed">
+                    <p>Yes. Parents are always welcome to:</p>
+                    <ul class="list-disc ml-6 mt-3 space-y-1">
+                        <li>Visit our office</li>
+                        <li>Review our legal registration</li>
+                        <li>Check Google reviews</li>
+                        <li>Verify official offer letters and visa documentation</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% include "components/student_support_form.html" %}
+
+<section class="bg-gradient-to-r from-blue-600 to-green-700 py-20 md:py-28 text-center">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-white">
+            Ready to Start Your Global Future?
+        </h2>
+        <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Let our expert counsellors guide you through every step of this roadmap with zero confusion and maximum confidence.
+        </p>
+        <a href="#contact" class="inline-flex items-center bg-yellow-400 text-blue-900 hover:bg-yellow-300 px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 shadow-xl">
+            <i class="fas fa-headset mr-3"></i> Book a Free Consultation
+        </a>
+    </div>
+</section>
+
+<!-- FAQ Script -->
+<script>
+document.querySelectorAll('.faq-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('i');
+
+        content.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+    });
+});
+</script>
+{% endblock %}

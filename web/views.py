@@ -18,3 +18,8 @@ def study_abroad_step(request):
     form = CounsellingAppointmentForm()
     student_support_title = "Applying made easy with StudyEdge"
     return render(request, 'study_abroad_steps.html', {'student_support_title': student_support_title, 'form': form})
+
+def faq_details(request):
+    form = CounsellingAppointmentForm()
+    student_support_title = "Your Questions Answered: StudyEdge FAQ"
+    return render(request, 'faq_details.html', {'student_support_title': student_support_title, 'form': form})
