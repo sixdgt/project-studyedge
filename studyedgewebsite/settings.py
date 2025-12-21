@@ -28,7 +28,24 @@ SECRET_KEY = env.str("SECRET_KEY", "django-insecure-&mgq&$1q=d4#v-($ss$2)8^+6=w4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", True)
 
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
+# HTTPS Security settings
+if not DEBUG:
+    # Only enable these security settings in production
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SECURE_HSTS_SECONDS = 31536000  # 1 year
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    
+    # Proxy settings
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    USE_X_FORWARDED_HOST = True
+
+# Update ALLOWED_HOSTS (overrides the earlier setting)
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=['studyedgeexperts.com.np', 'www.studyedgeexperts.com.np'])
 
 # Application definition
 
