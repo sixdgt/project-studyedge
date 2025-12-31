@@ -5,6 +5,7 @@
 {% block custom_css %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/testimonials.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -293,161 +294,33 @@
         </p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Australia -->
+            {% for dest in destinations %}
+            <!-- destinations -->
             <div data-aos="fade-up" data-aos-delay="100" class="relative group overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-500">
                 <div class="relative h-64 overflow-hidden">
-                    <img src="{% static 'images/destinations/australia.jpg' %}" alt="Australia" 
+                  {% if dest.hero_image %}
+                    <img src="{{ dest.hero_image.url }}" alt="{{ dest.name }}" 
                          class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                         {% endif %}
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                     <div class="absolute top-4 right-4 bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
                         <i class="fas fa-fire mr-1"></i>Popular
                     </div>
                     <div class="absolute bottom-4 left-4 right-4">
-                        <h3 class="text-2xl font-bold text-white drop-shadow-lg">Australia</h3>
-                        <p class="text-white/90 text-sm">Top Universities • Work Opportunities</p>
+                        <h3 class="text-2xl font-bold text-white drop-shadow-lg">{{ dest.name }}</h3>
+                        <p class="text-white/90 text-sm">{{ dest.tagline }}</p>
                     </div>
                 </div>
                 <div class="p-6 bg-white dark:bg-gray-800">
                     <p class="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
                         Discover world-class education and vibrant culture in Australia with work opportunities.
                     </p>
-                    <a href="{% url 'australia' %}" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-bold group-hover:translate-x-2 transition-transform duration-300">
+                    <a href="{{ dest.get_absolute_url }}" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-bold group-hover:translate-x-2 transition-transform duration-300">
                         Explore More <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
             </div>
-
-            <!-- Canada -->
-            <div data-aos="fade-up" data-aos-delay="150" class="relative group overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-500">
-                <div class="relative h-64 overflow-hidden">
-                    <img src="{% static 'images/destinations/canada.jpg' %}" alt="Canada" 
-                         class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-                        <i class="fas fa-star mr-1"></i>Trending
-                    </div>
-                    <div class="absolute bottom-4 left-4 right-4">
-                        <h3 class="text-2xl font-bold text-white drop-shadow-lg">Canada</h3>
-                        <p class="text-white/90 text-sm">PR Pathways • Multicultural</p>
-                    </div>
-                </div>
-                <div class="p-6 bg-white dark:bg-gray-800">
-                    <p class="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-                        Experience quality education and multicultural environment with PR pathways.
-                    </p>
-                    <a href="{% url 'australia' %}" class="inline-flex items-center text-green-600 hover:text-green-700 font-bold group-hover:translate-x-2 transition-transform duration-300">
-                        Explore More <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- UK -->
-            <div data-aos="fade-up" data-aos-delay="200" class="relative group overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-500">
-                <div class="relative h-64 overflow-hidden">
-                    <img src="{% static 'images/destinations/uk.jpg' %}" alt="United Kingdom" 
-                         class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                    <div class="absolute bottom-4 left-4 right-4">
-                        <h3 class="text-2xl font-bold text-white drop-shadow-lg">United Kingdom</h3>
-                        <p class="text-white/90 text-sm">Prestigious • Academic Excellence</p>
-                    </div>
-                </div>
-                <div class="p-6 bg-white dark:bg-gray-800">
-                    <p class="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-                        Study in prestigious institutions with rich history and academic excellence.
-                    </p>
-                    <a href="#" class="inline-flex items-center text-red-600 hover:text-red-700 font-bold group-hover:translate-x-2 transition-transform duration-300">
-                        Explore More <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- New Zealand -->
-            <div data-aos="fade-up" data-aos-delay="100" class="relative group overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-500">
-                <div class="relative h-64 overflow-hidden">
-                    <img src="{% static 'images/destinations/newzealand.jpg' %}" alt="New Zealand" 
-                         class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                    <div class="absolute bottom-4 left-4 right-4">
-                        <h3 class="text-2xl font-bold text-white drop-shadow-lg">New Zealand</h3>
-                        <p class="text-white/90 text-sm">Natural Beauty • Friendly Culture</p>
-                    </div>
-                </div>
-                <div class="p-6 bg-white dark:bg-gray-800">
-                    <p class="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-                        Discover world-class education in stunning natural landscapes with friendly culture.
-                    </p>
-                    <a href="{% url 'australia' %}" class="inline-flex items-center text-purple-600 hover:text-purple-700 font-bold group-hover:translate-x-2 transition-transform duration-300">
-                        Explore More <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Denmark -->
-            <div data-aos="fade-up" data-aos-delay="150" class="relative group overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-500">
-                <div class="relative h-64 overflow-hidden">
-                    <img src="{% static 'images/destinations/denmark.jpg' %}" alt="Denmark" 
-                         class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                    <div class="absolute bottom-4 left-4 right-4">
-                        <h3 class="text-2xl font-bold text-white drop-shadow-lg">Denmark</h3>
-                        <p class="text-white/90 text-sm">Innovative • Happy Country</p>
-                    </div>
-                </div>
-                <div class="p-6 bg-white dark:bg-gray-800">
-                    <p class="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-                        Experience quality education in one of the happiest countries with innovative teaching.
-                    </p>
-                    <a href="{% url 'australia' %}" class="inline-flex items-center text-indigo-600 hover:text-indigo-700 font-bold group-hover:translate-x-2 transition-transform duration-300">
-                        Explore More <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Ireland -->
-            <div data-aos="fade-up" data-aos-delay="200" class="relative group overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-500">
-                <div class="relative h-64 overflow-hidden">
-                    <img src="{% static 'images/destinations/ireland.jpg' %}" alt="Ireland" 
-                         class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                    <div class="absolute bottom-4 left-4 right-4">
-                        <h3 class="text-2xl font-bold text-white drop-shadow-lg">Ireland</h3>
-                        <p class="text-white/90 text-sm">Tech Hub • Rich Heritage</p>
-                    </div>
-                </div>
-                <div class="p-6 bg-white dark:bg-gray-800">
-                    <p class="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-                        Study in the tech hub of Europe with rich cultural heritage and welcoming people.
-                    </p>
-                    <a href="{% url 'australia' %}" class="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-bold group-hover:translate-x-2 transition-transform duration-300">
-                        Explore More <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- USA -->
-            <div data-aos="fade-up" data-aos-delay="100" class="relative group overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-500 sm:col-span-2 lg:col-span-1 lg:col-start-2">
-                <div class="relative h-64 overflow-hidden">
-                    <img src="{% static 'images/destinations/usa.jpg' %}" alt="USA" 
-                         class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                    <div class="absolute top-4 right-4 bg-yellow-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-                        <i class="fas fa-crown mr-1"></i>Premium
-                    </div>
-                    <div class="absolute bottom-4 left-4 right-4">
-                        <h3 class="text-2xl font-bold text-white drop-shadow-lg">USA</h3>
-                        <p class="text-white/90 text-sm">World-Renowned • Diverse Opportunities</p>
-                    </div>
-                </div>
-                <div class="p-6 bg-white dark:bg-gray-800">
-                    <p class="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-                        Access world-renowned universities and diverse opportunities in the United States.
-                    </p>
-                    <a href="{% url 'australia' %}" class="inline-flex items-center text-yellow-600 hover:text-yellow-700 font-bold group-hover:translate-x-2 transition-transform duration-300">
-                        Explore More <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
@@ -455,106 +328,53 @@
 <!-- Enhanced Testimonials Section -->
 <section id="testimonials" class="bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 py-20 transition-colors duration-500 relative overflow-hidden">
   <div class="absolute inset-0 opacity-10">
-    <div class="absolute top-10 left-10 w-72 h-72 bg-blue-500 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-10 right-10 w-96 h-96 bg-purple-500 rounded-full blur-3xl"></div>
+    <div class="absolute top-10 left-10 w-72 h-72 bg-blue-500 rounded-full blur-3xl animate-blob"></div>
+    <div class="absolute bottom-10 right-10 w-96 h-96 bg-purple-500 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
   </div>
   
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-    <h2 data-aos="fade-up" class="text-5xl font-extrabold text-gray-900 dark:text-white mb-4">
-      <i class="fas fa-star text-yellow-500 mr-3"></i>Successful Stories
-    </h2>
-    <p data-aos="fade-up" data-aos-delay="100" class="text-gray-600 dark:text-gray-300 mb-16 text-lg">
-      Hear from students who achieved their dreams with StudyEdge
-    </p>
+    <!-- Section Header -->
+    <div class="mb-16 relative">
+      <div class="inline-flex items-center justify-center p-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full shadow-lg mb-6">
+        <i class="fas fa-star text-2xl text-white"></i>
+      </div>
+      <h2 class="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+        Student Success Stories
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+        Join <span class="font-semibold text-blue-600 dark:text-blue-400">3,500+ successful students</span> who achieved their study abroad dreams with StudyEdge
+      </p>
+      
+      <!-- Stats Bar -->
+      <div class="flex flex-wrap justify-center gap-6 mt-10">
+        <div class="stat-card bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-lg">
+          <div class="text-3xl font-bold text-blue-600 dark:text-blue-400">98%</div>
+          <div class="text-sm text-gray-600 dark:text-gray-400">Visa Success Rate</div>
+        </div>
+        <div class="stat-card bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-lg">
+          <div class="text-3xl font-bold text-green-600 dark:text-green-400">4.9/5</div>
+          <div class="text-sm text-gray-600 dark:text-gray-400">Student Rating</div>
+        </div>
+        <div class="stat-card bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-lg">
+          <div class="text-3xl font-bold text-purple-600 dark:text-purple-400">25+</div>
+          <div class="text-sm text-gray-600 dark:text-gray-400">Countries</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Navigation controls -->
+    <div class="flex justify-center gap-4 mb-8">
+      <button id="prev-testimonial" class="p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:bg-blue-50 dark:hover:bg-gray-700 transition-all duration-300 text-blue-600 dark:text-blue-400 hover:scale-110">
+        <i class="fas fa-chevron-left text-lg"></i>
+      </button>
+      <button id="next-testimonial" class="p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:bg-blue-50 dark:hover:bg-gray-700 transition-all duration-300 text-blue-600 dark:text-blue-400 hover:scale-110">
+        <i class="fas fa-chevron-right text-lg"></i>
+      </button>
+    </div>
 
     <div class="overflow-hidden relative">
-      <div class="flex space-x-8 animate-scroll">
+      <div id="testimonial-slider" class="flex gap-8">
         
-        <div class="min-w-[320px] md:min-w-[380px] bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-2xl flex flex-col items-center justify-center transform hover:scale-105 transition-all duration-300">
-          <div class="relative mb-6">
-            <img src="{% static 'images/students/student-one.jpg' %}" alt="Student 1" class="w-24 h-24 rounded-full object-cover border-4 border-blue-500 shadow-lg">
-            <div class="absolute -bottom-2 -right-2 bg-green-500 text-white rounded-full p-2">
-              <i class="fas fa-check text-sm"></i>
-            </div>
-          </div>
-          <div class="flex text-yellow-400 mb-4">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-          </div>
-          <p class="text-gray-700 dark:text-gray-300 italic mb-4 leading-relaxed">
-            "I got my visa approved for Australia thanks to the consultancy's amazing support and guidance!"
-          </p>
-          <h3 class="font-bold text-xl text-gray-900 dark:text-white">Aashish Sharma</h3>
-          <span class="text-sm text-blue-600 dark:text-blue-400 font-semibold">Master's in IT, Australia</span>
-        </div>
-
-        <div class="min-w-[320px] md:min-w-[380px] bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-2xl flex flex-col items-center justify-center transform hover:scale-105 transition-all duration-300">
-          <div class="relative mb-6">
-            <img src="{% static 'images/students/student-two.jpg' %}" alt="Student 2" class="w-24 h-24 rounded-full object-cover border-4 border-green-500 shadow-lg">
-            <div class="absolute -bottom-2 -right-2 bg-green-500 text-white rounded-full p-2">
-              <i class="fas fa-check text-sm"></i>
-            </div>
-          </div>
-          <div class="flex text-yellow-400 mb-4">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-          </div>
-          <p class="text-gray-700 dark:text-gray-300 italic mb-4 leading-relaxed">
-            "My dream of studying in Canada came true — very professional guidance throughout the process!"
-          </p>
-          <h3 class="font-bold text-xl text-gray-900 dark:text-white">Kritika Rai</h3>
-          <span class="text-sm text-green-600 dark:text-green-400 font-semibold">MBA, Canada</span>
-        </div>
-
-        <div class="min-w-[320px] md:min-w-[380px] bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-2xl flex flex-col items-center justify-center transform hover:scale-105 transition-all duration-300">
-          <div class="relative mb-6">
-            <img src="{% static 'images/students/student-one.jpg' %}" alt="Student 3" class="w-24 h-24 rounded-full object-cover border-4 border-red-500 shadow-lg">
-            <div class="absolute -bottom-2 -right-2 bg-green-500 text-white rounded-full p-2">
-              <i class="fas fa-check text-sm"></i>
-            </div>
-          </div>
-          <div class="flex text-yellow-400 mb-4">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-          </div>
-          <p class="text-gray-700 dark:text-gray-300 italic mb-4 leading-relaxed">
-            "The IELTS classes and document help made my UK process incredibly smooth and stress-free."
-          </p>
-          <h3 class="font-bold text-xl text-gray-900 dark:text-white">Prabin Gurung</h3>
-          <span class="text-sm text-red-600 dark:text-red-400 font-semibold">BSc Computing, UK</span>
-        </div>
-
-        <div class="min-w-[320px] md:min-w-[380px] bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-2xl flex flex-col items-center justify-center transform hover:scale-105 transition-all duration-300">
-          <div class="relative mb-6">
-            <img src="{% static 'images/students/student-two.jpg' %}" alt="Student 4" class="w-24 h-24 rounded-full object-cover border-4 border-purple-500 shadow-lg">
-            <div class="absolute -bottom-2 -right-2 bg-green-500 text-white rounded-full p-2">
-              <i class="fas fa-check text-sm"></i>
-            </div>
-          </div>
-          <div class="flex text-yellow-400 mb-4">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-          </div>
-          <p class="text-gray-700 dark:text-gray-300 italic mb-4 leading-relaxed">
-            "I'm now in New Zealand! The visa team guided me perfectly at every single step."
-          </p>
-          <h3 class="font-bold text-xl text-gray-900 dark:text-white">Sita Adhikari</h3>
-          <span class="text-sm text-purple-600 dark:text-purple-400 font-semibold">MSc Data Science, New Zealand</span>
-        </div>
-
-        <!-- Duplicate for seamless scroll -->
-        <div class="min-w-[320px] md:min-w-[380px] bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-2xl flex flex-col items-center justify-center transform hover:scale-105 transition-all duration-300">
-          <div class="relative mb-6">
-            <img src="{% static 'images/students/student-one.jpg' %}" alt="Student 1" class="w-24 h-24 rounded-full object-cover border-4 border-blue-500 shadow-lg">
-            <div class="absolute -bottom-2 -right-2 bg-green-500 text-white rounded-full p-2">
-              <i class="fas fa-check text-sm"></i>
-            </div>
-          </div>
-          <div class="flex text-yellow-400 mb-4">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-          </div>
-          <p class="text-gray-700 dark:text-gray-300 italic mb-4 leading-relaxed">
-            "I got my visa approved for Australia thanks to the consultancy's amazing support and guidance!"
-          </p>
-          <h3 class="font-bold text-xl text-gray-900 dark:text-white">Aashish Sharma</h3>
-          <span class="text-sm text-blue-600 dark:text-blue-400 font-semibold">Master's in IT, Australia</span>
-        </div>
       </div>
     </div>
   </div>
@@ -1068,4 +888,5 @@
 <script src="{% static 'js/index_hero.js' %}"></script>
 <script src="{% static 'js/booking_test.js' %}"></script>
 <script src="{% static 'js/block_date.js' %}"></script>
+<script src="{% static 'js/testimonials.js' %}"></script>
 {% endblock %}

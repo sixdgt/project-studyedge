@@ -1,0 +1,25 @@
+{% load static %}
+<meta name="description" content="{% block description %}Study Edge Experts provides expert guidance for students aspiring to study abroad. IELTS, PTE preparation, visa counselling, and study destinations worldwide.{% endblock %}">
+<meta name="keywords" content="{% block keywords %}study abroad Nepal, IELTS Nepal, PTE Nepal, visa consultancy, study in Australia, study in USA, study in UK, education consultancy Kathmandu{% endblock %}">
+<meta name="author" content="Study Edge Experts">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://studyedgeexperts.com.np{% block canonical %}{{ request.path }}{% endblock %}">
+
+<!-- Open Graph / Facebook Meta Tags -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://studyedgeexperts.com.np{{ request.path }}">
+<meta property="og:title" content="{% block og_title %}Study Edge Experts - Study Abroad Consultancy in Nepal{% endblock %}">
+<meta property="og:description" content="{% block og_description %}Study Edge Experts provides expert guidance for students aspiring to study abroad.{% endblock %}">
+<meta property="og:image" content="{% block og_image %}https://studyedgeexperts.com.np{% static 'images/contents/SEE_Logo.jpeg' %}{% endblock %}">
+<meta property="og:site_name" content="Study Edge Experts">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://studyedgeexperts.com.np{{ request.path }}">
+<meta name="twitter:title" content="{% block twitter_title %}Study Edge Experts{% endblock %}">
+<meta name="twitter:description" content="{% block twitter_description %}Study abroad consultancy in Nepal{% endblock %}">
+<meta name="twitter:image" content="{% block twitter_image %}https://studyedgeexperts.com.np{% static 'images/contents/SEE_Logo.jpeg' %}{% endblock %}">
+
+<!-- // add meta tag from admin panel
+// must render the tag -->

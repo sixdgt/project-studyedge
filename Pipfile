@@ -8,6 +8,9 @@ django = "==6.0"
 psycopg2 = "==2.9.11"
 django-environ = "==0.12.0"
 django-tailwind = "*"
+django-ckeditors = "*"
+django-admin-interface = "*"
+django-import-export = "*"
 
 [dev-packages]
 
