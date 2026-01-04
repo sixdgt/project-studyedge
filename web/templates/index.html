@@ -10,6 +10,7 @@
 
 {% block content %}
 
+{% include 'partials/_message.html' %}
 <!-- Hero Section with Enhanced Design -->
 <section class="bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 dark:bg-gradient-to-br dark:from-blue-500 dark:via-blue-600 dark:to-blue-700 transition-colors duration-500 relative overflow-hidden min-h-screen">
   <div class="h-16"></div>
@@ -206,7 +207,7 @@
       </h3>
       <p class="text-gray-600 dark:text-gray-300">Our expert counselors will reach out to you within 24 hours</p>
     </div>
-    <form method="post" class="flex flex-col md:flex-row items-end gap-4 bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300">
+    <form method="POST" action="{% url 'call_back_request' %}" class="flex flex-col md:flex-row items-end gap-4 bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300">
       {% csrf_token %}
       <div class="w-full md:flex-1">
         <label class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Full Name</label>
@@ -639,38 +640,45 @@
         </p>
       </div>
 
-      <form action="#" method="POST" class="space-y-6">
-        {% csrf_token %}
-        {% for field in form %}
-          {% if field.name != 'confirmation_status' %}
+      <form action="{% url 'book_test' %}" method="POST" class="space-y-6">
+      {% csrf_token %}
+
+      {% for field in book_test_form %}
+        {% if field.name != 'confirmation_status' %}
           <div class="floating-label-group">
-              {{ field }}
-              <label for="{{ field.id_for_label }}" class="floating-label">
-                  {% if field.full_name == 'full_name' %} Full Name
-                  {% elif field.email == 'email' %} Email Address
-                  {% elif field.contact == 'contact_number' %} Contact Number
-                  {% elif field.preferred_data == 'preferred_date' %} Preferred Date
-                  {% elif field.test_type == 'test_type' %} Test Type
-                  {% elif field.test_mode == 'test_mode' %} Test Mode
-                  {% endif %}
-              </label>
-              {% if field.errors %}
-              <div class="text-red-600 text-sm mt-1">{{ field.errors }}</div>
+            {{ field }}
+            <label for="{{ field.id_for_label }}" class="floating-label">
+              {% if field.name == 'full_name' %} Full Name
+              {% elif field.name == 'email' %} Email Address
+              {% elif field.name == 'contact_number' %} Contact Number
+              {% elif field.name == 'preferred_date' %} Preferred Date
+              {% elif field.name == 'test_type' %} Test Type
+              {% elif field.name == 'test_mode' %} Test Mode
               {% endif %}
+            </label>
+
+            {% if field.errors %}
+              <p class="text-red-600 text-sm mt-1">{{ field.errors }}</p>
+            {% endif %}
           </div>
-          {% else %}
-          <div class="checkbox-container">
-              {{ field }}
-              <label for="{{ field.id_for_label }}" class="text-gray-700 text-sm cursor-pointer">
-                  I confirm that I've read and agree to the terms & conditions
-              </label>
+        {% else %}
+          <div class="flex items-center gap-2">
+            {{ field }}
+            <label for="{{ field.id_for_label }}" class="text-sm text-gray-700 cursor-pointer">
+              I confirm that I've read and agree to the terms & conditions
+            </label>
           </div>
+
+          {% if field.errors %}
+            <p class="text-red-600 text-sm mt-1">{{ field.errors }}</p>
           {% endif %}
-        {% endfor %}
-        <button type="submit" class="w-full bg-gradient-to-r from-[#1052a0] to-[#4178be] hover:from-[#4178be] hover:to-[#1052a0] text-white py-4 rounded-xl transition-all duration-300 font-bold shadow-xl transform hover:scale-105">
-          <i class="fas fa-check-circle mr-2"></i>Book My Test
-        </button>
-      </form>
+        {% endif %}
+      {% endfor %}
+
+      <button type="submit" class="w-full bg-gradient-to-r from-[#1052a0] to-[#4178be] text-white py-4 rounded-xl font-bold shadow-xl">
+        Book My Test
+      </button>
+    </form>
     </div>
 
     <!-- Right: Importance of IELTS & PTE -->

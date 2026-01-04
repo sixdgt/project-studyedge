@@ -1,0 +1,50 @@
+{% comment %} Reusable blog search form. Accepts `value` (pre-filled query). {% endcomment %}
+<style>
+/* Modern grouped search styles */
+.blog-search-form .search-box{ display:flex; align-items:center; gap:0; background:#fff; border-radius:9999px; box-shadow: 0 8px 30px rgba(2,6,23,0.06); border:1px solid rgba(15,23,42,0.06); overflow:hidden; }
+.blog-search-form .search-box .search-input{ flex:1; padding:0.75rem 1rem; border:0; font-size:1rem; color:#0f172a; background:transparent; }
+.blog-search-form .search-box .search-input::placeholder{ color:#94a3b8; }
+.blog-search-form .search-box .search-input:focus{ outline:0; box-shadow: 0 0 0 6px rgba(99,102,241,0.06); }
+.blog-search-form .search-clear{ background:transparent; border:0; width:44px; height:44px; display:inline-flex; align-items:center; justify-content:center; color:#64748b; cursor:pointer; transition: all 0.12s ease; }
+.blog-search-form .search-clear:hover{ color:#0f172a; transform: translateY(-2px); }
+.blog-search-form .search-clear.hidden{ display:none !important; }
+.blog-search-form .search-submit{ background:#4f46e5; color:#fff; border:0; padding:0 1rem; display:inline-flex; align-items:center; justify-content:center; min-width:56px; height:44px; transition: transform 0.12s, box-shadow 0.12s; }
+.blog-search-form .search-submit i{ width:16px; height:16px; display:block; }
+.blog-search-form .search-submit:hover{ transform: translateY(-2px); box-shadow: 0 10px 20px rgba(79,70,229,0.12); }
+@media (max-width:640px){ .blog-search-form .search-submit{ padding:0 12px; } .blog-search-form .search-clear{ display:none !important; } }
+</style>
+
+<form method="get" action="{% url 'blog_search' %}" class="blog-search-form mt-8 max-w-2xl mx-auto" role="search" aria-label="Blog search">
+    <div class="search-box">
+        <label for="blog-search-input" class="sr-only">Search articles</label>
+        <input id="blog-search-input" class="search-input" type="text" name="q" value="{{ value|default:'' }}" placeholder="Search articles, topics, tags..." aria-label="Search articles" />
+        <button type="button" class="search-clear hidden" title="Clear search" aria-label="Clear search">
+            <i class="fas fa-times"></i>
+        </button>
+        <button type="submit" class="search-submit" aria-label="Search">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+</form>
+
+<script>
+// Toggle clear button and handle clear action
+(function(){
+    const forms = document.querySelectorAll('.blog-search-form');
+    forms.forEach(form => {
+        const input = form.querySelector('input[name="q"]');
+        const clear = form.querySelector('.search-clear');
+        if(!input) return;
+        const toggle = () => {
+            if(!clear) return;
+            if(input.value && input.value.trim().length) clear.classList.remove('hidden'); else clear.classList.add('hidden');
+        };
+        input.addEventListener('input', toggle);
+        if(clear){
+            clear.addEventListener('click', () => { input.value = ''; input.focus(); toggle(); });
+        }
+        // initial
+        toggle();
+    });
+})();
+</script>

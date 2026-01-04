@@ -1,0 +1,33 @@
+{% if messages %}
+  <div class="fixed top-5 right-5 z-50 space-y-3 w-full max-w-sm">
+    {% for message in messages %}
+      <div
+        class="flex items-start justify-between rounded-lg p-4 shadow-lg border
+        {% if message.tags == 'success' %}
+          bg-green-50 text-green-800 border-green-200
+        {% elif message.tags == 'error' %}
+          bg-red-500 text-white border-red-200
+        {% elif message.tags == 'warning' %}
+          bg-yellow-50 text-yellow-800 border-yellow-200
+        {% else %}
+          bg-blue-50 text-blue-800 border-blue-200
+        {% endif %}"
+        x-data="{ show: true }"
+        x-show="show"
+        x-transition
+      >
+        <p class="text-sm font-medium">
+          {{ message }}
+        </p>
+
+        <button
+          @click="show = false"
+          class="ml-4 text-lg leading-none font-bold opacity-60 hover:opacity-100 focus:outline-none"
+          aria-label="Close"
+        >
+          &times;
+        </button>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}

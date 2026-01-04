@@ -1,0 +1,46 @@
+<!-- Scroll To Top Component -->
+<style>
+/* Smooth show/hide and focus styles */
+#scroll-top {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  right: 2rem !important;
+  left: auto !important;
+  bottom: 2rem !important;
+}
+#scroll-top.hidden { opacity: 0; transform: translateY(8px); pointer-events: none; }
+#scroll-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+</style>
+
+<button id="scroll-top" class="hidden fixed bottom-8 right-8 z-50 w-12 h-12 bg-indigo-600 text-white rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-400" aria-label="Scroll to top" title="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+</button>
+
+<script>
+(function(){
+  const scrollBtn = document.getElementById('scroll-top');
+  if(!scrollBtn) return;
+
+  const showAfter = 300; // px
+  const onScroll = () => {
+    if(window.scrollY > showAfter){
+      scrollBtn.classList.remove('hidden');
+      scrollBtn.classList.add('visible');
+    } else {
+      scrollBtn.classList.add('hidden');
+      scrollBtn.classList.remove('visible');
+    }
+  };
+
+  window.addEventListener('scroll', onScroll, {passive: true});
+
+  // Smooth scroll on click, keyboard accessible
+  const scrollToTop = () => window.scrollTo({top:0, behavior:'smooth'});
+  scrollBtn.addEventListener('click', scrollToTop);
+  scrollBtn.addEventListener('keydown', e => {
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); scrollToTop(); }
+  });
+
+  // Initialize state
+  onScroll();
+})();
+</script>

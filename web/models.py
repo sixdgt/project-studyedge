@@ -102,6 +102,7 @@ class DestinationSection(models.Model):
     # Display
     show_bullet_points = models.BooleanField(default=True)
     show_stats = models.BooleanField(default=False)
+    show_mini_cards = models.BooleanField(default=False, help_text="Show mini info cards")
     order = models.IntegerField(default=0, help_text="Section order")
     is_active = models.BooleanField(default=True)
     
@@ -131,6 +132,43 @@ class BulletPoint(models.Model):
     
     def __str__(self):
         return f"{self.section.title} - {self.text[:50]}"
+
+
+class MiniCard(models.Model):
+    """Mini info cards for sections (compact visual information blocks)"""
+    
+    section = models.ForeignKey(DestinationSection, on_delete=models.CASCADE,
+                               related_name='mini_cards')
+    title = models.CharField(max_length=100, help_text="Card title (e.g., Student Visa)")
+    subtitle = models.CharField(max_length=150, blank=True, 
+                               help_text="Small text below title (e.g., Subclass 500)")
+    description = models.TextField(help_text="Card description (2-3 lines)")
+    
+    icon = models.CharField(max_length=50, default='fa-info-circle',
+                           help_text="FontAwesome icon")
+    
+    # Styling
+    bg_color = models.CharField(max_length=50, default='blue-50',
+                               help_text="Background color (e.g., blue-50, green-50)")
+    icon_color = models.CharField(max_length=50, default='blue-600',
+                                 help_text="Icon color (e.g., blue-600)")
+    border_color = models.CharField(max_length=50, default='blue-200',
+                                   help_text="Border color (e.g., blue-200)")
+    
+    # Optional link
+    link_text = models.CharField(max_length=50, blank=True, 
+                                help_text="Link text (e.g., Learn More)")
+    link_url = models.URLField(blank=True, help_text="External link URL")
+    
+    order = models.IntegerField(default=0)
+    
+    class Meta:
+        ordering = ['order']
+        verbose_name = 'Mini Card'
+        verbose_name_plural = 'Mini Cards'
+    
+    def __str__(self):
+        return f"{self.section.title} - {self.title}"
 
 
 class SectionStat(models.Model):
@@ -221,6 +259,184 @@ class HeroHighlight(models.Model):
     def __str__(self):
         return f"{self.destination.name} - {self.text}"
 
+
+# ============================================================================
+# BLOG MODELS
+# ============================================================================
+
+class BlogCategory(models.Model):
+    """Blog categories/topics"""
+    
+    name = models.CharField(max_length=100, help_text="e.g., Study Abroad Tips, Visa Guide")
+    slug = models.SlugField(unique=True, max_length=100)
+    description = models.TextField(blank=True)
+    
+    # Styling
+    color = models.CharField(max_length=50, default='blue-600',
+                            help_text="Category color (e.g., blue-600)")
+    icon = models.CharField(max_length=50, default='fa-folder',
+                           help_text="FontAwesome icon")
+    
+    # Meta
+    meta_description = models.TextField(max_length=160, blank=True)
+    order = models.IntegerField(default=0)
+    is_active = models.BooleanField(default=True)
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        ordering = ['order', 'name']
+        verbose_name = 'Blog Category'
+        verbose_name_plural = 'Blog Categories'
+    
+    def __str__(self):
+        return self.name
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+    
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('blog_category', kwargs={'slug': self.slug})
+
+
+class BlogTag(models.Model):
+    """Tags for blog posts"""
+    
+    name = models.CharField(max_length=50)
+    slug = models.SlugField(unique=True, max_length=50)
+    
+    class Meta:
+        ordering = ['name']
+        verbose_name = 'Blog Tag'
+        verbose_name_plural = 'Blog Tags'
+    
+    def __str__(self):
+        return self.name
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+
+class BlogPost(models.Model):
+    """Main blog post model"""
+    
+    STATUS_CHOICES = [
+        ('draft', 'Draft'),
+        ('published', 'Published'),
+        ('archived', 'Archived'),
+    ]
+    
+    # Basic Info
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(unique=True, max_length=200)
+    excerpt = models.TextField(max_length=300, help_text="Short summary for listings")
+    
+    # Content
+    content = CKEditorsField(help_text="Main blog content (HTML allowed)")
+    # If not using CKEditor, use: content = models.TextField()
+    
+    # Media
+    featured_image = models.ImageField(upload_to='blog/featured/', 
+                                      help_text="Main image for the post")
+    featured_image_alt = models.CharField(max_length=200, blank=True,
+                                         help_text="Alt text for SEO")
+    
+    # Categorization
+    category = models.ForeignKey(BlogCategory, on_delete=models.SET_NULL, 
+                                null=True, related_name='posts')
+    tags = models.ManyToManyField(BlogTag, blank=True, related_name='posts')
+    related_destination = models.ForeignKey(Destination, on_delete=models.SET_NULL,
+                                           null=True, blank=True,
+                                           related_name='blog_posts',
+                                           help_text="Link to a destination if relevant")
+    
+    # Author (optional - can be extended with User model)
+    author_name = models.CharField(max_length=100, default='Admin')
+    author_image = models.ImageField(upload_to='blog/authors/', blank=True, null=True)
+    author_bio = models.TextField(max_length=200, blank=True)
+    
+    # Publishing
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='draft')
+    published_date = models.DateTimeField(null=True, blank=True,
+                                         help_text="Date to publish (can be future)")
+    
+    # Engagement
+    views_count = models.IntegerField(default=0, help_text="Number of views")
+    reading_time = models.IntegerField(default=5, help_text="Estimated reading time in minutes")
+    
+    # SEO
+    meta_description = models.TextField(max_length=160, blank=True)
+    meta_keywords = models.CharField(max_length=255, blank=True)
+    
+    # Features
+    is_featured = models.BooleanField(default=False, 
+                                     help_text="Show on homepage featured section")
+    is_trending = models.BooleanField(default=False,
+                                     help_text="Show in trending section")
+    allow_comments = models.BooleanField(default=True)
+    
+    # Timestamps
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        ordering = ['-published_date', '-created_at']
+        verbose_name = 'Blog Post'
+        verbose_name_plural = 'Blog Posts'
+    
+    def __str__(self):
+        return self.title
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+    
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('blog_detail', kwargs={'slug': self.slug})
+    
+    def increment_views(self):
+        """Increment view count"""
+        self.views_count += 1
+        self.save(update_fields=['views_count'])
+
+
+class BlogComment(models.Model):
+    """Comments on blog posts (optional)"""
+    
+    post = models.ForeignKey(BlogPost, on_delete=models.CASCADE,
+                            related_name='comments')
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    content = models.TextField()
+    
+    # Moderation
+    is_approved = models.BooleanField(default=False,
+                                     help_text="Approve comment to show publicly")
+    
+    # Timestamps
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = 'Blog Comment'
+        verbose_name_plural = 'Blog Comments'
+    
+    def __str__(self):
+        return f"{self.name} on {self.post.title}"
+
+
+# ============================================================================
+# EXISTING FORM MODELS
+# ============================================================================
+
 class BookTest(models.Model):
     TEST_CHOICES = [
         ('IELTS Academic', 'IELTS Academic'),
@@ -255,6 +471,7 @@ class BookTest(models.Model):
     def __str__(self):
         return f"{self.full_name} - {self.test_type} on {self.preferred_date}"
     
+
 class CallbackRequest(models.Model):
     full_name = models.CharField(max_length=255)
     country = models.CharField(max_length=100)
@@ -268,6 +485,7 @@ class CallbackRequest(models.Model):
 
     def __str__(self):
         return f"{self.full_name} - {self.contact_number}"
+
 
 class CounsellingAppointment(models.Model):
     DESTINATION_CHOICES = [

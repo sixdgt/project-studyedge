@@ -1,5 +1,41 @@
 /* Floating Label Effect */
 .floating-label-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.floating-label {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  background: white;
+  padding: 0 0.5rem;
+  color: #6b7280;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  font-size: 1rem;
+  z-index: 1;
+}
+
+.floating-label.active {
+  top: -0.5rem;
+  font-size: 0.75rem;
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+input[type="checkbox"]:checked::before {
+  content: "✓";
+  position: absolute;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.floating-label-group {
     position: relative;
     margin-bottom: 1.5rem;
 }

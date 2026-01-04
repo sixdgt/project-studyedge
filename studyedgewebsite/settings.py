@@ -32,7 +32,7 @@ DEBUG = env.bool("DEBUG", True)
 # ALLOWED_HOSTS = []
 # HTTPS Security settings
 if not DEBUG:
-    # Only enable these security settings in production
+#     # Only enable these security settings in production
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
@@ -42,7 +42,7 @@ if not DEBUG:
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
     
-    # Proxy settings
+#     # Proxy settings
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     USE_X_FORWARDED_HOST = True
 

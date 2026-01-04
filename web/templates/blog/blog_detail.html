@@ -1,0 +1,291 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ post.title }} | Blog | StudyEdge{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section (FAQ style, blog detail) -->
+<section id="hero" class="relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white py-20 md:py-28 overflow-hidden">
+    <div class="absolute inset-0 opacity-20">
+        <div class="absolute w-[600px] h-[600px] bg-blue-500/30 rounded-full -top-48 -left-48 blur-3xl animate-pulse"></div>
+        <div class="absolute w-[500px] h-[500px] bg-purple-500/30 rounded-full -bottom-32 -right-32 blur-3xl animate-pulse" style="animation-delay: 1.5s;"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-left">
+        {% if post.category %}
+        <span class="inline-block bg-{{ post.category.color }} text-white px-4 py-2 rounded-full text-sm font-bold mb-4">{{ post.category.name }}</span>
+        {% endif %}
+
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4">
+            <span class="bg-gradient-to-r from-white via-blue-100 to-cyan-200 bg-clip-text text-transparent drop-shadow-2xl">{{ post.title }}</span>
+        </h1>
+
+        <div class="flex items-center text-white/90 gap-4">
+            {% if post.author_image %}
+            <img src="{{ post.author_image.url }}" alt="{{ post.author_name }}" class="w-12 h-12 rounded-full">
+            {% endif %}
+            <div>
+                <p class="font-semibold">{{ post.author_name }}</p>
+                <div class="flex items-center text-sm">
+                    <span>{{ post.published_date|date:"F d, Y" }}</span>
+                    <span class="mx-2">•</span>
+                    <span>{{ post.reading_time }} min read</span>
+                    <span class="mx-2">•</span>
+                    <span>{{ post.views_count }} views</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Post content enhancements for cleaner layout */
+.post-content img{ border-radius:0.5rem; box-shadow: 0 12px 40px rgba(2,6,23,0.08); max-width:100%; height:auto; display:block; margin:0.75rem auto; }
+.post-content figure{ margin:0.75rem 0; }
+.post-content blockquote{ border-left:4px solid rgba(99,102,241,0.15); padding:0.6rem 0.9rem; color:#374151; background:rgba(99,102,241,0.03); border-radius:6px; }
+.post-content pre, .post-content code{ background:#0b1220; color:#f8fafc; padding:0.65rem; border-radius:6px; overflow:auto; }
+.post-content table{ width:100%; border-collapse:collapse; margin:0.75rem 0; }
+.post-content table th, .post-content table td{ border:1px solid #e6e9ee; padding:0.6rem; text-align:left; }
+.floating-share a, .floating-share button{ transition: transform 0.15s, box-shadow 0.15s; }
+.floating-share a:hover, .floating-share button:hover{ transform: translateY(-4px); box-shadow:0 12px 28px rgba(2,6,23,0.08); }
+/* small responsive tweak */
+@media (max-width: 1024px){ .floating-share{ display:none !important; } }
+</style>
+
+<!-- Main Content -->
+<section class="bg-gray-50 py-20">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col lg:flex-row gap-10">
+
+            <!-- Article Content -->
+            <article class="lg:w-2/3 relative">
+                <!-- Floating share (desktop) -->
+                <div class="floating-share hidden lg:flex flex-col gap-3 fixed left-8 top-1/3 z-40">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank" class="p-3 bg-blue-600 text-white rounded-full shadow hover:bg-blue-700" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ post.title }}" target="_blank" class="p-3 bg-sky-500 text-white rounded-full shadow hover:bg-sky-600" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri }}" target="_blank" class="p-3 bg-blue-700 text-white rounded-full shadow hover:bg-blue-800" title="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <button id="copy-link" class="p-3 bg-gray-800 text-white rounded-full shadow hover:bg-gray-900" title="Copy link"><i class="fas fa-link"></i></button>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg p-6 lg:p-8 space-y-6">
+                    
+                    <!-- Tags -->
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        {% for tag in post.tags.all %}
+                        <a href="{% url 'blog_tag' tag.slug %}" 
+                           class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm
+                                  hover:bg-indigo-600 hover:text-white transition-colors">
+                            #{{ tag.name }}
+                        </a>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Post Content -->
+                    <div class="prose prose-lg max-w-none post-content leading-relaxed space-y-4">
+                        {{ post.content|safe }}
+                    </div>
+
+                    <!-- Share Buttons -->
+                    <div class="mt-12 pt-8 border-t border-gray-200">
+                        <p class="text-gray-700 font-semibold mb-4">Share this article:</p>
+                        <div class="flex gap-3">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" 
+                               target="_blank"
+                               class="flex items-center justify-center w-12 h-12 bg-blue-600 text-white rounded-full
+                                      hover:bg-blue-700 transition-colors">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ post.title }}" 
+                               target="_blank"
+                               class="flex items-center justify-center w-12 h-12 bg-sky-500 text-white rounded-full
+                                      hover:bg-sky-600 transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri }}" 
+                               target="_blank"
+                               class="flex items-center justify-center w-12 h-12 bg-blue-700 text-white rounded-full
+                                      hover:bg-blue-800 transition-colors">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://wa.me/?text={{ post.title }}%20{{ request.build_absolute_uri }}" 
+                               target="_blank"
+                               class="flex items-center justify-center w-12 h-12 bg-green-500 text-white rounded-full
+                                      hover:bg-green-600 transition-colors">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Author Bio -->
+                    {% if post.author_bio %}
+                    <div class="mt-8 p-4 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl">
+                        <div class="flex items-start gap-4">
+                            {% if post.author_image %}
+                            <img src="{{ post.author_image.url }}" 
+                                 alt="{{ post.author_name }}"
+                                 class="w-14 h-14 rounded-full">
+                            {% endif %}
+                            <div>
+                                <h4 class="text-lg font-bold text-gray-900 mb-2">
+                                    About {{ post.author_name }}
+                                </h4>
+                                <p class="text-gray-600">{{ post.author_bio }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <!-- Navigation -->
+                    <div class="mt-8 grid md:grid-cols-2 gap-4">
+                        {% if previous_post %}
+                        <a href="{{ previous_post.get_absolute_url }}" 
+                           class="group p-4 bg-gray-50 rounded-xl hover:bg-indigo-50 transition-colors">
+                            <p class="text-sm text-gray-500 mb-1">
+                                <i class="fas fa-arrow-left mr-2"></i>Previous
+                            </p>
+                            <h4 class="font-bold text-gray-900 group-hover:text-indigo-600 line-clamp-2">
+                                {{ previous_post.title }}
+                            </h4>
+                        </a>
+                        {% endif %}
+
+                        {% if next_post %}
+                        <a href="{{ next_post.get_absolute_url }}" 
+                           class="group p-4 bg-gray-50 rounded-xl hover:bg-indigo-50 transition-colors text-right">
+                            <p class="text-sm text-gray-500 mb-1">
+                                Next<i class="fas fa-arrow-right ml-2"></i>
+                            </p>
+                            <h4 class="font-bold text-gray-900 group-hover:text-indigo-600 line-clamp-2">
+                                {{ next_post.title }}
+                            </h4>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Comments Section -->
+                {% if post.allow_comments %}
+                <div class="mt-6 bg-white rounded-2xl shadow-lg p-6">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                        Comments ({{ comments.count }})
+                    </h3>
+
+                    <!-- Comment Form -->
+                    <form method="post" action="{% url 'add_comment' post.slug %}" 
+                          class="mb-6 p-4 bg-gray-50 rounded-xl">
+                        {% csrf_token %}
+                        <div class="grid md:grid-cols-2 gap-4 mb-3">
+                            <input type="text" 
+                                   name="name" 
+                                   placeholder="Your Name" 
+                                   required
+                                   class="px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <input type="email" 
+                                   name="email" 
+                                   placeholder="Your Email" 
+                                   required
+                                   class="px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <textarea name="content" 
+                                  rows="4" 
+                                  placeholder="Your Comment" 
+                                  required
+                                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 mb-3"></textarea>
+                        <button type="submit" 
+                                class="px-6 py-3 bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-lg
+                                       hover:from-blue-600 hover:to-green-600 transition-all font-semibold cursor-pointer">
+                            Submit Comment
+                        </button>
+                    </form>
+
+                    <!-- Comments List -->
+                    <div class="space-y-4">
+                        {% for comment in comments %}
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full 
+                                        flex items-center justify-center font-bold">
+                                {{ comment.name|first|upper }}
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-gray-900">{{ comment.name }}</h4>
+                                <p class="text-sm text-gray-500 mb-1">{{ comment.created_at|date:"M d, Y" }}</p>
+                                <p class="text-gray-700">{{ comment.content }}</p>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <p class="text-gray-500 text-center py-6">
+                            No comments yet. Be the first to comment!
+                        </p>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+            </article>
+
+            <!-- Sidebar -->
+            <aside class="lg:w-1/3 space-y-8 lg:sticky lg:top-28">
+                
+                <!-- Related Posts -->
+                {% if related_posts %}
+                <div class="bg-white rounded-2xl shadow-lg p-4">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                        <i class="fas fa-bookmark text-indigo-600 mr-3"></i>
+                        Related Articles
+                    </h3>
+                    <ul class="space-y-3">
+                        {% for related in related_posts %}
+                        <li>
+                            <a href="{{ related.get_absolute_url }}" class="flex gap-3 group">
+                                <img src="{{ related.featured_image.url }}" 
+                                     alt="{{ related.title }}"
+                                     class="w-16 h-16 object-cover rounded-lg">
+                                <div class="flex-1">
+                                    <h4 class="text-sm font-semibold text-gray-900 line-clamp-2
+                                               group-hover:text-indigo-600 transition-colors">
+                                        {{ related.title }}
+                                    </h4>
+                                    <p class="text-xs text-gray-500 mt-1">
+                                        {{ related.published_date|date:"M d, Y" }}
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </aside>
+
+        </div>
+    </div>
+
+{% include "components/student_support_form.html" %}
+
+<script>
+// copy-link interaction (kept per-page since copy button is page-specific)
+(function(){
+  const copyBtn = document.getElementById('copy-link');
+  if(copyBtn){
+    copyBtn.addEventListener('click', function(){
+      navigator.clipboard.writeText(window.location.href).then(()=>{
+        copyBtn.classList.add('bg-green-500');
+        setTimeout(()=>copyBtn.classList.remove('bg-green-500'),1500);
+      }).catch(()=>{
+        alert('Copy failed.');
+      });
+    });
+  }
+})();
+</script>
+
+<section class="bg-gradient-to-r from-blue-600 to-green-700 py-20 md:py-28 text-center">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-white">Ready to Start Your Global Future?</h2>
+        <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">Let our expert counsellors guide you through every step of this roadmap with zero confusion and maximum confidence.</p>
+        <a href="#contact" class="inline-flex items-center bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl cursor-pointer group"><i class="fas fa-headset mr-3 group-hover:translate-x-1 transition-transform"></i> Book a Free Consultation</a>
+    </div>
+</section>
+
+{% endblock %} 

@@ -2,7 +2,7 @@ const testimonials = [
   {
     name: "Pasang Lama",
     image: "static/images/stories/one.jpeg",
-    quote: "I got my visa approved for Australia thanks to the consultancy's amazing support and guidance!",
+    quote: "From course selection to visa submission, every step was clearly explained and handled with care. I felt supported throughout the entire process.",
     university: "University of East London, UK",
     course: "MSc in Data Science",
     intake: "January Intake 2026",
@@ -12,7 +12,7 @@ const testimonials = [
   {
     name: "Renjina Pariyar",
     image: "static/images/stories/two.jpeg",
-    quote: "My dream of studying in Canada came true — very professional guidance throughout the process!",
+    quote: "The counselors were very approachable and honest. They guided me properly and helped me choose the right university for my future.",
     university: "BPP University",
     course: "BSc in Social Health Care",
     intake: "September Intake 2025",
@@ -22,7 +22,7 @@ const testimonials = [
   {
     name: "Abdul Hamid",
     image: "static/images/stories/three.jpeg",
-    quote: "The IELTS classes and document help made my UK process incredibly smooth and stress-free.",
+    quote: "Their IELTS preparation and document support gave me confidence. The entire UK application process was smooth and well-managed.",
     university: "University of East London, UK",
     course: "BSc in Computer Science",
     intake: "September Intake 2025",
@@ -32,7 +32,7 @@ const testimonials = [
   {
     name: "Pratima Maharjan",
     image: "static/images/stories/four.jpeg",
-    quote: "I got my visa approved for Australia thanks to the consultancy's amazing support and guidance!",
+    quote: "I appreciated their attention to detail and regular follow-ups. They made sure everything was ready on time without any stress.",
     university: "Charles Darwin University",
     course: "Master by Research in Business",
     intake: "August Intake 2025",
@@ -42,7 +42,7 @@ const testimonials = [
   {
     name: "Sushmita Rokaya",
     image: "static/images/stories/five.jpeg",
-    quote: "I got my visa approved for Australia thanks to the consultancy's amazing support and guidance!",
+    quote: "The team was professional and supportive from the first consultation to my visa decision. I always felt well-guided and informed.",
     university: "La Trobe University",
     course: "Masters in Health Administration",
     intake: "July Intake 2025",
@@ -50,6 +50,7 @@ const testimonials = [
     textColor: "text-teal-700 dark:text-teal-300"
   }
 ];
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const slider = document.getElementById('testimonial-slider');
