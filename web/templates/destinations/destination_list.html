@@ -40,11 +40,12 @@
                          class="w-full h-full object-cover
                                 group-hover:scale-110 transition-transform duration-700">
                     {% else %}
-                        <img src="{% static 'images/destinations/australia.jpg' %}"
-                                                alt="{{ dest.name }}"
-                                                class="w-full h-full object-cover
-                                                      group-hover:scale-110 transition-transform duration-700">
-                     {% enfif %}  
+                        <img
+                            src="{% static 'images/destinations/' %}{{ dest.slug|cut:'study-in-' }}.jpg"
+                            alt="{{ dest.name }}"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            />
+                     {% endif %}  
                     <!-- Overlay -->
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
 
