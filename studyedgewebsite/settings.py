@@ -49,7 +49,6 @@ if not DEBUG:
 # Update ALLOWED_HOSTS (overrides the earlier setting)
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=['studyedgeexperts.com.np', 'www.studyedgeexperts.com.np'])
 
-
 # Application definition
 
 INSTALLED_APPS = [
