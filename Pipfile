@@ -11,6 +11,7 @@ django-tailwind = "*"
 django-ckeditors = "*"
 django-admin-interface = "*"
 django-import-export = "*"
+whitenoise = "*"
 
 [dev-packages]
 

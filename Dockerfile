@@ -1,14 +1,20 @@
 FROM python:3.13-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONBUFFERED=1
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /home/studyedge
 
 RUN apt update
-RUN apt-get install -y libpq-dev gcc && rm -rf /var/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    gcc \
+    netcat-openbsd \
+    && rm -rf /var/lib/apt/lists/*
 
 # creating user inside docker
 RUN adduser -h /home/studyedge -s /bin/bash -D -u 2000 studyedge
-WORKDIR /home/studyedge
+
 COPY . /home/studyedge
 # making the file executable
 RUN chmod +x /home/studyedge/entrypoint.sh

@@ -10,21 +10,28 @@ services:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     ports:
-      - 5432:5432
+      - "5432:5432"
+
   web:
+    build: .
+    command: gunicorn studyedgewebsite.wsgi:application --bind 0.0.0.0:8000 --workers 3
+    entrypoint: ["/bin/sh", "/home/studyedge/entrypoint.sh"]
     depends_on:
       - db
-    build: .
-    command: gunicorn studyedgewebsite.wsgi:application --bind 0.0.0.0:8000
     volumes:
-      - ./static/:/home/studyedge/staticfiles/
-      - ./media:/home/studyedge/media
+      - static_volume:/home/studyedge/staticfiles
+      - media_volume:/home/studyedge/media
     ports:
-      - 8000:8000
+      - "8000:8000"
+    env_file:
+      - .env
     networks:
       - web
-    entrypoint: ["/bin/sh", "/home/studyedge/entrypoint.sh"]
+
 volumes:
   postgres_data:
+  static_volume:
+  media_volume:
+
 networks:
   web:
