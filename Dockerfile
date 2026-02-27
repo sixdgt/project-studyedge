@@ -14,6 +14,8 @@ RUN apt-get update && apt-get install -y \
 
 # creating user inside docker
 RUN adduser -h /home/studyedge -s /bin/bash -D -u 2000 studyedge
+RUN chown -R studyedge:studyedge /home/studyedge
+USER studyedge
 
 COPY . /home/studyedge
 # making the file executable
