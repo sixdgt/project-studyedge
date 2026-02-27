@@ -5,23 +5,38 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /home/studyedge
 
-RUN apt update
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     gcc \
     netcat-openbsd \
     && rm -rf /var/lib/apt/lists/*
 
-# creating user inside docker
-RUN adduser -h /home/studyedge -s /bin/bash -D -u 2000 studyedge
-RUN chown -R studyedge:studyedge /home/studyedge
-USER studyedge
+# Install Python dependencies as root first
+RUN python -m pip install --upgrade pip && \
+    pip install gunicorn pipenv
 
-COPY . /home/studyedge
-# making the file executable
+# Copy project files
+COPY . /home/studyedge/
+
+# Install project dependencies
+RUN pipenv install --deploy --ignore-pipfile --system
+
+# Make entrypoint executable
 RUN chmod +x /home/studyedge/entrypoint.sh
 
-RUN python -m pip install --upgrade pip
-RUN pip install gunicorn
-RUN pip install pipenv
-RUN pipenv install --deploy --ignore-pipfile --system
+# Create user (Debian syntax, NOT Alpine -D flag)
+RUN adduser --home /home/studyedge \
+            --shell /bin/bash \
+            --disabled-password \
+            --gecos "" \
+            --uid 2000 \
+            studyedge
+
+# Transfer ownership AFTER all files are copied
+RUN chown -R studyedge:studyedge /home/studyedge
+
+# Switch to non-root user
+USER studyedge
+
+ENTRYPOINT ["/bin/sh", "/home/studyedge/entrypoint.sh"]

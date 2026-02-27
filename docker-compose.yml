@@ -15,7 +15,6 @@ services:
   web:
     build: .
     command: gunicorn studyedgewebsite.wsgi:application --bind 0.0.0.0:8000 --workers 3
-    entrypoint: ["/bin/sh", "/home/studyedge/entrypoint.sh"]
     depends_on:
       - db
     volumes:
