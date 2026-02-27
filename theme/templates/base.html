@@ -52,29 +52,21 @@
     
 </head>
 <body class="bg-gray-100 text-black dark:bg-gray-900 dark:text-white transition-colors duration-500">
-    <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-blue-600 focus:text-white">
         Skip to main content
     </a>
-
-    <!-- Header -->
-    {% include 'partials/header.html' %}
-
-    <!-- Main Content -->
     <main id="main-content">
+        {% include 'partials/header.html' %}
         {% block content %}
         {% endblock %}
     </main>
 
-    <!-- Footer -->
     {% include 'partials/footer.html' %}
 
-    <!-- Global Components -->
     {% include 'components/scroll_to_top.html' %}
 
-    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <!-- <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script> -->
     <script src="{% static 'js/base.js' %}"></script>
     {% block custom_js %}{% endblock %}
 </body>

@@ -1,6 +1,6 @@
 from django.urls import path
 from web.views import (
-        index, study_abroad_step, faq_details, about_us,services, 
+        counselling_appointment, index, study_abroad_step, faq_details, about_us,services, 
         destination_list, destination_detail, blog_list, blog_category, 
         blog_search, blog_tag, add_comment, blog_detail,
         call_back_request, book_test
@@ -15,6 +15,7 @@ urlpatterns = [
     # call back request
     path('call-back-request/', call_back_request, name="call_back_request"),
     path('book-test/', book_test, name="book_test"),
+    path('counselling-appointment/', counselling_appointment, name="counselling_appointment"),
     # destination pages
     path('destinations/', destination_list, name='destination_list'),
     path('destinations/<slug:slug>/', destination_detail, name='destination_detail'),

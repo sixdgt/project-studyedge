@@ -6,7 +6,7 @@ from .models import (
     Destination, DestinationSection, BulletPoint, SectionStat,
     TopCourse, TopUniversity, HeroHighlight,
     BlogCategory, BlogTag, BlogPost, BlogComment, 
-    CallbackRequest, BookTest
+    CallbackRequest, BookTest, Testimonial, CounsellingAppointment
 )
 
 # ========== ADMIN TITLES ==========
@@ -20,6 +20,12 @@ class CallbackRequestAdmin(admin.ModelAdmin):
     list_display = ["full_name", "country", "contact_number", "created_at"]
     list_filter = ["created_at"]
     search_fields = ["full_name", "contact_number"]
+    
+@admin.register(CounsellingAppointment)
+class CounsellingAppointmentAdmin(admin.ModelAdmin):
+    list_display = ["full_name", "email", "contact_number", "preferred_date", "preferred_time", "created_at"]
+    list_filter = ["created_at"]
+    search_fields = ["full_name", "email"]
 
 @admin.register(BookTest)
 class BookTestAdmin(admin.ModelAdmin):
@@ -154,6 +160,12 @@ class DestinationSectionAdmin(admin.ModelAdmin):
     )
 
     inlines = [BulletPointInline, SectionStatInline]
+
+# ========== TESTIMONIALS SECTION ADMIN ==========
+@admin.register(Testimonial)
+class TestimonialAdmin(admin.ModelAdmin):
+    list_display = ('name', 'university', 'is_active')
+    list_filter = ('is_active',)
 
 # ========== BULLET POINT ADMIN ==========
 @admin.register(BulletPoint)

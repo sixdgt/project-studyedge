@@ -58,6 +58,22 @@ class Destination(models.Model):
         from django.urls import reverse
         return reverse('destination_detail', kwargs={'slug': self.slug})
 
+class Testimonial(models.Model):
+    name = models.CharField(max_length=150)
+    image = models.ImageField(upload_to='testimonials/')
+    quote = models.TextField()
+    university = models.CharField(max_length=255)
+    course = models.CharField(max_length=255)
+    intake = models.CharField(max_length=100)
+
+    border_color = models.CharField(max_length=50, default="border-blue-500")
+    text_color = models.CharField(max_length=100, default="text-blue-700 dark:text-blue-300")
+
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
 
 class DestinationSection(models.Model):
     """Content sections for each destination"""
@@ -114,7 +130,6 @@ class DestinationSection(models.Model):
     def __str__(self):
         return f"{self.destination.name} - {self.title}"
 
-
 class BulletPoint(models.Model):
     """Bullet points for sections (e.g., visa requirements list)"""
     
@@ -132,7 +147,6 @@ class BulletPoint(models.Model):
     
     def __str__(self):
         return f"{self.section.title} - {self.text[:50]}"
-
 
 class MiniCard(models.Model):
     """Mini info cards for sections (compact visual information blocks)"""
@@ -170,7 +184,6 @@ class MiniCard(models.Model):
     def __str__(self):
         return f"{self.section.title} - {self.title}"
 
-
 class SectionStat(models.Model):
     """Stats/cards for sections (e.g., tuition fees, living costs)"""
     
@@ -199,7 +212,6 @@ class SectionStat(models.Model):
     def __str__(self):
         return f"{self.section.title} - {self.label}: {self.value}"
 
-
 class TopCourse(models.Model):
     """Popular courses for a destination"""
     
@@ -218,7 +230,6 @@ class TopCourse(models.Model):
     
     def __str__(self):
         return f"{self.destination.name} - {self.name}"
-
 
 class TopUniversity(models.Model):
     """Top universities for a destination"""
@@ -240,7 +251,6 @@ class TopUniversity(models.Model):
     
     def __str__(self):
         return f"{self.destination.name} - {self.name}"
-
 
 class HeroHighlight(models.Model):
     """4 highlight points in the hero section (Why study here?)"""
@@ -471,7 +481,6 @@ class BookTest(models.Model):
     def __str__(self):
         return f"{self.full_name} - {self.test_type} on {self.preferred_date}"
     
-
 class CallbackRequest(models.Model):
     full_name = models.CharField(max_length=255)
     country = models.CharField(max_length=100)
@@ -486,39 +495,38 @@ class CallbackRequest(models.Model):
     def __str__(self):
         return f"{self.full_name} - {self.contact_number}"
 
-
 class CounsellingAppointment(models.Model):
     DESTINATION_CHOICES = [
-        ('USA', 'USA'),
+        ('Australia', 'Australia'),
         ('Canada', 'Canada'),
         ('UK', 'UK'),
-        ('Australia', 'Australia'),
-        ('New Zealand', 'New Zealand'),
+        ('USA', 'USA'),
         ('Germany', 'Germany'),
+        ('New Zealand', 'New Zealand'),
         ('France', 'France'),
         ('Other', 'Other'),
     ]
-    ACADEMIC_LEVEL_CHOICES = [
-        ('Undergraduate', 'Undergraduate'),
-        ('Postgraduate', 'Postgraduate'),
-        ('PhD', 'PhD'),
-        ('Diploma', 'Diploma'),
-        ('Certificate', 'Certificate'),
-    ]
+    
     CURRENT_ACADEMIC_LEVEL_CHOICES = [
-        ('High School', 'High School'),
-        ('Undergraduate', 'Undergraduate'),
-        ('Postgraduate', 'Postgraduate'),
-        ('PhD', 'PhD'),
-        ('Other', 'Other'),
-    ]
-    MODE_CHOICES = [
-        ('In-Person', 'In-Person'),
-        ('Online', 'Online'),
+        ('high_school', 'High School'),
+        ('bachelors', "Bachelor's"),
+        ('masters', "Master's"),
     ]
     
+    ACADEMIC_LEVEL_CHOICES = [
+        ('bachelors', "Bachelor's"),
+        ('masters', "Master's"),
+        ('phd', 'PhD'),
+    ]
+    
+    MODE_CHOICES = [
+        ('online', 'Online (Video Call)'),
+        ('in_person', 'In-Person Visit'),
+        ('phone', 'Phone Call'),
+    ]
+
     full_name = models.CharField(max_length=255)
-    email = models.EmailField(unique=True, db_index=True)
+    email = models.EmailField(db_index=True)
     contact_number = models.CharField(max_length=20)
     address = models.CharField(max_length=255)
     preferred_date = models.DateField()

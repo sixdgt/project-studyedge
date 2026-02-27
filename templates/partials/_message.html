@@ -1,33 +1,56 @@
 {% if messages %}
-  <div class="fixed top-5 right-5 z-50 space-y-3 w-full max-w-sm">
-    {% for message in messages %}
-      <div
-        class="flex items-start justify-between rounded-lg p-4 shadow-lg border
-        {% if message.tags == 'success' %}
-          bg-green-50 text-green-800 border-green-200
-        {% elif message.tags == 'error' %}
-          bg-red-500 text-white border-red-200
-        {% elif message.tags == 'warning' %}
-          bg-yellow-50 text-yellow-800 border-yellow-200
-        {% else %}
-          bg-blue-50 text-blue-800 border-blue-200
-        {% endif %}"
-        x-data="{ show: true }"
-        x-show="show"
-        x-transition
-      >
-        <p class="text-sm font-medium">
-          {{ message }}
-        </p>
+<div id="messages-container" class="fixed top-20 right-5 z-[9999] flex flex-col gap-3 w-full max-w-sm pointer-events-none">
+  {% for message in messages %}
+    <div class="message-toast pointer-events-auto flex items-start justify-between rounded-xl p-4 shadow-2xl border opacity-0 translate-x-full transition-all duration-500
+      {% if message.tags == 'success' %}bg-green-50 text-green-800 border-green-200
+      {% elif message.tags == 'error' %}bg-red-500 text-white border-red-400
+      {% elif message.tags == 'warning' %}bg-yellow-50 text-yellow-800 border-yellow-200
+      {% else %}bg-blue-50 text-blue-800 border-blue-200{% endif %}">
 
-        <button
-          @click="show = false"
-          class="ml-4 text-lg leading-none font-bold opacity-60 hover:opacity-100 focus:outline-none"
-          aria-label="Close"
-        >
-          &times;
-        </button>
+      <!-- Icon -->
+      <div class="flex items-start gap-3">
+        <span class="text-lg mt-0.5">
+          {% if message.tags == 'success' %}✅
+          {% elif message.tags == 'error' %}❌
+          {% elif message.tags == 'warning' %}⚠️
+          {% else %}ℹ️{% endif %}
+        </span>
+        <p class="text-sm font-medium leading-snug">{{ message }}</p>
       </div>
-    {% endfor %}
-  </div>
+
+      <!-- Close Button -->
+      <button
+        onclick="dismissToast(this.closest('.message-toast'))"
+        class="ml-4 text-xl leading-none font-bold opacity-50 hover:opacity-100 focus:outline-none flex-shrink-0"
+        aria-label="Close">
+        &times;
+      </button>
+    </div>
+  {% endfor %}
+</div>
+
+<script>
+  function dismissToast(toast) {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateX(100%)';
+    setTimeout(() => toast.remove(), 400);
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const toasts = document.querySelectorAll('.message-toast');
+
+    toasts.forEach(function (toast, i) {
+      // Slide in with stagger
+      setTimeout(function () {
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateX(0)';
+      }, 100 + i * 150);
+
+      // Auto-dismiss after 5 seconds
+      setTimeout(function () {
+        dismissToast(toast);
+      }, 5000 + i * 150);
+    });
+  });
+</script>
 {% endif %}

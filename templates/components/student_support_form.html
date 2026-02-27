@@ -81,6 +81,7 @@
         position: relative;
         background: white;
         border-radius: 1rem;
+        pointer-events: auto; 
     }
     
     .gradient-border::before {
@@ -95,6 +96,7 @@
         mask-composite: exclude;
         opacity: 0;
         transition: opacity 0.3s ease;
+        pointer-events: none;
     }
     
     .gradient-border:hover::before {
@@ -242,7 +244,7 @@
 
             <!-- Right Side - Form -->
             <div class="animate-slide-right">
-                <div class="gradient-border bg-white p-8 rounded-2xl shadow-2xl">
+                <div class="gradient-border bg-white p-8 rounded-2xl shadow-2xl relative z-10">
                     <div class="text-center mb-8">
                         <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-green-600 rounded-full mb-4">
                             <i class="fas fa-calendar-check text-white text-2xl"></i>
@@ -250,67 +252,91 @@
                         <h3 class="text-2xl font-bold text-gray-900 mb-2">Book Your Free Session</h3>
                         <p class="text-gray-600">Fill in your details and our experts will reach out to you</p>
                     </div>
-
-                    <form action="#" method="POST" class="space-y-6" id="counsellingForm">
+                    
+                    
+                    <form action="{% url 'counselling_appointment' %}" method="post" class="space-y-6" id="counsellingForm">
+                        {% csrf_token %}
                         <!-- Full Name -->
+                        <input type="hidden" name="current_page" value="{{ request.resolver_match.url_name }}">
                         <div class="relative">
                             <i class="fas fa-user absolute left-4 top-4 text-gray-400"></i>
-                            <input type="text" name="full_name" required
+                            <input type="text" name="full_name"
                                    class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none"
-                                   placeholder="Enter your full name">
+                                   placeholder="Enter your full name" value="{{ form.full_name.value|default_if_none:'' }}">
+                            {% if form.full_name.errors %}
+                                <p class="text-red-500 text-sm mt-1">
+                                    {{ form.full_name.errors.0 }}
+                                </p>
+                            {% endif %}
                         </div>
 
                         <!-- Email -->
                         <div class="relative">
                             <i class="fas fa-envelope absolute left-4 top-4 text-gray-400"></i>
-                            <input type="email" name="email" required
+                            <input type="email" name="email"
                                    class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none"
-                                   placeholder="Enter your email address">
+                                   placeholder="Enter your email address" value="{{ form.email.value|default_if_none:'' }}">
+                            {% if form.email.errors %}
+                                <p class="text-red-500 text-sm mt-1">
+                                    {{ form.email.errors.0 }}
+                                </p>
+                            {% endif %}
                         </div>
 
                         <!-- Contact Number -->
                         <div class="relative">
                             <i class="fas fa-phone absolute left-4 top-4 text-gray-400"></i>
-                            <input type="tel" name="contact_number" required
+                            <input type="tel" name="contact_number"
                                    class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none"
-                                   placeholder="Enter your contact number">
+                                   placeholder="Enter your contact number" value="{{ form.contact_number.value|default_if_none:'' }}    ">
+                        
+                            {% if form.contact_number.errors %}
+                                <p class="text-red-500 text-sm mt-1">
+                                    {{ form.contact_number.errors.0 }}
+                                </p>
+                            {% endif %}
                         </div>
 
                         <!-- Address -->
                         <div class="relative">
                             <i class="fas fa-map-marker-alt absolute left-4 top-4 text-gray-400"></i>
-                            <input type="text" name="address" required
+                            <input type="text" name="address"
                                    class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none"
-                                   placeholder="Enter your address">
+                                   placeholder="Enter your address" value="{{ form.address.value|default_if_none:'' }}">
+                            {% if form.address.errors %}
+                                <p class="text-red-500 text-sm mt-1">
+                                    {{ form.address.errors.0 }}
+                                </p>
+                            {% endif %}
                         </div>
 
                         <!-- Date and Time Grid -->
                         <div class="grid grid-cols-2 gap-4">
                             <div class="relative">
                                 <i class="fas fa-calendar absolute left-4 top-4 text-gray-400 pointer-events-none z-10"></i>
-                                <input type="date" name="preferred_date" required
-                                       class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none">
+                                <input type="date" name="preferred_date"
+                                       class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none" value="{{ form.preferred_date.value|default_if_none:'' }}">
                             </div>
                             <div class="relative">
                                 <i class="fas fa-clock absolute left-4 top-4 text-gray-400 pointer-events-none z-10"></i>
-                                <input type="time" name="preferred_time" required
-                                       class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none">
+                                <input type="time" name="preferred_time"
+                                       class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none" value="{{ form.preferred_time.value|default_if_none:'' }}">
                             </div>
                         </div>
 
                         <!-- Preferred Destination -->
                         <div class="relative">
                             <i class="fas fa-globe-americas absolute left-4 top-4 text-gray-400 pointer-events-none z-10"></i>
-                            <select name="preferred_destination" required
+                            <select name="preferred_destination"
                                     class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none appearance-none bg-white">
-                                <option value="">Select Study Destination</option>
-                                <option value="australia">Australia</option>
-                                <option value="canada">Canada</option>
-                                <option value="uk">United Kingdom</option>
-                                <option value="usa">United States</option>
-                                <option value="germany">Germany</option>
-                                <option value="ireland">Ireland</option>
-                                <option value="newzealand">New Zealand</option>
+                                <option value="Australia">Australia</option>
+                                <option value="Canada">Canada</option>
+                                <option value="UK">UK</option>
+                                <option value="USA">USA</option>
+                                <option value="Germany">Germany</option>
+                                <option value="New Zealand">New Zealand</option>
+                                <option value="France">France</option>
+                                <option value="Other">Other</option>
                             </select>
                             <i class="fas fa-chevron-down absolute right-4 top-4 text-gray-400 pointer-events-none"></i>
                         </div>
@@ -319,7 +345,7 @@
                         <div class="grid grid-cols-2 gap-4">
                             <div class="relative">
                                 <i class="fas fa-graduation-cap absolute left-4 top-4 text-gray-400 pointer-events-none z-10"></i>
-                                <select name="current_academic_level" required
+                                <select name="current_academic_level"
                                         class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none appearance-none bg-white">
                                     <option value="">Current Level</option>
                                     <option value="high_school">High School</option>
@@ -330,7 +356,7 @@
                             </div>
                             <div class="relative">
                                 <i class="fas fa-user-graduate absolute left-4 top-4 text-gray-400 pointer-events-none z-10"></i>
-                                <select name="intended_academic_level" required
+                                <select name="intended_academic_level"
                                         class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none appearance-none bg-white">
                                     <option value="">Intended Level</option>
                                     <option value="bachelors">Bachelor's</option>
@@ -344,7 +370,7 @@
                         <!-- Counselling Mode -->
                         <div class="relative">
                             <i class="fas fa-video absolute left-4 top-4 text-gray-400 pointer-events-none z-10"></i>
-                            <select name="counselling_mode" required
+                            <select name="counselling_mode"
                                     class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none appearance-none bg-white">
                                 <option value="">Select Counselling Mode</option>
                                 <option value="online">Online (Video Call)</option>
@@ -356,16 +382,17 @@
 
                         <!-- Terms Checkbox -->
                         <div class="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg">
-                            <input type="checkbox" name="accept_terms" required
+                            <input type="checkbox" name="accept_terms"
                                    class="mt-1 w-5 h-5 text-blue-600 border-2 border-gray-300 rounded focus:ring-2 focus:ring-blue-500 cursor-pointer">
                             <label class="text-sm text-gray-700 cursor-pointer">
                                 I accept the <a href="#" class="text-blue-600 hover:underline font-semibold">terms and conditions</a> and agree to receive communication from StudyEdge regarding my counselling session.
                             </label>
+
                         </div>
 
                         <!-- Submit Button -->
                         <button type="submit"
-                                class="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white py-4 rounded-lg transition-all duration-300 font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-[1.02] flex items-center justify-center group">
+                                class="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white py-4 rounded-lg transition-all duration-300 font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-[1.02] flex items-center justify-center group cursor-pointer">
                             <span>Book Free Counselling</span>
                             <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                         </button>
@@ -400,13 +427,20 @@
         </div>
     </div>
 </section>
-
+{% if scroll_to_counselling_form %}
+    <script> 
+    setTimeout(() => {
+            document.getElementById('student-support')
+                ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
+    </script>   
+{% endif %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Form validation feedback
     const form = document.getElementById('counsellingForm');
+    if (!form) return;
     const inputs = form.querySelectorAll('input[required], select[required]');
-    
     inputs.forEach(input => {
         input.addEventListener('blur', function() {
             if (this.value.trim() === '') {
@@ -426,21 +460,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Form submission
     form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Add loading state to button
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Processing...';
-        submitBtn.disabled = true;
-        
-        // Simulate form submission (replace with actual form submission)
+        const submitBtn = form.querySelector("button[type='submit']");
+
+        // Only disable after a brief delay to ensure form submission fires first
         setTimeout(() => {
-            alert('Thank you! Your counselling session has been booked. We will contact you shortly.');
-            form.reset();
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-        }, 2000);
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `
+                <span class="flex items-center justify-center">
+                    <i class="fas fa-spinner fa-spin mr-2"></i>
+                    Processing...
+                </span>
+            `;
+        }, 100);
     });
 
     // Set minimum date to today
