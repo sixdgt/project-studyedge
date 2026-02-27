@@ -18,8 +18,8 @@ services:
     depends_on:
       - db
     volumes:
-      - static_volume:/home/studyedge/staticfiles
-      - media_volume:/home/studyedge/media
+      - ./staticfiles:/home/studyedge/staticfiles
+      - ./media:/home/studyedge/media
     ports:
       - "8000:8000"
     env_file:
@@ -28,9 +28,7 @@ services:
       - web
 
 volumes:
-  postgres_data:
-  static_volume:
-  media_volume:
+  postgres_data:  # keep this as named volume — DB data stays in Docker
 
 networks:
   web:
