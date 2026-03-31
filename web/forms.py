@@ -3,11 +3,11 @@ from django.utils import timezone
 from .models import BookTest, CallbackRequest, CounsellingAppointment
 
 # Common CSS class for consistent styling
-INPUT_CLASS = 'w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500'
+INPUT_CLASS = 'w-full p-3 rounded-lg border focus:ring-2 focus:ring-blue-500'
 SELECT_CLASS = INPUT_CLASS + ' appearance-none cursor-pointer'
 CHECKBOX_CLASS = 'mt-1 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500'
-CALL_BACK_INPUT = 'w-full border border-gray-300 dark:border-gray-700 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white'
-BOOK_TEST_INPUT = 'w-full p-3 rounded-lg border dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500'
+CALL_BACK_INPUT = 'w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500'
+BOOK_TEST_INPUT = 'w-full p-3 rounded-lg border focus:ring-2 focus:ring-blue-500'
 
 # Advanced version with more features
 # Single-line class strings (no line breaks)

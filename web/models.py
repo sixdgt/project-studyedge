@@ -67,7 +67,7 @@ class Testimonial(models.Model):
     intake = models.CharField(max_length=100)
 
     border_color = models.CharField(max_length=50, default="border-blue-500")
-    text_color = models.CharField(max_length=100, default="text-blue-700 dark:text-blue-300")
+    text_color = models.CharField(max_length=100, default="text-blue-700")
 
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)

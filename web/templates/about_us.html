@@ -3,6 +3,12 @@
 {% block title %}About Us | Study Edge Experts{% endblock %}
 {% block custom_css %}
 <link rel="stylesheet" href="{% static 'css/about_us.css' %}">
+<style>
+    .trust-badge:hover {
+    transform: translateY(-8px) scale(1.02);
+    transition: 0.3s ease;
+}
+</style>
 {% endblock %}
 {% block content %}
 <!-- Hero Section -->
@@ -91,7 +97,7 @@
             <div class="trust-badge p-6 rounded-2xl shadow-lg">
                 <div class="flex items-center gap-4 mb-4">
                     <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                        <i class="fas fa-shield-check text-blue-600 text-xl"></i>
+                        <i class="fas fa-shield-alt text-blue-600 text-xl"></i>
                     </div>
                     <h3 class="text-lg font-bold text-gray-900">Government-Compliant Consultancy</h3>
                 </div>
@@ -174,15 +180,15 @@
                 <div class="flex flex-wrap gap-4">
                     <div class="flex items-center gap-2">
                         <i class="fas fa-check-circle text-green-500"></i>
-                        <span class="font-medium">Legally Registered in Nepal</span>
+                        <span class="font-medium text-gray-600">Legally Registered in Nepal</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <i class="fas fa-check-circle text-green-500"></i>
-                        <span class="font-medium">Ministry of Education Compliant</span>
+                        <span class="font-medium text-gray-600">Ministry of Education Compliant</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <i class="fas fa-check-circle text-green-500"></i>
-                        <span class="font-medium">Zero Fraudulent Practices</span>
+                        <span class="font-medium text-gray-600">Zero Fraudulent Practices</span>
                     </div>
                 </div>
             </div>
@@ -190,7 +196,7 @@
             <div class="relative">
                 <div class="gradient-card rounded-3xl p-8 shadow-2xl">
                     <div class="absolute -top-6 -left-6 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center floating">
-                        <!-- <i class="fas fa-gem text-white text-3xl"></i> -->
+                        <i class="fas fa-gem text-white text-3xl"></i>
                     </div>
                     <div class="absolute -bottom-6 -right-6 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center floating" style="animation-delay: 1s;">
                         <i class="fas fa-shield-alt text-white text-2xl"></i>
@@ -256,15 +262,15 @@
                 <ul class="space-y-3">
                     <li class="flex items-center gap-2">
                         <i class="fas fa-check text-green-500"></i>
-                        <span>UKVI (UK Visas & Immigration)</span>
+                        <span class="text-gray-600">UKVI (UK Visas & Immigration)</span>
                     </li>
                     <li class="flex items-center gap-2">
                         <i class="fas fa-check text-green-500"></i>
-                        <span>British Council guidelines</span>
+                        <span class="text-gray-600">British Council guidelines</span>
                     </li>
                     <li class="flex items-center gap-2">
                         <i class="fas fa-check text-green-500"></i>
-                        <span>Recognized UK universities</span>
+                        <span class="text-gray-600">Recognized UK universities</span>
                     </li>
                 </ul>
             </div>
@@ -278,15 +284,15 @@
                 <ul class="space-y-3">
                     <li class="flex items-center gap-2">
                         <i class="fas fa-check text-green-500"></i>
-                        <span>IRCC Compliance</span>
+                        <span class="text-gray-600">IRCC Compliance</span>
                     </li>
                     <li class="flex items-center gap-2">
                         <i class="fas fa-check text-green-500"></i>
-                        <span>Designated Learning Institutions</span>
+                        <span class="text-gray-600">Designated Learning Institutions</span>
                     </li>
                     <li class="flex items-center gap-2">
                         <i class="fas fa-check text-green-500"></i>
-                        <span>Post-Graduation Work Permits</span>
+                        <span class="text-gray-600">Post-Graduation Work Permits</span>
                     </li>
                 </ul>
             </div>
@@ -300,15 +306,15 @@
                 <ul class="space-y-3">
                     <li class="flex items-center gap-2">
                         <i class="fas fa-check text-green-500"></i>
-                        <span>CRICOS Registered Institutions</span>
+                        <span class="text-gray-600">CRICOS Registered Institutions</span>
                     </li>
                     <li class="flex items-center gap-2">
                         <i class="fas fa-check text-green-500"></i>
-                        <span>Australian Government Framework</span>
+                        <span class="text-gray-600">Australian Government Framework</span>
                     </li>
                     <li class="flex items-center gap-2">
                         <i class="fas fa-check text-green-500"></i>
-                        <span>Genuine Temporary Entrant</span>
+                        <span class="text-gray-600">Genuine Temporary Entrant</span>
                     </li>
                 </ul>
             </div>
@@ -322,15 +328,15 @@
                 <ul class="space-y-3">
                     <li class="flex items-center gap-2">
                         <i class="fas fa-check text-green-500"></i>
-                        <span>SEVP-Approved Universities</span>
+                        <span class="text-gray-600">SEVP-Approved Universities</span>
                     </li>
                     <li class="flex items-center gap-2">
                         <i class="fas fa-check text-green-500"></i>
-                        <span>Department of Education Recognition</span>
+                        <span class="text-gray-600">Department of Education Recognition</span>
                     </li>
                     <li class="flex items-center gap-2">
                         <i class="fas fa-check text-green-500"></i>
-                        <span>F-1 Visa Compliance</span>
+                        <span class="text-gray-600">F-1 Visa Compliance</span>
                     </li>
                 </ul>
             </div>
@@ -344,15 +350,15 @@
                 <ul class="space-y-3">
                     <li class="flex items-center gap-2">
                         <i class="fas fa-check text-green-500"></i>
-                        <span>NZQA Approved Institutions</span>
+                        <span class="text-gray-600">NZQA Approved Institutions</span>
                     </li>
                     <li class="flex items-center gap-2">
                         <i class="fas fa-check text-green-500"></i>
-                        <span>Immigration NZ Standards</span>
+                        <span class="text-gray-600">Immigration NZ Standards</span>
                     </li>
                     <li class="flex items-center gap-2">
                         <i class="fas fa-check text-green-500"></i>
-                        <span>Pathway to Residence</span>
+                        <span class="text-gray-600">Pathway to Residence</span>
                     </li>
                 </ul>
             </div>
@@ -366,15 +372,15 @@
                 <ul class="space-y-3">
                     <li class="flex items-center gap-2">
                         <i class="fas fa-check text-green-500"></i>
-                        <span>Country-Specific Education Authorities</span>
+                        <span class="text-gray-600">Country-Specific Education Authorities</span>
                     </li>
                     <li class="flex items-center gap-2">
                         <i class="fas fa-check text-green-500"></i>
-                        <span>EU Quality Assurance</span>
+                        <span class="text-gray-600">EU Quality Assurance</span>
                     </li>
                     <li class="flex items-center gap-2">
                         <i class="fas fa-check text-green-500"></i>
-                        <span>Schengen Visa Compliance</span>
+                        <span class="text-gray-600">Schengen Visa Compliance</span>
                     </li>
                 </ul>
             </div>

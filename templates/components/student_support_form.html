@@ -140,7 +140,7 @@
     }
 </style>
 
-<section id="student-support" class="relative py-20 overflow-hidden">
+<section id="student-support" class="bg-gradient-to-br from-gray-50 to-blue-50 transition-colors duration-500relative py-20 overflow-hidden">
     <!-- Background Decoration -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
         <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-200/30 rounded-full blur-3xl"></div>
@@ -287,7 +287,7 @@
                         <div class="relative">
                             <i class="fas fa-phone absolute left-4 top-4 text-gray-400"></i>
                             <input type="tel" name="contact_number"
-                                   class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none"
+                                   class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 outline-none dark:placeholder-gray-400 placeholder-gray-500"
                                    placeholder="Enter your contact number" value="{{ form.contact_number.value|default_if_none:'' }}    ">
                         
                             {% if form.contact_number.errors %}

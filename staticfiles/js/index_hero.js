@@ -52,3 +52,32 @@
       el.style.transform = `translate(${x}px, ${y}px)`;
     });
 });
+
+// for floating fields
+document.addEventListener('DOMContentLoaded', function() {
+  const floatingGroups = document.querySelectorAll('.floating-label-group');
+  
+  floatingGroups.forEach(group => {
+    const input = group.querySelector('input, select, textarea');
+    const label = group.querySelector('.floating-label');
+    
+    if (input && label) {
+      // Check on load if field has value
+      checkValue();
+      
+      // Check on input/change
+      input.addEventListener('input', checkValue);
+      input.addEventListener('change', checkValue);
+      input.addEventListener('focus', () => label.classList.add('active'));
+      input.addEventListener('blur', checkValue);
+      
+      function checkValue() {
+        if (input.value !== '' || document.activeElement === input) {
+          label.classList.add('active');
+        } else {
+          label.classList.remove('active');
+        }
+      }
+    }
+  });
+});
