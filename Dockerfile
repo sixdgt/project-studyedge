@@ -24,7 +24,7 @@ RUN pipenv install --deploy --ignore-pipfile --system
 
 # Build Tailwind CSS for production
 RUN python manage.py tailwind install
-RUN python manage.py tailwind build --no-input
+RUN python manage.py tailwind build
 
 
 # Make entrypoint executable
