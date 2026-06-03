@@ -3,36 +3,36 @@
     <!-- Top Info Bar (Desktop Only) -->
     <div class="hidden md:flex justify-between items-center top-bar-glass text-[#05339C] dark:text-[#05339C] px-4 sm:px-6 lg:px-8 h-10 transition-colors duration-300">
         <div class="flex items-center space-x-4">
-            <span class="top-bar-item hover:text-white cursor-pointer flex items-center gap-2">
+            <span class="top-bar-item hover:text-[#41A67E] cursor-pointer flex items-center gap-2">
                 <i class="fa-solid fa-handshake-angle"></i> Get Free Consultation
             </span>
-            <span class="top-bar-item hover:text-white cursor-pointer flex items-center gap-2">
+            <span class="top-bar-item hover:text-[#41A67E] cursor-pointer flex items-center gap-2">
                 <i class="fa-solid fa-envelope"></i> admin@studyedgeexperts.com.np
             </span>
         </div>
         <div class="flex items-center space-x-4">
             <span class="text-sm flex items-center gap-2">Follow Us:
-                <a href="https://www.tiktok.com/@study.edge.expert" target="_blank" class="social-icon text-black hover:text-white transition-colors"><i class="fa-brands fa-tiktok"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=61555128701673" target="_blank" class="social-icon text-blue-600 hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.instagram.com/study_edge_experts_pvt_ltd/" target="_blank" class="social-icon text-pink-400 hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="social-icon text-red-400 hover:text-white transition-colors"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://www.linkedin.com/in/studyedge-experts-795592314/" target="_blank" class="social-icon text-blue-500 hover:text-white transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.tiktok.com/@study.edge.expert" target="_blank" class="social-icon text-black hover:text-[#41A67E] transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61555128701673" target="_blank" class="social-icon text-blue-600 hover:text-[#41A67E] transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/study_edge_experts_pvt_ltd/" target="_blank" class="social-icon text-pink-400 hover:text-[#41A67E] transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon text-red-400 hover:text-[#41A67E] transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/in/studyedge-experts-795592314/" target="_blank" class="social-icon text-blue-500 hover:text-[#41A67E] transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
             </span>
             <span class="text-sm flex items-center gap-2">Contact Us:
-                <a href="#" class="contact-item ml-2 text-green-800 hover:text-white flex items-center gap-1"><i class="fa-brands fa-whatsapp"></i> +977-9767656159</a>
-                <a href="#" class="contact-item ml-2 text-blue-700 hover:text-white flex items-center gap-1"><i class="fa-solid fa-mobile"></i> +977-9767479334</a>
-                <a href="#" class="contact-item ml-2 text-blue-700 hover:text-white flex items-center gap-1"><i class="fa-solid fa-phone"></i> +977-1-4547288</a>
+                <a href="#" class="contact-item ml-2 text-green-800 flex items-center gap-1"><i class="fa-brands fa-whatsapp"></i> +977-9767656159</a>
+                <a href="#" class="contact-item ml-2 text-blue-700 flex items-center gap-1"><i class="fa-solid fa-mobile"></i> +977-9767479334</a>
+                <a href="#" class="contact-item ml-2 text-blue-700 flex items-center gap-1"><i class="fa-solid fa-phone"></i> +977-1-4547288</a>
             </span>
         </div>
     </div>
 
     <!-- Main Nav -->
     <div class="header-glass shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16 gap-3">
             <!-- Logo -->
-            <a href="/" class="logo-container flex items-center space-x-2">
+            <a href="/" class="logo-container flex items-center space-x-2 min-w-0">
                 <img src="{% static 'images/contents/SEE_Logo.jpeg' %}" alt="StudyEdge Logo" class="h-12 w-auto rounded-full shadow-lg">
-                <span class="hidden sm:inline text-2xl font-bold text-white dark:text-white">StudyEdge</span>
+                <span class="sm:inline text-2xl font-bold text-white dark:text-white whitespace-nowrap">StudyEdge</span>
             </a>
 
             <!-- Desktop Menu -->
@@ -43,40 +43,48 @@
                 <a href="{% url 'about_us' %}" class="nav-item hover:text-[#41A67E] dark:hover:text-[#41A67E]">About Us</a>
                 <a href="{% url 'faq_details' %}" class="nav-item hover:text-[#41A67E] dark:hover:text-[#41A67E]">FAQ Details</a>
                 <a href="{% url 'blog_list' %}" class="nav-item hover:text-[#41A67E] dark:hover:text-[#41A67E]">Blogs</a>
+                <a href="#" class="nav-item hover:text-[#41A67E] dark:hover:text-[#41A67E]">Test Preparation</a>
             </nav>
 
             <!-- Actions -->
-            <div class="flex items-center space-x-2">
+            <div class="flex items-center space-x-2 shrink-0">
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-toggle" class="md:hidden p-2 rounded-lg bg-[#41A67E] hover:bg-[#358c67] text-white transition-all duration-300 hover:scale-110">
+                <button id="mobile-menu-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false" class="md:hidden p-2 rounded-lg bg-[#41A67E] hover:bg-[#358c67] text-white transition-all duration-300 hover:scale-110">
                     <i id="menu-icon" class="fa-solid fa-bars fa-lg"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu -->
-        <nav id="mobile-menu" class="md:hidden lg:hidden overflow-hidden max-h-0 bg-gradient-to-b from-white to-gray-50 dark:bg-gradient-to-b dark:from-white dark:to-gray-50 transition-all duration-500 px-4 py-0 space-y-2 shadow-lg">
+        <nav id="mobile-menu" class="hidden md:hidden lg:hidden w-full overflow-y-auto overflow-x-hidden max-h-0 bg-linear-to-b from-white to-gray-50 dark:bg-linear-to-b dark:from-white dark:to-gray-50 transition-all duration-500 px-4 py-0 space-y-2 shadow-lg overscroll-contain">
             <!-- Top info (mobile) -->
-            <div class="flex flex-col space-y-2 py-2 border-b border-gray-200 dark:border-gray-200">
-                <span class="hover:text-blue-500 dark:hover:text-blue-500 transition-all duration-300 cursor-pointer flex items-center gap-2"><i class="fa-solid fa-handshake-angle"></i> Free Consultation</span>
-                <span class="hover:text-blue-500 dark:hover:text-blue-500 transition-all duration-300 cursor-pointer flex items-center gap-2"><i class="fa-solid fa-envelope"></i> admin@studyedgeexperts.com.np</span>
-                <span class="flex items-center gap-2">Follow Us:
-                    <a href="https://www.tiktok.com/@study.edge.expert" target="_blank" class="ml-2 text-black hover:text-blue-500 social-icon"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=61555128701673" target="_blank" class="ml-2 text-blue-600 hover:text-blue-500 social-icon"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/study_edge_experts_pvt_ltd/" target="_blank" class="ml-2 text-pink-400 hover:text-blue-500 social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <div class="flex flex-col space-y-3 py-3 border-b border-gray-200 dark:border-gray-200 text-sm leading-relaxed">
+                <span class="hover:text-[#41A67E] dark:hover:text-[#41A67E] text-white transition-all duration-300 cursor-pointer flex items-start gap-2 wrap-break-word">
+                    <i class="fa-solid fa-handshake-angle mt-1"></i>
+                    <span>Free Consultation</span>
                 </span>
-                <span class="flex items-center gap-2">Contact Us:
-                    <a href="#" class="ml-2 text-green-600 hover:text-blue-500 social-icon"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#" class="ml-2 text-blue-600 hover:text-blue-500 social-icon"><i class="fa-solid fa-phone"></i> +977-9767479334</a>
+                <span class="hover:text-[#41A67E] dark:hover:text-[#41A67E] text-white transition-all duration-300 cursor-pointer flex items-start gap-2 wrap-break-word">
+                    <i class="fa-solid fa-envelope mt-1"></i>
+                    <span>admin@studyedgeexperts.com.np</span>
+                </span>
+                <span class="flex flex-wrap items-center gap-2 text-white">Follow Us:
+                    <a href="https://www.tiktok.com/@study.edge.expert" target="_blank" class="text-black hover:text-[#41A67E] social-icon"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61555128701673" target="_blank" class="text-blue-600 hover:text-[#41A67E] social-icon"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/study_edge_experts_pvt_ltd/" target="_blank" class="text-pink-400 hover:text-[#41A67E] social-icon"><i class="fa-brands fa-instagram"></i></a>
+                </span>
+                <span class="flex flex-wrap items-center gap-2 text-white">Contact Us:
+                    <a href="#" class="text-green-600 hover:text-[#41A67E] social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="text-white hover:text-[#41A67E] social-icon wrap-break-word"><i class="fa-solid fa-phone"></i> +977-9767479334</a>
                 </span>
             </div>
             <!-- Main nav links -->
-            <a href="{% url 'study_abroad_steps' %}" class="block py-2 hover:text-blue-500 dark:hover:text-blue-500 transition-all duration-300 hover:pl-2">Study Abroad Paths</a>
-            <a href="{% url 'destination_list' %}" class="block py-2 hover:text-blue-500 dark:hover:text-blue-500 transition-all duration-300 hover:pl-2">Destinations</a>
-            <a href="{% url 'services' %}" class="block py-2 hover:text-blue-500 dark:hover:text-blue-500 transition-all duration-300 hover:pl-2">Our Services</a>
-            <a href="{% url 'about_us' %}" class="block py-2 hover:text-blue-500 dark:hover:text-blue-500 transition-all duration-300 hover:pl-2">About Us</a>
-            <a href="{% url 'faq_details' %}" class="block py-2 hover:text-blue-500 dark:hover:text-blue-500 transition-all duration-300 hover:pl-2">FAQ Details</a>
-            <a href="{% url 'blog_list' %}" class="block py-2 hover:text-blue-500 dark:hover:text-blue-500 transition-all duration-300 hover:pl-2">Blogs</a>
+            <a href="{% url 'study_abroad_steps' %}" class="block py-2 text-white hover:text-[#41A67E] dark:hover:text-[#41A67E] transition-all duration-300 hover:pl-2">Study Abroad Paths</a>
+            <a href="{% url 'destination_list' %}" class="block py-2 text-white hover:text-[#41A67E] dark:hover:text-[#41A67E] transition-all duration-300 hover:pl-2">Destinations</a>
+            <a href="{% url 'services' %}" class="block py-2 text-white hover:text-[#41A67E] dark:hover:text-[#41A67E] transition-all duration-300 hover:pl-2">Our Services</a>
+            <a href="{% url 'about_us' %}" class="block py-2 text-white hover:text-[#41A67E] dark:hover:text-[#41A67E] transition-all duration-300 hover:pl-2">About Us</a>
+            <a href="{% url 'faq_details' %}" class="block py-2 text-white hover:text-[#41A67E] dark:hover:text-[#41A67E] transition-all duration-300 hover:pl-2">FAQ Details</a>
+            <a href="{% url 'blog_list' %}" class="block py-2 text-white hover:text-[#41A67E] dark:hover:text-[#41A67E] transition-all duration-300 hover:pl-2">Blogs</a>
+            <a href="#" class="block py-2 text-white hover:text-[#41A67E] dark:hover:text-[#41A67E] transition-all duration-300 hover:pl-2">Test Preparation</a>
         </nav>
     </div>
 </header>

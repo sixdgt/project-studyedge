@@ -1,4 +1,9 @@
-/* Floating Label Effect */
+.background-slide .fas {
+    transform: translate(var(--px, 0px), var(--py, 0px));
+    /* Tailwind's animate-float-* classes use @keyframes on transform,
+       so we layer the parallax shift via the variable instead */
+}/* Floating Label Effect */
+
 .floating-label-group {
   position: relative;
   margin-bottom: 1.5rem;
