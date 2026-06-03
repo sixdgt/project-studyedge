@@ -22,6 +22,11 @@ COPY . /home/studyedge/
 # Install project dependencies
 RUN pipenv install --deploy --ignore-pipfile --system
 
+# Build Tailwind CSS for production
+RUN python manage.py tailwind install --no-input
+RUN python manage.py tailwind build --no-input
+
+
 # Make entrypoint executable
 RUN chmod +x /home/studyedge/entrypoint.sh
 
