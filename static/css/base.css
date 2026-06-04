@@ -95,5 +95,5 @@ input, select, textarea {
 }
 .top-bar-glass {
     backdrop-filter: blur(10px);
-    /* background: rgba(65, 166, 126, 0.95); */
+    background: rgba(255, 255, 255, 0.95);
 }
